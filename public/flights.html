@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Find Your Next Flight | FScheapfare</title>
+  <meta name="description" content="Compare verified flight schedules, explore low-cost fares, and book real-time airline tickets with FScheapfare.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230284c7'><path d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/></svg>">
+</head>
+<body class="mobile-app-body" style="background-color: #f8fafc;">
+
+  <!-- Site Navigation Header: Logo & CTA Button Only (No Emojis) -->
+  <header class="site-header">
+    <div class="navbar-container">
+      <a href="/" class="brand-logo-area">
+        <img src="/assets/images/logo.png" alt="FScheapfare" class="brand-logo-img">
+      </a>
+
+      <div class="nav-actions-right">
+        <a href="tel:+18888855061" class="btn-header-cta" title="24/7 Booking Assistance: +1 (888) 885-5061">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>+1 (888) 885-5061</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper" style="max-width: 960px; margin: 0 auto; padding: 20px 16px 64px;">
+    
+    <!-- Funnel Progress Steps Indicator -->
+    <div class="funnel-steps-nav">
+      <div class="funnel-step-item active"><div class="step-circle">1</div><span>Search</span></div>
+      <span class="step-arrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </span>
+      <div class="funnel-step-item"><div class="step-circle">2</div><span>Flights</span></div>
+      <span class="step-arrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </span>
+      <div class="funnel-step-item"><div class="step-circle">3</div><span>Review</span></div>
+      <span class="step-arrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </span>
+      <div class="funnel-step-item"><div class="step-circle">4</div><span>Passengers</span></div>
+      <span class="step-arrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </span>
+      <div class="funnel-step-item"><div class="step-circle">5</div><span>Payment & Ticket</span></div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="hero-welcome-bar" style="margin-bottom: 20px; text-align: left;">
+      <h2 class="welcome-title" style="font-size: 28px; font-weight: 800; color: #0f172a; margin-bottom: 6px;">
+        Find Your Next Flight
+      </h2>
+      <p style="color: #64748b; font-size: 15px;">
+        Compare live flight options, review real-time airline schedules, and discover low-cost fares for your journey.
+      </p>
+    </section>
+
+    <!-- Professional Flight Search Card -->
+    <div class="app-search-container" style="margin-bottom: 32px;">
+      
+      <form id="homeSearchForm" action="/flights/results" method="GET" class="app-search-form" autocomplete="off">
+        <input type="hidden" name="tripType" id="homeTripType" value="roundTrip">
+
+        <!-- Trip Type Segmented Pills -->
+        <div class="app-segmented-trip">
+          <button type="button" class="app-trip-btn active" id="btnTripRound">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m16 3 4 4-4 4"/>
+              <path d="M20 7H4"/>
+              <path d="m8 21-4-4 4-4"/>
+              <path d="M4 17h16"/>
+            </svg>
+            <span>Round Trip</span>
+          </button>
+          <button type="button" class="app-trip-btn" id="btnTripOneWay">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+            <span>One Way</span>
+          </button>
+        </div>
+
+        <!-- 1. Connected Route Card (Origin & Destination with Swap) -->
+        <div class="connected-route-card">
+          <!-- Origin Row -->
+          <div class="route-segment-row" id="fromInputWrapper">
+            <div class="transport-vehicle-badge origin-badge" title="Departure Airport (Origin)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" transform="rotate(45 12 12)"/>
+              </svg>
+            </div>
+            <div class="segment-text-col">
+              <span class="segment-label">From · Departure</span>
+              <input 
+                type="text" 
+                id="inputFromAirport" 
+                class="segment-input"
+                placeholder="Airport or City (e.g. DEL, New Delhi)"
+                value="New Delhi (DEL) — Indira Gandhi International Airport" 
+                required
+              >
+              <input type="hidden" name="from" id="hiddenFromIata" value="DEL">
+            </div>
+            <!-- Autocomplete Dropdown -->
+            <div id="fromSuggestionsDropdown" class="autocomplete-dropdown" style="display: none;"></div>
+          </div>
+
+          <!-- Divider with Floating Swap Button -->
+          <div class="route-divider-strip">
+            <div class="divider-line"></div>
+            <button type="button" class="route-swap-pill-btn" id="btnSwapAirports" title="Swap route" aria-label="Swap origin and destination">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m7 15 5 5 5-5"/>
+                <path d="m7 9 5-5 5 5"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Destination Row -->
+          <div class="route-segment-row" id="toInputWrapper">
+            <div class="transport-vehicle-badge dest-badge" title="Arrival Airport (Destination)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" transform="rotate(135 12 12)"/>
+              </svg>
+            </div>
+            <div class="segment-text-col">
+              <span class="segment-label">To · Arrival</span>
+              <input 
+                type="text" 
+                id="inputToAirport" 
+                class="segment-input"
+                placeholder="Airport or City (e.g. PAT, Patna)"
+                value="Patna (PAT) — Lok Nayak Jayaprakash Airport" 
+                required
+              >
+              <input type="hidden" name="to" id="hiddenToIata" value="PAT">
+            </div>
+            <!-- Autocomplete Dropdown -->
+            <div id="toSuggestionsDropdown" class="autocomplete-dropdown" style="display: none;"></div>
+          </div>
+        </div>
+
+        <!-- 2. Dates Block (Side-by-Side Depart & Return Cards) -->
+        <div class="dates-row-grid">
+          <!-- Depart Date -->
+          <div class="app-date-card" id="departDateCard">
+            <input type="date" name="date" id="departDateInput" value="2026-11-20" class="native-hidden-date" required>
+            <span class="app-tile-label">Depart</span>
+            <div class="app-tile-value">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                <line x1="16" x2="16" y1="2" y2="6"/>
+                <line x1="8" x2="8" y1="2" y2="6"/>
+                <line x1="3" x2="21" y1="10" y2="10"/>
+              </svg>
+              <span id="departDateDisplay" class="formatted-date-label">20 Nov 2026</span>
+            </div>
+          </div>
+
+          <!-- Return Date -->
+          <div class="app-date-card" id="returnDateTile">
+            <input type="date" name="returnDate" id="returnDateInput" value="2026-11-27" class="native-hidden-date">
+            <span class="app-tile-label">Return</span>
+            <div class="app-tile-value">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                <line x1="16" x2="16" y1="2" y2="6"/>
+                <line x1="8" x2="8" y1="2" y2="6"/>
+                <line x1="3" x2="21" y1="10" y2="10"/>
+              </svg>
+              <span id="returnDateDisplay" class="formatted-date-label">27 Nov 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Passenger & Cabin Block -->
+        <div class="app-passenger-card" id="homePaxPickerTrigger" role="button" tabindex="0" title="Select travelers and cabin class">
+          <div class="pax-card-left">
+            <span class="app-tile-label">Passenger</span>
+            <div class="app-tile-value">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+              </svg>
+              <span id="homePaxSummaryText" class="pax-text-summary">1 Adult · Economy</span>
+            </div>
+          </div>
+          <div class="pax-card-chevron">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Hidden Form Parameters -->
+        <input type="hidden" name="adults" id="inputAdults" value="1">
+        <input type="hidden" name="children" id="inputChildren" value="0">
+        <input type="hidden" name="infants" id="inputInfants" value="0">
+        <input type="hidden" name="cabin" id="inputCabinClass" value="Economy">
+        <input type="hidden" name="currency" value="USD">
+
+        <!-- Primary Search CTA Button -->
+        <button type="submit" class="btn-app-search" id="btnSearchSubmit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+          <span>Search Flights</span>
+        </button>
+
+        <!-- Error Alert Banner -->
+        <div id="homeSearchAlert" class="search-error-banner" style="display: none;"></div>
+      </form>
+    </div>
+
+    <!-- Passenger Selection Modal -->
+    <div id="homePaxPickerModal" class="modal-overlay">
+      <div class="modal-content-card">
+        <button class="modal-close-btn" id="btnCloseHPax" aria-label="Close passenger selector" style="display: flex; align-items: center; justify-content: center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <h3 class="modal-title">Select Travelers & Cabin</h3>
+
+        <div class="counter-row">
+          <div class="counter-info">
+            <h5>Adults</h5>
+            <p>Age 12+ years</p>
+          </div>
+          <div class="counter-controls">
+            <button type="button" class="counter-btn" id="btnHDecA" aria-label="Decrease adults">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            </button>
+            <span class="counter-num" id="lblHAdults">1</span>
+            <button type="button" class="counter-btn" id="btnHIncA" aria-label="Increase adults">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="counter-row">
+          <div class="counter-info">
+            <h5>Children</h5>
+            <p>Age 2 - 11 years</p>
+          </div>
+          <div class="counter-controls">
+            <button type="button" class="counter-btn" id="btnHDecC" aria-label="Decrease children">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            </button>
+            <span class="counter-num" id="lblHChildren">0</span>
+            <button type="button" class="counter-btn" id="btnHIncC" aria-label="Increase children">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="counter-row">
+          <div class="counter-info">
+            <h5>Infants</h5>
+            <p>Under 2 years (in lap)</p>
+          </div>
+          <div class="counter-controls">
+            <button type="button" class="counter-btn" id="btnHDecI" aria-label="Decrease infants">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            </button>
+            <span class="counter-num" id="lblHInfants">0</span>
+            <button type="button" class="counter-btn" id="btnHIncI" aria-label="Increase infants">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group-custom" style="margin-top: 18px;">
+          <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 6px; display: block; letter-spacing: 0.5px;">Cabin Class</label>
+          <select id="selHCabin" class="input-control" style="font-weight: 700; width: 100%; padding: 10px 14px; border-radius: 12px; border: 1px solid #cbd5e1; background: #f8fafc;">
+            <option value="Economy" selected>Economy</option>
+            <option value="Premium Economy">Premium Economy</option>
+            <option value="Business">Business</option>
+            <option value="First Class">First Class</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn-app-search" id="btnSaveHPax" style="margin-top: 20px; padding: 14px; border-radius: 12px; width: 100%;">
+          Apply Selection
+        </button>
+      </div>
+    </div>
+
+    <!-- Featured Verified Routes -->
+    <div style="margin-top: 36px;">
+      <h3 style="font-size: 18px; font-weight: 800; color: #0f172a; margin-bottom: 14px;">Popular Low-Fare Flight Routes</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+        <a href="/flights/results?from=DEL&to=PAT&tripType=roundTrip" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 16px; text-decoration: none; display: block; transition: all 0.2s ease;">
+          <div style="font-weight: 800; color: #0f172a; font-size: 15px; display: flex; align-items: center; gap: 8px;">
+            <span>DEL</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            <span>PAT</span>
+          </div>
+          <div style="font-size: 12px; color: #64748b; margin-top: 2px;">New Delhi to Patna</div>
+          <div style="font-size: 14px; font-weight: 800; color: #10b981; margin-top: 8px;">From $79 · IndiGo</div>
+        </a>
+        <a href="/flights/results?from=JFK&to=LAX&tripType=roundTrip" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 16px; text-decoration: none; display: block; transition: all 0.2s ease;">
+          <div style="font-weight: 800; color: #0f172a; font-size: 15px; display: flex; align-items: center; gap: 8px;">
+            <span>JFK</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            <span>LAX</span>
+          </div>
+          <div style="font-size: 12px; color: #64748b; margin-top: 2px;">New York to Los Angeles</div>
+          <div style="font-size: 14px; font-weight: 800; color: #10b981; margin-top: 8px;">From $149 · Delta / United</div>
+        </a>
+        <a href="/flights/results?from=LHR&to=DXB&tripType=roundTrip" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 16px; text-decoration: none; display: block; transition: all 0.2s ease;">
+          <div style="font-weight: 800; color: #0f172a; font-size: 15px; display: flex; align-items: center; gap: 8px;">
+            <span>LHR</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            <span>DXB</span>
+          </div>
+          <div style="font-size: 12px; color: #64748b; margin-top: 2px;">London to Dubai</div>
+          <div style="font-size: 14px; font-weight: 800; color: #10b981; margin-top: 8px;">From $289 · Emirates</div>
+        </a>
+        <a href="/flights/results?from=SFO&to=HNL&tripType=roundTrip" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 16px; text-decoration: none; display: block; transition: all 0.2s ease;">
+          <div style="font-weight: 800; color: #0f172a; font-size: 15px; display: flex; align-items: center; gap: 8px;">
+            <span>SFO</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            <span>HNL</span>
+          </div>
+          <div style="font-size: 12px; color: #64748b; margin-top: 2px;">San Francisco to Honolulu</div>
+          <div style="font-size: 14px; font-weight: 800; color: #10b981; margin-top: 8px;">From $199 · Hawaiian</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Trust & Assistance Bar -->
+    <div style="margin-top: 36px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 18px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        <div>
+          <div style="font-weight: 800; font-size: 15px; color: #0f172a;">24/7 Flight Booking Assistance</div>
+          <div style="font-size: 13px; color: #64748b;">Direct GDS access with dedicated phone support for last-minute and round-trip deals.</div>
+        </div>
+      </div>
+      <a href="tel:+18888855061" class="btn-header-cta" style="padding: 10px 20px; font-size: 13.5px;" title="Call 24/7 Booking Assistance">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        <span>+1 (888) 885-5061</span>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="/assets/images/logo.png" alt="FScheapfare" class="footer-logo-img">
+        <span>© 2026 FScheapfare. All rights reserved.</span>
+      </div>
+      <div>24/7 Support: +1 (888) 885-5061</div>
+    </div>
+  </footer>
+
+  <script src="/js/home-autocomplete.js"></script>
+</body>
+</html>

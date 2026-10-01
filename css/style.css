@@ -1,0 +1,3739 @@
+/* Append Booking Funnel & Travel Agency Landing Page Styles to style.css */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary-black: #111111;
+  --primary-dark: #1a1a1a;
+  --bg-page: #f4f5f8;
+  --bg-card: #ffffff;
+  --bg-input: #f8f9fa;
+  --bg-input-hover: #f1f3f5;
+  --border-light: #e5e7eb;
+  --border-subtle: #edf0f2;
+  
+  --text-main: #111827;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  
+  --color-cheapest: #10b981;
+  --color-cheapest-bg: #d1fae5;
+  --color-bestseller: #0284c7;
+  --color-bestseller-bg: #e0f2fe;
+  --color-recommended: #f59e0b;
+  --color-recommended-bg: #fef3c7;
+  --color-fastest: #8b5cf6;
+  --color-fastest-bg: #ede9fe;
+  --color-accent-orange: #f97316;
+  
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-float: 0 14px 34px rgba(0, 0, 0, 0.12);
+  
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Top Informational Notice Bar - Removed from desktop & mobile */
+.top-notice-bar {
+  display: none !important;
+  background: #091728;
+  color: #cbd5e1;
+  font-size: 12px;
+  padding: 8px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.notice-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.notice-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.notice-badge {
+  background: #078DE7;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.notice-text {
+  font-weight: 500;
+  color: #cbd5e1;
+}
+
+.notice-right {
+  font-size: 12px;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.top-phone-link {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.top-phone-link:hover {
+  text-decoration: underline;
+}
+
+/* Header & Navbar */
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+.brand-icon-box {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #078DE7 0%, #0274c4 100%);
+  color: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(7, 141, 231, 0.3);
+}
+
+.brand-title-group h1 {
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  line-height: 1.1;
+  color: #0f172a;
+}
+
+.brand-title-group h1 span {
+  color: #078DE7;
+}
+
+.brand-title-group p {
+  font-size: 10px;
+  color: #64748b;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.nav-menu-links {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+  align-items: center;
+}
+
+.nav-menu-links a {
+  text-decoration: none;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.nav-menu-links a:hover,
+.nav-menu-links a.active {
+  color: #078DE7;
+  background: #f0f7ff;
+}
+
+.nav-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.currency-tag-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 7px 14px;
+  border-radius: 9999px;
+}
+
+.btn-support-cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-support-cta:hover {
+  background: #078DE7;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(7, 141, 231, 0.3);
+}
+
+/* Main Container */
+.main-wrapper {
+  flex: 1;
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+}
+
+/* Funnel Step Breadcrumb Navigation */
+.funnel-steps-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.funnel-step-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.funnel-step-item.active {
+  color: var(--primary-black);
+}
+
+.funnel-step-item.done {
+  color: #10b981;
+}
+
+.step-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.funnel-step-item.active .step-circle {
+  background: var(--primary-black);
+  color: #fff;
+}
+
+.funnel-step-item.done .step-circle {
+  background: #10b981;
+  color: #fff;
+}
+
+.step-arrow {
+  color: #cbd5e1;
+  font-size: 12px;
+}
+
+/* ==============================================================
+   HERO SHOWCASE / ENTERPRISE SECTION — World-Class Travel Atmosphere
+   ============================================================== */
+.hero-enterprise-section,
+.hero-showcase-section {
+  background: radial-gradient(120% 120% at 50% 0%, #ffffff 0%, #f4f6f9 55%, #e9edf3 100%);
+  padding: 28px 20px 40px;
+  color: #111827;
+  position: relative;
+  overflow: visible;
+}
+
+.hero-inner-container {
+  max-width: 580px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* App Header Row (Greeting & Destination Title) */
+.app-greeting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.greeting-text-group {
+  flex: 1;
+}
+
+.greeting-user-tag {
+  font-size: 14px;
+  font-weight: 700;
+  color: #475569;
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: -0.2px;
+}
+
+.welcome-title {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 5.5vw, 32px);
+  font-weight: 800;
+  color: #111827 !important;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 6px;
+  word-wrap: break-word;
+}
+
+.hero-subtitle {
+  color: #64748b !important;
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.greeting-actions-right {
+  flex-shrink: 0;
+}
+
+.btn-more-options {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-more-options:hover {
+  background: #f8fafc;
+  color: #111827;
+  border-color: #cbd5e1;
+}
+
+/* Search Form Layout */
+.app-search-form {
+  width: 100%;
+}
+
+/* Trip Type Segmented Pills */
+.app-segmented-trip {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.app-trip-btn {
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 9999px;
+  cursor: pointer;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.app-trip-btn.active {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+  box-shadow: 0 4px 14px rgba(17, 24, 39, 0.18);
+}
+
+.app-trip-btn:hover:not(.active) {
+  background: #f8fafc;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+/* Route Inputs Card with minmax to prevent overflow */
+/* 1. Connected Route Card (Unified From & To Box Matching Mockup) */
+.connected-route-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: visible;
+  margin-bottom: 14px;
+}
+
+.route-segment-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  position: relative;
+  gap: 12px;
+}
+
+.segment-text-col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.segment-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 2px;
+}
+
+.segment-input {
+  border: none !important;
+  background: transparent !important;
+  padding: 2px 0 !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  color: #111827 !important;
+  outline: none !important;
+  width: 100%;
+  font-family: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
+
+.segment-input:focus {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.transport-vehicle-badge {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.transport-vehicle-badge svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.transport-vehicle-badge.origin-badge,
+.transport-vehicle-badge.green {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+  box-shadow: 0 1px 3px rgba(22, 163, 74, 0.08);
+}
+
+.transport-vehicle-badge.origin-badge:hover,
+.transport-vehicle-badge.green:hover {
+  transform: translateY(-1px);
+  border-color: #86efac;
+  box-shadow: 0 3px 8px rgba(22, 163, 74, 0.16);
+}
+
+.transport-vehicle-badge.dest-badge,
+.transport-vehicle-badge.blue {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  color: #0284c7;
+  box-shadow: 0 1px 3px rgba(2, 132, 199, 0.08);
+}
+
+.transport-vehicle-badge.dest-badge:hover,
+.transport-vehicle-badge.blue:hover {
+  transform: translateY(-1px);
+  border-color: #7dd3fc;
+  box-shadow: 0 3px 8px rgba(2, 132, 199, 0.16);
+}
+
+@media (max-width: 768px) {
+  .transport-vehicle-badge {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 10px;
+  }
+  .transport-vehicle-badge svg {
+    width: 19px;
+    height: 19px;
+  }
+  .route-segment-row {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .transport-vehicle-badge {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 8px;
+  }
+  .transport-vehicle-badge svg {
+    width: 17px;
+    height: 17px;
+  }
+  .route-segment-row {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+}
+
+/* Divider with Floating Swap Button */
+.route-divider-strip {
+  position: relative;
+  height: 1px;
+  background: #f1f5f9;
+  margin: 0 18px;
+}
+
+.divider-line {
+  width: 100%;
+  height: 1px;
+  background: #f1f5f9;
+}
+
+.route-swap-pill-btn {
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 10;
+}
+
+.route-swap-pill-btn:hover {
+  background: #f8fafc;
+  color: #111827;
+  border-color: #94a3b8;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Autocomplete Dropdown - Absolute positioning with proper z-index and bounds */
+.autocomplete-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-width: 290px;
+  max-width: 100%;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16), 0 4px 14px rgba(15, 23, 42, 0.08);
+  z-index: 1000;
+  max-height: 380px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  animation: aptFadeIn 0.18s ease-out;
+}
+
+@keyframes aptFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Autocomplete Header with Suggested Airlines Toolbar */
+.apt-dropdown-header {
+  position: sticky;
+  top: 0;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 8px 12px;
+  z-index: 10;
+  border-radius: 15px 15px 0 0;
+}
+
+.apt-airline-filter-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.apt-filter-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.apt-filter-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.apt-filter-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+
+.apt-airline-chips-scroll {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 2px 0 4px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.apt-airline-chips-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.apt-airline-chip {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.apt-airline-chip:hover {
+  background: #f0f9ff;
+  border-color: #0284c7;
+  color: #0284c7;
+}
+
+.apt-airline-chip.active {
+  background: #0284c7;
+  border-color: #0284c7;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.35);
+}
+
+.apt-items-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.autocomplete-item {
+  padding: 11px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  text-align: left;
+}
+
+.autocomplete-item:last-child {
+  border-bottom: none;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.active {
+  background: #f0f7ff;
+  border-left: 3px solid #0284c7;
+  padding-left: 11px;
+}
+
+.apt-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* IATA Airport Badge */
+.apt-iata-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  width: 50px;
+  height: 44px;
+  background: #f0f9ff;
+  border: 1.5px solid #bae6fd;
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.autocomplete-item:hover .apt-iata-badge {
+  background: #0284c7;
+  border-color: #0284c7;
+}
+
+.autocomplete-item:hover .apt-iata-badge .apt-iata-text {
+  color: #ffffff;
+}
+
+.apt-iata-text {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0369a1;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.apt-hub-pill {
+  font-size: 8px;
+  font-weight: 800;
+  background: #0284c7;
+  color: #ffffff;
+  padding: 1px 4px;
+  border-radius: 3px;
+  margin-top: 3px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.autocomplete-item:hover .apt-hub-pill {
+  background: #ffffff;
+  color: #0284c7;
+}
+
+.apt-item-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+  gap: 2px;
+}
+
+.apt-item-top-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.apt-item-city {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.apt-item-country {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.apt-item-name {
+  font-size: 12px;
+  color: #475569;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+/* Operating Airlines Tags */
+.apt-item-airlines {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.apt-airline-tag-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-right: 2px;
+}
+
+.airline-mini-tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #0369a1;
+  background: #f0f7ff;
+  border: 1px solid #d0e7fb;
+  border-radius: 4px;
+  padding: 1px 6px;
+  line-height: 1.3;
+}
+
+.airline-mini-tag.more {
+  color: #64748b;
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+.autocomplete-item.empty {
+  color: #475569;
+  padding: 22px 16px;
+  text-align: center;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-icon {
+  font-size: 22px;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+
+.empty-text {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.empty-sub {
+  font-size: 11.5px;
+  color: #64748b;
+  margin-top: 4px;
+  max-width: 320px;
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .autocomplete-dropdown {
+    min-width: 100%;
+    max-height: 320px;
+    border-radius: 12px;
+  }
+  .apt-dropdown-header {
+    padding: 7px 10px;
+  }
+  .apt-airline-chip {
+    font-size: 10.5px;
+    padding: 3px 8px;
+  }
+  .autocomplete-item {
+    padding: 9px 11px;
+  }
+  .apt-item-row {
+    gap: 9px;
+  }
+  .apt-iata-badge {
+    min-width: 44px;
+    width: 44px;
+    height: 38px;
+  }
+  .apt-iata-text {
+    font-size: 13px;
+  }
+  .apt-item-city {
+    font-size: 13px;
+  }
+  .apt-item-name {
+    font-size: 11px;
+  }
+  .airline-mini-tag {
+    font-size: 9.5px;
+    padding: 1px 5px;
+  }
+}
+
+/* 2. Dates Row Grid */
+.dates-row-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.app-date-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  padding: 13px 18px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+}
+
+.app-date-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.app-tile-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.6px;
+  margin-bottom: 3px;
+  display: block;
+}
+
+.app-tile-value {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #111827;
+  position: relative;
+}
+
+.app-tile-value svg {
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.native-hidden-date {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.formatted-date-label {
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #111827;
+}
+
+/* 3. Passenger Card */
+.app-passenger-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  padding: 13px 18px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: var(--transition);
+}
+
+.app-passenger-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.pax-card-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.pax-text-summary {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.pax-card-chevron {
+  color: #64748b;
+  display: flex;
+  align-items: center;
+}
+
+/* Error Banner */
+.search-error-banner,
+.search-success-banner,
+#homeSearchAlert {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #991b1b;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 0;
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 4. Primary Search CTA Button (Bold Black Pill as in Mockup) */
+.btn-app-search {
+  background: #111111;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 15.5px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.22);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.btn-app-search:hover {
+  background: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.32);
+}
+
+/* ==============================================================
+   DESKTOP MASTER FLIGHT SUITE LAYOUT (>= 992px)
+   Expansive, Luxury Multi-Column Grid Architecture (1160px)
+   ============================================================== */
+@media (min-width: 992px) {
+  .hero-enterprise-section,
+  .hero-showcase-section {
+    padding: 48px 24px 64px;
+    background: radial-gradient(130% 120% at 50% 0%, #ffffff 0%, #f4f7fb 55%, #e6edf5 100%);
+  }
+
+  .hero-inner-container {
+    max-width: 1160px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .app-greeting-row {
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  .greeting-text-group {
+    text-align: center;
+  }
+
+  .welcome-title {
+    font-size: 38px !important;
+    font-weight: 800;
+    color: #0f172a !important;
+    letter-spacing: -0.035em;
+    margin-bottom: 8px;
+  }
+
+  .hero-subtitle {
+    font-size: 15.5px !important;
+    max-width: 640px;
+    margin: 0 auto;
+    color: #64748b;
+    line-height: 1.6;
+  }
+
+  /* Form Container as Elevated Travel Engine Card */
+  .app-search-form {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 24px 28px 28px;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 24px 64px -16px rgba(15, 23, 42, 0.08), 0 2px 10px rgba(15, 23, 42, 0.03);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .app-segmented-trip {
+    grid-column: span 12;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  /* Connected Route Card - Horizontal Layout across 12 cols */
+  .connected-route-card {
+    grid-column: span 12;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 5px;
+    margin-bottom: 0;
+    position: relative;
+    box-shadow: none;
+  }
+
+  .route-segment-row {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .route-segment-row:focus-within {
+    box-shadow: 0 4px 18px rgba(7, 141, 231, 0.12);
+    border-color: #078DE7;
+  }
+
+  .route-divider-strip {
+    width: auto;
+    height: auto;
+    margin: 0 -12px;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+  }
+
+  .divider-line {
+    display: none;
+  }
+
+  .route-swap-pill-btn {
+    position: static;
+    transform: none;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .route-swap-pill-btn:hover {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+    transform: scale(1.1) rotate(180deg);
+  }
+
+  /* Bottom Row: Dates (5 cols), Passengers (4 cols), Submit CTA (3 cols) */
+  .dates-row-grid {
+    grid-column: span 5;
+    margin-bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .app-date-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 12px 18px;
+    min-height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: none;
+    transition: all 0.2s ease;
+  }
+
+  .app-date-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  }
+
+  .app-passenger-card {
+    grid-column: span 4;
+    margin-bottom: 0;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 12px 20px;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: none;
+    transition: all 0.2s ease;
+  }
+
+  .app-passenger-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  }
+
+  .btn-app-search {
+    grid-column: span 3;
+    margin-top: 0;
+    width: 100%;
+    min-height: 64px;
+    height: auto;
+    border-radius: 18px;
+    font-size: 16px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.3);
+    transition: all 0.2s ease;
+  }
+
+  .btn-app-search:hover {
+    background: #1e293b;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -5px rgba(15, 23, 42, 0.35);
+  }
+
+  .search-error-banner,
+  .search-success-banner,
+  #homeSearchAlert {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .autocomplete-dropdown {
+    width: 100%;
+    min-width: 420px;
+  }
+}
+
+
+/* ==============================================================
+   5. POPULAR DESTINATIONS SHOWCASE CAROUSEL (Matching Reference)
+   ============================================================== */
+.destinations-showcase-section {
+  max-width: 1340px;
+  margin: 48px auto 24px;
+  padding: 0 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.destinations-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 28px;
+  gap: 20px;
+}
+
+.destinations-headline-group {
+  flex: 1;
+}
+
+.dest-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+}
+
+.dest-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2563eb;
+  position: relative;
+}
+
+.dest-badge-dot::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: #60a5fa;
+  opacity: 0.6;
+  animation: destDotPing 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes destDotPing {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.dest-badge-pill span:last-child {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #1d4ed8;
+}
+
+.destinations-main-title {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 3.8vw, 38px);
+  font-weight: 900;
+  color: #0f172a;
+  margin: 0 0 8px;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+}
+
+.dest-title-gradient {
+  display: block;
+  background: linear-gradient(90deg, #1e3a8a, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.destinations-sub-desc {
+  font-size: 15px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.55;
+  max-width: 660px;
+}
+
+.deals-nav-arrows {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.deals-prev,
+.deals-next {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e293b;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.deals-prev:hover,
+.deals-next:hover {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.18);
+}
+
+.deals-prev:active,
+.deals-next:active {
+  transform: scale(0.95);
+}
+
+/* Swiper Deals Slider Continuous Auto-Scroll */
+.deals-swiper {
+  overflow: hidden !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 24px !important;
+}
+
+.deals-swiper .swiper-wrapper {
+  align-items: stretch !important;
+  transition-timing-function: linear !important;
+}
+
+.deals-swiper .swiper-slide {
+  height: auto !important;
+  display: flex !important;
+}
+
+.deals-swiper .swiper-slide > div {
+  width: 100%;
+}
+
+.deal-card {
+  width: 100%;
+  height: 415px;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px -15px rgba(15, 23, 42, 0.22);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+  cursor: pointer;
+  background: #0f172a;
+  user-select: none;
+}
+
+.deal-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px -18px rgba(37, 99, 235, 0.32);
+}
+
+.deal-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(59, 130, 246, 0.25), rgba(6, 182, 212, 0.15));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.deal-card:hover::before {
+  opacity: 1;
+}
+
+.deal-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1200ms ease;
+  display: block;
+}
+
+.deal-card:hover .deal-card-img {
+  transform: scale(1.08);
+}
+
+.deal-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.96) 0%,
+    rgba(15, 23, 42, 0.76) 28%,
+    rgba(15, 23, 42, 0.26) 48%,
+    transparent 68%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.deal-shine {
+  position: absolute;
+  top: -130%;
+  left: -45%;
+  width: 60%;
+  height: 320%;
+  transform: rotate(20deg);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.08) 70%,
+    transparent 100%
+  );
+  transition: transform 0.9s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.deal-card:hover .deal-shine {
+  transform: translateX(260%) rotate(20deg);
+}
+
+.deal-badge-pos {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 2;
+}
+
+.deal-glass-badge {
+  display: inline-block;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 6px 14px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.deal-card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 22px 22px 20px 22px;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.deal-category {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #60a5fa;
+  margin: 0 0 6px 0;
+}
+
+.deal-title {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.deal-desc {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  margin: 0 0 14px 0;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.deal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  padding-top: 12px;
+}
+
+.deal-style {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.deal-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #ef4444;
+  font-size: 13.5px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.deal-star {
+  color: #ef4444;
+  font-size: 15px;
+}
+
+.deals-pagination {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.deals-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #cbd5e1;
+  opacity: 1;
+  border-radius: 9999px;
+  margin: 0 !important;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.deals-pagination .swiper-pagination-bullet-active {
+  width: 26px;
+  border-radius: 9999px;
+  background: #0284c7;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
+}
+
+@media (max-width: 767px) {
+  .deal-card {
+    height: 390px;
+  }
+  .destinations-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .deals-nav-arrows {
+    align-self: flex-end;
+  }
+}
+
+/* Compatibility aliases */
+.upcoming-trips-section, .flight-packages-section {
+  display: none !important;
+}
+
+/* ==============================================================
+   LANDING PAGE RICH SECTIONS
+   ============================================================== */
+
+/* Section Titles */
+.section-headline-group {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+
+.section-headline-group .tag-pill {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-headline-group h2 {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+
+.section-headline-group p {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+/* Popular Routes Section with Real Schedules */
+.routes-grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.route-card-rich {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.route-card-rich:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+  border-color: #cbd5e1;
+}
+
+.route-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.route-main-dest {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.route-frequency-tag {
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.route-schedule-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: #f8fafc;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+.route-stat-item b {
+  color: var(--text-main);
+  display: block;
+}
+
+.route-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 14px;
+}
+
+.route-fare-from {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.route-price-bold {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary-black);
+  font-family: var(--font-heading);
+}
+
+.btn-route-book {
+  background: var(--primary-black);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.btn-route-book:hover {
+  background: #2b2b2b;
+}
+
+/* Agency Services Section */
+.agency-services-section {
+  background: transparent;
+  padding: 20px 0 50px;
+  margin-bottom: 20px;
+}
+
+.services-grid-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.service-card-item {
+  background: #ffffff;
+  padding: 30px 24px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: var(--transition);
+}
+
+.service-card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.service-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #e0f2fe;
+  color: #078DE7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.service-card-item h4 {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.service-card-item p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* How It Works Section */
+.how-it-works-section {
+  margin-bottom: 60px;
+}
+
+.how-it-works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.process-card-item {
+  background: #ffffff;
+  padding: 24px 18px;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  transition: var(--transition);
+}
+
+.process-card-item:hover {
+  transform: translateY(-3px);
+  border-color: #078DE7;
+  box-shadow: 0 8px 20px rgba(7, 141, 231, 0.12);
+}
+
+.step-num-pill {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #078DE7;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  box-shadow: 0 4px 12px rgba(7, 141, 231, 0.3);
+}
+
+.process-card-item h4 {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.process-card-item p {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Travel Disclosures Card */
+.travel-disclosures-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  margin-bottom: 40px;
+}
+
+.disclosures-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.disclosures-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #fef3c7;
+  color: #d97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.disclosures-header h3 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.disclosures-sub {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.disclosures-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.disclosure-row {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.disclosure-row strong {
+  color: #0f172a;
+}
+
+/* Verified Airline Partners */
+.airline-partners-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.airline-logos-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.partner-logo-chip {
+  background: #ffffff;
+  padding: 12px 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.partner-logo-chip img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.partner-logo-chip span {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+/* FAQ Accordion */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  background: #ffffff;
+  user-select: none;
+}
+
+.faq-answer {
+  padding: 0 24px 18px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  display: none;
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+.faq-item.open .faq-question span {
+  transform: rotate(180deg);
+}
+
+/* ==============================================================
+   FLIGHT RESULTS (Ticket Stub Cards)
+   ============================================================== */
+/* ==============================================================
+   FLIGHT RESULTS (Ticket Stub Cards - Spacious & Responsive)
+   ============================================================== */
+.ticket-card {
+  background: #ffffff;
+  border-radius: 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(15, 23, 42, 0.04);
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 16px;
+  padding: 18px 24px;
+}
+
+.ticket-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  border-color: #cbd5e1;
+}
+
+@media (max-width: 680px) {
+  .ticket-card {
+    padding: 14px 14px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+  }
+}
+
+.ticket-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ticket-airline-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ticket-airline-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 7px;
+  background: #f8fafc;
+  padding: 2px;
+  border: 1px solid #e2e8f0;
+}
+
+.ticket-airline-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 14.5px;
+  color: #0f172a;
+}
+
+.ticket-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge-cheapest { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+.badge-bestseller { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+.badge-recommended { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+.badge-fastest { background: #f3e8ff; color: #7e22ce; border: 1px solid #e9d5ff; }
+
+.ticket-flight-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  margin: 6px 0 14px;
+}
+
+.time-city-block {
+  flex: 0 0 115px;
+  min-width: 95px;
+  text-align: left;
+}
+
+.time-city-block.right {
+  text-align: right;
+}
+
+.flight-time-large {
+  font-size: 22px;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: #0f172a;
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+}
+
+.flight-city-sm {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.flight-mid-route {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+  padding: 0 12px;
+  min-width: 110px;
+}
+
+.flight-duration-tag {
+  font-size: 11px;
+  color: #0284c7;
+  font-weight: 700;
+  background: #f0f9ff;
+  border: 1px solid #e0f2fe;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+.flight-trail-visual {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 220px;
+  gap: 6px;
+}
+
+.flight-trail-visual .trail-line {
+  height: 1px;
+  flex: 1;
+  border-top: 1.5px dashed #cbd5e1;
+}
+
+.flight-trail-visual .trail-plane-svg {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.ticket-amenities-row {
+  display: flex;
+  gap: 16px;
+  font-size: 11.5px;
+  color: #475569;
+  padding-top: 10px;
+  border-top: 1px dashed #e2e8f0;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flight-perforation-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 14px -24px;
+}
+
+@media (max-width: 680px) {
+  .flight-perforation-divider {
+    margin: 12px -14px;
+  }
+}
+
+.notch-left, .notch-right {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #f8fafc;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  box-shadow: inset 0 0 0 1px #e2e8f0;
+}
+
+.notch-left { left: -9px; }
+.notch-right { right: -9px; }
+
+.perforation-dashed-line {
+  width: 100%;
+  height: 1px;
+  border-top: 1.5px dashed #e2e8f0;
+  margin: 0 14px;
+}
+
+.ticket-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+
+.price-container {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.price-main {
+  font-size: 24px;
+  font-weight: 900;
+  font-family: var(--font-heading);
+  color: #0f172a;
+}
+
+.fare-category {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.btn-book-ticket {
+  background: #0f172a;
+  color: #ffffff !important;
+  border: none;
+  border-radius: 999px;
+  padding: 9px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  transition: all 0.18s ease;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.18);
+}
+
+.btn-book-ticket:hover {
+  background: #1e293b;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(15, 23, 42, 0.25);
+}
+
+/* ==============================================================
+   RESULTS DATE CAROUSEL STRIP (Matching Reference 1)
+   ============================================================== */
+.date-selector-strip,
+.results-date-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 4px 2px 18px;
+  margin-bottom: 18px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.date-selector-strip::-webkit-scrollbar,
+.results-date-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.date-pill-btn {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 9px 16px;
+  min-width: 95px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-align: center;
+  user-select: none;
+}
+
+.date-pill-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
+}
+
+.date-pill-btn.active {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.28);
+  transform: translateY(-1px);
+}
+
+.date-pill-day {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.date-pill-weekday {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  margin: 2px 0 3px;
+  text-transform: capitalize;
+}
+
+.date-pill-price {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0284c7;
+  line-height: 1.2;
+}
+
+.date-pill-btn.active .date-pill-day {
+  color: #ffffff;
+}
+
+.date-pill-btn.active .date-pill-weekday {
+  color: #94a3b8;
+}
+
+.date-pill-btn.active .date-pill-price {
+  color: #38bdf8;
+}
+
+/* Route Header Banner (Reference 1 Top Bar) */
+.results-route-banner {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 16px 22px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.route-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-route-back {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.btn-route-back:hover {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+.route-endpoints-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.endpoint-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.endpoint-iata {
+  font-size: 24px;
+  font-weight: 900;
+  color: #0f172a;
+  font-family: var(--font-heading);
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+
+.endpoint-city {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.route-flight-trail {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 6px;
+}
+
+.trail-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid #0284c7;
+  background: #ffffff;
+}
+
+.trail-dot.end {
+  border-color: #10b981;
+}
+
+.trail-dash {
+  width: 32px;
+  height: 1px;
+  border-top: 2px dashed #cbd5e1;
+}
+
+.trail-plane {
+  font-size: 14px;
+  transform: rotate(45deg);
+  display: inline-block;
+}
+
+.route-banner-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.route-meta-pill {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #475569;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 5px 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.btn-modify-search {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0284c7;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  padding: 5px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 1px 3px rgba(2, 132, 199, 0.08);
+}
+
+.btn-modify-search:hover {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Return Leg in Round Trip Ticket Card */
+.ticket-return-leg {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed #e2e8f0;
+}
+
+.return-leg-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0284c7;
+  margin-bottom: 10px;
+}
+
+/* Expandable Flight Details Accordion */
+.flight-details-drawer {
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  padding: 16px 24px;
+  font-size: 13px;
+  display: none;
+}
+
+.flight-details-drawer.open {
+  display: block;
+  animation: aptFadeIn 0.2s ease-out;
+}
+
+.segment-leg-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.segment-leg-row:last-child {
+  margin-bottom: 0;
+}
+
+.segment-leg-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.segment-leg-info {
+  flex: 1;
+}
+
+.segment-leg-title {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.segment-leg-sub {
+  color: #64748b;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.btn-flight-details-toggle {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  color: #334155 !important;
+  border-radius: 999px !important;
+  padding: 8px 16px !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  flex-shrink: 0 !important;
+  line-height: 1 !important;
+  transition: all 0.18s ease !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+}
+
+.btn-flight-details-toggle:hover {
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+  background: #f0f9ff !important;
+}
+
+/* Mobile Responsiveness for Results */
+@media (max-width: 640px) {
+  .results-route-banner {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .endpoint-iata {
+    font-size: 20px;
+  }
+  .trail-dash {
+    width: 16px;
+  }
+  .ticket-top-section {
+    padding: 16px 16px 14px;
+  }
+  .ticket-flight-row {
+    gap: 14px;
+    margin: 8px 0 16px;
+  }
+  .time-city-block {
+    flex: 0 0 auto;
+    min-width: 80px;
+  }
+  .flight-time-large {
+    font-size: 22px;
+  }
+  .flight-city-sm {
+    font-size: 11.5px;
+  }
+  .flight-mid-route {
+    padding: 0 4px;
+    min-width: 100px;
+  }
+  .flight-trail-visual {
+    max-width: 130px;
+    gap: 4px;
+  }
+  .flight-duration-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+  .ticket-bottom-section {
+    padding: 12px 16px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .price-container {
+    justify-content: space-between;
+  }
+  .price-main {
+    font-size: 22px;
+  }
+  .btn-book-ticket {
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+  }
+}
+
+/* ==============================================================
+   REVIEW & PASSENGERS FORMS
+   ============================================================== */
+.funnel-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 22px 26px;
+  box-shadow: 0 2px 16px rgba(15, 23, 42, 0.05);
+  border: 1px solid #e2e8f0;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .funnel-card {
+    padding: 16px 14px;
+    border-radius: 16px;
+  }
+}
+
+.fare-breakdown-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.fare-breakdown-table td {
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+}
+
+.fare-breakdown-table tr.total-row td {
+  border-top: 2px solid var(--primary-black);
+  font-weight: 800;
+  font-size: 18px;
+  padding-top: 16px;
+}
+
+.fare-lock-badge {
+  background: #fef3c7;
+  color: #b45309;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+/* Forms */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.form-grid-pax-name {
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .form-grid-pax-name {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+.funnel-flow-wrapper {
+  max-width: 720px !important;
+  margin: 0 auto !important;
+  padding: 24px 16px 64px !important;
+}
+
+.funnel-flow-wrapper .hero-welcome-bar {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto 20px;
+  text-align: left;
+}
+
+.funnel-flow-wrapper .funnel-card {
+  max-width: 720px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 auto;
+}
+
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 16px;
+  line-height: 16px;
+}
+
+.input-control {
+  width: 100%;
+  height: 48px;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  outline: none;
+  font-family: var(--font-body);
+  transition: var(--transition);
+  background-color: #ffffff;
+}
+
+.input-control:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+}
+
+/* Status Animation */
+.status-loading-box {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.spinner-ring {
+  width: 64px;
+  height: 64px;
+  border: 4px solid #e2e8f0;
+  border-top-color: var(--primary-black);
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Confirmation Boarding Pass */
+.confirmed-pass-card {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #fff;
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: var(--shadow-float);
+  margin-bottom: 30px;
+}
+
+.confirmed-pass-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+}
+
+.pnr-box-gold {
+  background: #f59e0b;
+  color: #111;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.bp-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.bp-info-cell span {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  display: block;
+}
+
+.bp-info-cell b {
+  font-size: 16px;
+}
+
+.barcode-strip {
+  background: #ffffff;
+  color: #111;
+  padding: 16px;
+  border-radius: 14px;
+  text-align: center;
+  font-family: monospace;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+/* Footer */
+.site-footer {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 36px 20px 24px;
+  font-size: 13px;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-logo-img {
+  height: 24px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+.footer-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-col h5 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { color: #94a3b8; text-decoration: none; transition: var(--transition); }
+.footer-col ul li a:hover { color: #ffffff; }
+
+.footer-bottom {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 860px) {
+  .route-inputs-card {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px;
+  }
+  .route-swap-btn {
+    margin: 2px auto;
+    transform: rotate(90deg);
+  }
+  .route-swap-btn:hover {
+    transform: rotate(270deg);
+  }
+  .dates-and-pax-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* ==============================================================
+   PASSENGER & CABIN MODAL DIALOG
+   ============================================================== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-overlay.active {
+  display: flex !important;
+}
+
+.modal-content-card {
+  background: #ffffff;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 440px;
+  padding: 26px 28px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  animation: modalPopIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPopIn {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 16px;
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.modal-close-btn {
+  background: #f1f5f9;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #64748b;
+  transition: var(--transition);
+}
+
+.modal-close-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.counter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f8fafc;
+}
+
+.counter-info h5 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.counter-info p {
+  font-size: 12px;
+  color: #64748b;
+  margin: 2px 0 0;
+}
+
+.counter-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.counter-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.counter-btn:hover {
+  border-color: #078DE7;
+  color: #078DE7;
+  background: #f0f7ff;
+}
+
+.counter-num {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  min-width: 24px;
+  text-align: center;
+}
+
+/* Support Text display states */
+.support-text-desktop {
+  display: inline;
+}
+
+.support-text-mobile {
+  display: none;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .top-notice-bar, .nav-menu-links { display: none; }
+  .navbar-container { 
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap !important;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .brand-logo-area {
+    min-width: 0;
+    flex-shrink: 1;
+    gap: 8px;
+  }
+  .brand-icon-box {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 10px;
+  }
+  .brand-icon-box svg {
+    width: 18px;
+    height: 18px;
+  }
+  .brand-title-group h1 {
+    font-size: 17px;
+    white-space: nowrap;
+  }
+  .brand-title-group p {
+    display: none;
+  }
+  .nav-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    flex-wrap: nowrap !important;
+  }
+  .currency-tag-pill {
+    padding: 6px 10px;
+    font-size: 12px;
+    gap: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .btn-support-cta {
+    padding: 7px 12px;
+    font-size: 12px;
+    gap: 5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .main-wrapper { padding: 16px 14px 60px; width: 100%; box-sizing: border-box; }
+  .search-card-container { padding: 18px 14px; border-radius: var(--radius-lg); }
+  .routes-grid-wrapper { grid-template-columns: 1fr; }
+  .form-grid-2, .form-grid-3 { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+
+@media (max-width: 540px) {
+  .navbar-container {
+    padding: 8px 10px;
+    gap: 6px;
+    flex-wrap: nowrap !important;
+  }
+  .brand-logo-area {
+    gap: 6px;
+  }
+  .brand-icon-box {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 8px;
+  }
+  .brand-icon-box svg {
+    width: 16px;
+    height: 16px;
+  }
+  .brand-title-group h1 {
+    font-size: 15px;
+  }
+  .nav-actions-right {
+    gap: 5px;
+    flex-wrap: nowrap !important;
+  }
+  .currency-tag-pill {
+    padding: 5px 8px;
+    font-size: 11px;
+    gap: 4px;
+  }
+  .btn-support-cta {
+    padding: 6px 11px;
+    font-size: 11px;
+    gap: 4px;
+  }
+  .support-text-desktop {
+    display: none !important;
+  }
+  .support-text-mobile {
+    display: inline !important;
+  }
+  .welcome-title { font-size: 24px; }
+  .hero-subtitle { font-size: 14px; }
+  .trip-type-strip { width: 100%; }
+  .pill-trip-btn { flex: 1; justify-content: center; padding: 7px 10px; font-size: 12px; }
+  .route-input-group { padding: 8px 12px; }
+  .route-text-input { font-size: 14px !important; }
+  .btn-primary-search { padding: 14px 20px; font-size: 15px; }
+}
+
+@media (max-width: 380px) {
+  .navbar-container {
+    padding: 6px 8px;
+    gap: 4px;
+  }
+  .brand-icon-box {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 7px;
+  }
+  .brand-title-group h1 {
+    font-size: 13.5px;
+  }
+  .currency-tag-pill {
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+  .currency-tag-pill svg {
+    width: 16px;
+    height: 11px;
+  }
+  .btn-support-cta {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+}
+
+/* ==============================================================
+   NEW COMPACT HEADER: BRAND LOGO & CTA BUTTON ONLY
+   ============================================================== */
+.brand-logo-img {
+  height: 40px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+}
+@media (max-width: 640px) {
+  .brand-logo-img {
+    height: 32px;
+    max-width: 165px;
+  }
+}
+
+.btn-header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0f172a;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 13.5px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.btn-header-cta:hover {
+  background: #1e293b;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.35);
+}
+@media (max-width: 640px) {
+  .btn-header-cta {
+    padding: 6px 13px;
+    font-size: 12px;
+    gap: 5px;
+  }
+}
+
+/* ==============================================================
+   RESPONSIVE DATE CAROUSEL STRIP: 7 ON DESKTOP, 4 ON MOBILE
+   ============================================================== */
+.results-date-strip {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 8px !important;
+  margin-bottom: 20px !important;
+  padding: 4px 0 10px !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+.results-date-strip::-webkit-scrollbar {
+  display: none !important;
+}
+.date-pill-btn {
+  flex: 1 1 0px !important;
+  min-width: 0 !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 10px !important;
+  padding: 6px 6px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.16s ease !important;
+  text-align: center !important;
+  user-select: none !important;
+}
+.date-pill-btn:hover {
+  border-color: #0284c7 !important;
+  background: #f0f9ff !important;
+  transform: translateY(-1px) !important;
+}
+.date-pill-btn.active {
+  background: #0f172a !important;
+  border-color: #0f172a !important;
+  color: #ffffff !important;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.22) !important;
+  transform: translateY(-1px) !important;
+}
+.date-pill-day {
+  font-size: 12.5px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  line-height: 1.15 !important;
+}
+.date-pill-weekday {
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  color: #64748b !important;
+  margin-top: 1px !important;
+}
+.date-pill-price {
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  color: #0284c7 !important;
+  margin-top: 2px !important;
+}
+.date-pill-btn.active .date-pill-day {
+  color: #ffffff !important;
+}
+.date-pill-btn.active .date-pill-weekday {
+  color: #94a3b8 !important;
+}
+.date-pill-btn.active .date-pill-price {
+  color: #38bdf8 !important;
+}
+
+.date-picker-trigger-pill {
+  flex: 0 0 auto !important;
+  min-width: 68px !important;
+  background: #f8fafc !important;
+  border: 1px dashed #cbd5e1 !important;
+  border-radius: 10px !important;
+  padding: 6px 10px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 700 !important;
+  color: #475569 !important;
+  font-size: 11px !important;
+  transition: all 0.16s ease !important;
+}
+.date-picker-trigger-pill:hover {
+  background: #e0f2fe !important;
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+}
+
+/* Bottom Sheet Sort & Stops Buttons - Ultra Professional Look */
+.sheet-sort-btn,
+.sheet-stops-btn {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  color: #334155 !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+}
+
+.sheet-sort-btn:hover,
+.sheet-stops-btn:hover {
+  border-color: #0284c7 !important;
+  background: #f0f9ff !important;
+  color: #0284c7 !important;
+  transform: translateY(-1px) !important;
+}
+
+.sheet-sort-btn.active,
+.sheet-stops-btn.active {
+  background: #0f172a !important;
+  border-color: #0f172a !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.22) !important;
+  transform: translateY(-1px) !important;
+}
+
+.sheet-sort-btn.active svg,
+.sheet-stops-btn.active svg {
+  stroke: #38bdf8 !important;
+}
+
+/* Accepted Payment Badges Strip on Checkout */
+.accepted-payment-methods-strip {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accepted-methods-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.5px;
+}
+
+.accepted-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.method-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #1e293b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  user-select: none;
+}
+
+/* Phone view: Hide items beyond 4 so exactly 4 dates + Pick Date button are shown */
+@media (max-width: 768px) {
+  .results-date-strip .date-pill-btn:nth-child(n+5):not(.date-picker-trigger-pill) {
+    display: none !important;
+  }
+}
+
+/* ==============================================================
+   FLOATING BOTTOM FILTER & SORT BAR (Matching Reference Image 3)
+   ============================================================== */
+.floating-bottom-bar {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.16), 0 2px 8px rgba(15, 23, 42, 0.08);
+  padding: 6px 10px;
+  gap: 2px;
+  animation: floatInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes floatInUp {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+.floating-bar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  padding: 8px 18px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.floating-bar-btn:hover,
+.floating-bar-btn.active {
+  background: #f1f5f9;
+}
+.floating-bar-divider {
+  width: 1px;
+  height: 20px;
+  background: #e2e8f0;
+}
+.floating-active-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0284c7;
+  display: inline-block;
+}
+
+/* Bottom Sheet Modal for Sort & Filter */
+.bottom-sheet-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1100;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.bottom-sheet-overlay.open {
+  display: flex !important;
+  opacity: 1 !important;
+}
+.bottom-sheet-content {
+  background: #ffffff;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 28px 28px 0 0;
+  padding: 24px 20px 36px;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(100%);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 85vh;
+  overflow-y: auto;
+}
+.bottom-sheet-overlay.open .bottom-sheet-content {
+  transform: translateY(0) !important;
+}
+.bottom-sheet-drag-handle {
+  width: 40px;
+  height: 4px;
+  background: #cbd5e1;
+  border-radius: 999px;
+  margin: 0 auto 16px;
+}
+
+/* Premium Filter Sheet Airline Chips with Real Logos */
+.sheet-airline-chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 8px 14px !important;
+  border-radius: 999px !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+  color: #334155 !important;
+  cursor: pointer !important;
+  transition: all 0.18s ease !important;
+  user-select: none !important;
+}
+
+.sheet-airline-chip:hover {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.sheet-airline-chip.active {
+  background: #0f172a !important;
+  border-color: #0f172a !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.22) !important;
+}
+
+.sheet-carrier-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #ffffff;
+  padding: 1px;
+}
+
+.sheet-chip-count {
+  font-size: 11px;
+  opacity: 0.75;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.sheet-airline-chip.active .sheet-chip-count {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Black Professional Action Buttons (User Requirement 4) */
+.btn-black-cta {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  padding: 14px 28px !important;
+  border-radius: 14px !important;
+  border: none !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-decoration: none !important;
+}
+
+.btn-black-cta:hover {
+  background: #1e293b !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.35) !important;
+}
+
+/* Professional Payment Method Selector Tabs */
+.payment-tabs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.payment-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.payment-tab-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+
+.payment-tab-btn.active {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+}
+
+

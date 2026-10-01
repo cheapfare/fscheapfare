@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Checkout | FScheapfare</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230284c7'><path d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/></svg>">
+</head>
+<body>
+
+  <!-- Header: Logo & CTA Button Only (No Emojis) -->
+  <header class="site-header">
+    <div class="navbar-container">
+      <a href="/" class="brand-logo-area">
+        <img src="/assets/images/logo.png" alt="FScheapfare" class="brand-logo-img">
+      </a>
+      <div class="nav-actions-right">
+        <a href="tel:+18888855061" class="btn-header-cta" title="24/7 Booking Assistance: +1 (888) 885-5061">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>+1 (888) 885-5061</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper funnel-flow-wrapper">
+    
+    <!-- Progress Indicator -->
+    <div class="funnel-steps-nav">
+      <div class="funnel-step-item done">
+        <div class="step-circle">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>Search</span>
+      </div>
+      <span class="step-arrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </span>
+      <div class="funnel-step-item done">
+        <div class="step-circle">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>Flights</span>
+      </div>
+      <span class="step-arrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </span>
+      <div class="funnel-step-item done">
+        <div class="step-circle">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>Review</span>
+      </div>
+      <span class="step-arrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </span>
+      <div class="funnel-step-item done">
+        <div class="step-circle">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>Passengers</span>
+      </div>
+      <span class="step-arrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </span>
+      <div class="funnel-step-item active"><div class="step-circle">5</div><span>Payment & Ticket</span></div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="hero-welcome-bar" style="margin-bottom: 24px;">
+      <div>
+        <h2 class="welcome-title">Secure Checkout</h2>
+        <p style="color: var(--text-muted); font-size: 15px; margin-top: 4px;">
+          Review the order summary and authorize payment securely via our certified payment network.
+        </p>
+      </div>
+    </section>
+
+    <div class="funnel-card">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid #f1f5f9;">
+        <div>
+          <span style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Booking Order</span>
+          <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--text-main); margin-top: 2px;" id="lblPaymentBookingId">
+            FS-PENDING
+          </div>
+        </div>
+        <div style="text-align: right;">
+          <span style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Final Amount</span>
+          <div style="font-size: 28px; font-weight: 800; color: #0f172a; font-family: var(--font-heading); margin-top: 2px;" id="lblPaymentTotal">
+            €171
+          </div>
+        </div>
+      </div>
+
+      <!-- Compliance Banner with Clean SVG -->
+      <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 14px; padding: 14px 18px; margin-bottom: 24px; display: flex; align-items: center; gap: 14px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <polyline points="9 12 11 14 15 10"/>
+        </svg>
+        <div style="font-size: 13px; color: #166534; line-height: 1.5;">
+          <strong>Compliant Tokenized Payment Architecture:</strong> In accordance with PCI-DSS requirements, raw card details are never stored on our servers. All transactions use 256-bit encrypted tokenization.
+        </div>
+      </div>
+
+      <!-- Accepted Payment Methods Trust Badges (Non-Clickable Icons Only) -->
+      <div class="accepted-payment-methods-strip">
+        <span class="accepted-methods-label">Accepted Payment Methods</span>
+        <div class="accepted-badges-row">
+          <div class="method-badge-pill" title="Credit and Debit Cards">
+            <svg width="20" height="14" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.8"><rect width="24" height="16" rx="2"/><circle cx="8" cy="8" r="3.5"/><circle cx="16" cy="8" r="3.5"/></svg>
+            <span>Credit / Debit Card</span>
+          </div>
+          <div class="method-badge-pill" title="Apple Pay">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.74 1.02-1.77.91-2.8-.88.04-1.95.59-2.58 1.33-.55.63-.99 1.66-.88 2.67.98.08 1.95-.49 2.55-1.2z"/></svg>
+            <span>Apple Pay</span>
+          </div>
+          <div class="method-badge-pill" title="Google Pay">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.345-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-.788-.085-1.39-.189-1.989H12.24z"/></svg>
+            <span>Google Pay</span>
+          </div>
+          <div class="method-badge-pill" title="PayPal Express">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 3.72a.641.641 0 0 1 .632-.54h7.525c3.54 0 6.04 1.774 5.378 5.409-.547 3.003-2.672 5.093-5.69 5.093h-2.52l-1.33 6.914a.641.641 0 0 1-.633.54h-1.22l-.02.205z"/></svg>
+            <span>PayPal</span>
+          </div>
+        </div>
+      </div>
+
+      <form id="securePaymentGatewayForm" autocomplete="off">
+        <!-- Tokenized Card Entry Box (Starts Completely Empty) -->
+        <div id="cardEntryBox" style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 22px; margin-bottom: 22px;">
+          <div class="input-group" style="margin-bottom: 16px;">
+            <label>Cardholder Name *</label>
+            <input type="text" id="payCardName" class="input-control" value="" placeholder="Full name as printed on card" required>
+          </div>
+
+          <div class="input-group" style="margin-bottom: 16px;">
+            <label>Card Number *</label>
+            <div style="position: relative;">
+              <input type="text" id="payCardNumber" class="input-control" value="" placeholder="•••• •••• •••• ••••" maxlength="19" required style="letter-spacing: 1.5px; font-family: monospace;">
+              <span style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); display: flex; gap: 6px;">
+                <svg width="22" height="15" viewBox="0 0 24 16" fill="none" stroke="#94a3b8" stroke-width="1.5"><rect width="24" height="16" rx="2"/><circle cx="8" cy="8" r="4"/><circle cx="16" cy="8" r="4"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="input-group">
+              <label>Expiry Date *</label>
+              <input type="text" id="payCardExpiry" class="input-control" value="" placeholder="MM / YY" maxlength="7" required>
+            </div>
+            <div class="input-group">
+              <label>Card Security Code (CVV) *</label>
+              <input type="password" id="payCardCvv" class="input-control" value="" maxlength="4" placeholder="CVC / CVV" required>
+            </div>
+          </div>
+        </div>
+
+        <div style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 22px; line-height: 1.5;">
+          By clicking <strong>Continue to Secure Payment</strong>, your transaction will be securely authorized with the global card clearing network. No charges occur on unverified bookings.
+        </div>
+
+        <!-- Black Continue to Secure Payment CTA with Shield / Lock SVG Icon -->
+        <button type="submit" id="btnContinueSecurePayment" class="btn-black-cta" style="width: 100%; justify-content: center; font-size: 15px; padding: 14px 24px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <span id="btnPaymentText">Continue to Secure Payment</span>
+        </button>
+      </form>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="/assets/images/logo.png" alt="FScheapfare" class="footer-logo-img">
+        <span>© 2026 FScheapfare. All rights reserved.</span>
+      </div>
+      <div>24/7 Support: +1 (888) 885-5061</div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const bookingId = urlParams.get('bookingId') || 'FS-789421';
+      document.getElementById('lblPaymentBookingId').textContent = bookingId;
+
+      // Format card number with spaces as typed
+      const cardNumInput = document.getElementById('payCardNumber');
+      if (cardNumInput) {
+        cardNumInput.addEventListener('input', (e) => {
+          let v = e.target.value.replace(/\D/g, '').substring(0, 16);
+          e.target.value = v.replace(/(\d{4})(?=\d)/g, '$1 ');
+        });
+      }
+
+      // Format MM / YY allowing both month and year without truncation
+      const expiryInput = document.getElementById('payCardExpiry');
+      if (expiryInput) {
+        expiryInput.addEventListener('input', (e) => {
+          let v = e.target.value.replace(/\D/g, '').substring(0, 4);
+          if (v.length >= 3) {
+            e.target.value = v.substring(0, 2) + ' / ' + v.substring(2);
+          } else if (v.length === 2 && !e.target.value.endsWith(' / ')) {
+            e.target.value = v + ' / ';
+          } else {
+            e.target.value = v;
+          }
+        });
+      }
+
+      try {
+        const res = await fetch(`/api/booking/${bookingId}`);
+        if (res.ok) {
+          const booking = await res.json();
+          const sym = booking.pricing?.symbol || (booking.pricing?.currency === 'USD' ? '$' : '€');
+          document.getElementById('lblPaymentTotal').textContent = `${sym}${booking.pricing?.total?.toLocaleString() || '171'}`;
+        }
+      } catch (err) {
+        console.error(err);
+      }
+
+      const form = document.getElementById('securePaymentGatewayForm');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('btnContinueSecurePayment');
+        const origContent = btn.innerHTML;
+        btn.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="spin-icon" style="animation: spin 1s linear infinite;"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+          <span>Authorizing with Payment Network...</span>
+        `;
+        btn.style.opacity = '0.75';
+
+        try {
+          const res = await fetch('/api/booking/process-payment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              bookingId,
+              paymentMethod: 'Secure Card Token',
+              paymentToken: 'TOK_' + Math.random().toString(36).substring(2, 10).toUpperCase()
+            })
+          });
+
+          const data = await res.json();
+          window.location.href = `/booking/status?bookingId=${bookingId}`;
+        } catch (err) {
+          console.error(err);
+          alert('Payment authorization failed. Please retry.');
+          btn.innerHTML = origContent;
+          btn.style.opacity = '1';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "fscheapfarenetwork",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "FS Cheap Fare Network - Modern Flight Booking Platform",
+  "scripts": {
+    "start": "python3 -m http.server 3000"
+  },
+  "keywords": [
+    "flight-booking",
+    "travel",
+    "cheap-fares"
+  ],
+  "author": "",
+  "license": "ISC",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1"
+  }
+}

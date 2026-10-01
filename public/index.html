@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>FScheapfare | Find Your Next Flight</title>
+  <meta name="description"
+    content="Explore flight options, compare available fares, and plan your next trip with confidence on FScheapfare.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23078DE7%22 stroke-width=%222.2%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z%22/></svg>">
+</head>
+
+<body class="mobile-app-body">
+
+
+  <!-- Main Navigation Header (Clean, 1-Line on All Screens) -->
+  <header class="site-header">
+    <div class="navbar-container">
+      <a href="/" class="brand-logo-area">
+        <img src="/assets/images/logo.png" alt="FScheapfare" class="brand-logo-img">
+      </a>
+
+      <div class="nav-actions-right">
+        <a href="tel:+18888855061" class="btn-header-cta" title="24/7 Booking Assistance: +1 (888) 885-5061">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>+1 (888) 885-5061</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile-First Luxury App Search Section -->
+  <section class="hero-enterprise-section">
+    <div class="hero-inner-container">
+      
+      <!-- App Header: Greeting & Destination Title -->
+      <div class="app-greeting-row">
+        <div class="greeting-text-group">
+          <h1 class="welcome-title">Find Your Next Flight</h1>
+          <p class="hero-subtitle">
+            Explore flight options, compare available fares, and plan your next trip with confidence.
+          </p>
+        </div>
+      </div>
+
+      <!-- Main Search Form -->
+      <form id="homeSearchForm" action="/flights/results" method="GET" class="app-search-form" autocomplete="off">
+        <input type="hidden" name="tripType" id="homeTripType" value="roundTrip">
+
+        <!-- Trip Type Segmented Pills (Dark Black Active Pill / Soft Inactive Pill) -->
+        <div class="app-segmented-trip">
+          <button type="button" class="app-trip-btn active" id="btnTripRound">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m16 3 4 4-4 4"/>
+              <path d="M20 7H4"/>
+              <path d="m8 21-4-4 4-4"/>
+              <path d="M4 17h16"/>
+            </svg>
+            <span>Round Trip</span>
+          </button>
+          <button type="button" class="app-trip-btn" id="btnTripOneWay">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+            <span>One Way</span>
+          </button>
+        </div>
+
+        <!-- 1. Connected Route Card (Unified From & To Box with Floating Swap Button) -->
+        <div class="connected-route-card">
+          
+          <!-- Origin Row -->
+          <div class="route-segment-row" id="fromInputWrapper">
+            <div class="transport-vehicle-badge origin-badge" title="Departure Airport (Origin)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" transform="rotate(45 12 12)"/>
+              </svg>
+            </div>
+            <div class="segment-text-col">
+              <span class="segment-label">From · Departure</span>
+              <input 
+                type="text" 
+                id="inputFromAirport" 
+                class="segment-input"
+                placeholder="Airport or City (e.g. JFK)"
+                value="" 
+                required
+              >
+              <input type="hidden" name="from" id="hiddenFromIata" value="">
+            </div>
+            <!-- Autocomplete Dropdown -->
+            <div id="fromSuggestionsDropdown" class="autocomplete-dropdown" style="display: none;"></div>
+          </div>
+
+          <!-- Divider with Floating Swap Button on the Right -->
+          <div class="route-divider-strip">
+            <div class="divider-line"></div>
+            <button type="button" class="route-swap-pill-btn" id="btnSwapAirports" title="Swap route" aria-label="Swap origin and destination">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m7 15 5 5 5-5"/>
+                <path d="m7 9 5-5 5 5"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Destination Row -->
+          <div class="route-segment-row" id="toInputWrapper">
+            <div class="transport-vehicle-badge dest-badge" title="Arrival Airport (Destination)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" transform="rotate(135 12 12)"/>
+              </svg>
+            </div>
+            <div class="segment-text-col">
+              <span class="segment-label">To · Arrival</span>
+              <input 
+                type="text" 
+                id="inputToAirport" 
+                class="segment-input"
+                placeholder="Airport or City (e.g. LAX)"
+                value="" 
+                required
+              >
+              <input type="hidden" name="to" id="hiddenToIata" value="">
+            </div>
+            <!-- Autocomplete Dropdown -->
+            <div id="toSuggestionsDropdown" class="autocomplete-dropdown" style="display: none;"></div>
+          </div>
+
+        </div>
+
+        <!-- 2. Dates Block (Side-by-Side Depart & Return Cards) -->
+        <div class="dates-row-grid">
+          <!-- Depart Date -->
+          <div class="app-date-card" id="departDateCard">
+            <input type="date" name="date" id="departDateInput" value="2026-11-20" class="native-hidden-date" required>
+            <span class="app-tile-label">Depart</span>
+            <div class="app-tile-value">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                <line x1="16" x2="16" y1="2" y2="6"/>
+                <line x1="8" x2="8" y1="2" y2="6"/>
+                <line x1="3" x2="21" y1="10" y2="10"/>
+              </svg>
+              <span id="departDateDisplay" class="formatted-date-label">20 Nov 2026</span>
+            </div>
+          </div>
+
+          <!-- Return Date -->
+          <div class="app-date-card" id="returnDateTile">
+            <input type="date" name="returnDate" id="returnDateInput" value="2026-11-27" class="native-hidden-date">
+            <span class="app-tile-label">Return</span>
+            <div class="app-tile-value">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                <line x1="16" x2="16" y1="2" y2="6"/>
+                <line x1="8" x2="8" y1="2" y2="6"/>
+                <line x1="3" x2="21" y1="10" y2="10"/>
+              </svg>
+              <span id="returnDateDisplay" class="formatted-date-label">27 Nov 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Passenger & Cabin Block -->
+        <div class="app-passenger-card" id="homePaxPickerTrigger" role="button" tabindex="0" title="Select travelers and cabin class">
+          <div class="pax-card-left">
+            <span class="app-tile-label">Passenger</span>
+            <div class="app-tile-value">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+              </svg>
+              <span id="homePaxSummaryText" class="pax-text-summary">1 Adult · Economy</span>
+            </div>
+          </div>
+          <div class="pax-card-chevron">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Hidden Form Parameters -->
+        <input type="hidden" name="adults" id="inputAdults" value="1">
+        <input type="hidden" name="children" id="inputChildren" value="0">
+        <input type="hidden" name="infants" id="inputInfants" value="0">
+        <input type="hidden" name="cabin" id="inputCabinClass" value="Economy">
+        <input type="hidden" name="currency" value="USD">
+
+        <!-- 4. Primary Search CTA Button (Bold Black Pill as in Image) -->
+        <button type="submit" class="btn-app-search" id="btnSearchSubmit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+          <span>Search Flights</span>
+        </button>
+
+        <!-- Error Alert Banner -->
+        <div id="homeSearchAlert" class="search-error-banner" style="display: none;"></div>
+      </form>
+
+    </div>
+
+    <!-- 5. Popular Destinations Swiper Carousel (Auto-Gliding matching bookeasyflights.com) -->
+    <section class="destinations-showcase-section" id="popularDestinations" aria-label="Popular Travel Destinations">
+      <div class="destinations-header-row">
+        <div class="destinations-headline-group">
+          <div class="dest-badge-pill">
+            <span class="dest-badge-dot"></span>
+            <span>Popular Travel Picks</span>
+          </div>
+          <h2 class="destinations-main-title">
+            Discover Ideas For Your Next Trip
+            <span class="dest-title-gradient">Travel Ideas Made Simple</span>
+          </h2>
+          <p class="destinations-sub-desc">Browse popular destinations in a clean layout that helps you explore route ideas, compare places, and plan with more confidence.</p>
+        </div>
+        <div class="deals-nav-arrows">
+          <button type="button" class="deals-prev" aria-label="Previous destination" title="Previous destination">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+          </button>
+          <button type="button" class="deals-next" aria-label="Next destination" title="Next destination">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Swiper Slider Container -->
+      <div class="swiper deals-swiper">
+        <div class="swiper-wrapper">
+
+          <!-- Slide 1: New York -->
+          <div class="swiper-slide h-auto">
+            <div class="deal-card" data-city="New York" data-iata="JFK" data-label="New York (JFK) — John F Kennedy Intl" role="button" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80" class="deal-card-img" alt="New York, USA" loading="lazy">
+              <div class="deal-card-overlay"></div>
+              <div class="deal-shine"></div>
+              <div class="deal-badge-pos">
+                <span class="deal-glass-badge">New York, USA</span>
+              </div>
+              <div class="deal-card-body">
+                <p class="deal-category">Famous City Break</p>
+                <h3 class="deal-title">New York</h3>
+                <p class="deal-desc">A lively destination with skyline views, famous landmarks, and unforgettable city moments.</p>
+                <div class="deal-footer">
+                  <span class="deal-style">Best for city travelers</span>
+                  <span class="deal-rating"><span class="deal-star">★</span> 4.9</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: London -->
+          <div class="swiper-slide h-auto">
+            <div class="deal-card" data-city="London" data-iata="LHR" data-label="London (LHR) — Heathrow Intl" role="button" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80" class="deal-card-img" alt="London, UK" loading="lazy">
+              <div class="deal-card-overlay"></div>
+              <div class="deal-shine"></div>
+              <div class="deal-badge-pos">
+                <span class="deal-glass-badge">London, UK</span>
+              </div>
+              <div class="deal-card-body">
+                <p class="deal-category">Classic Travel City</p>
+                <h3 class="deal-title">London</h3>
+                <p class="deal-desc">A timeless destination with history, shopping, culture, and smooth global connections.</p>
+                <div class="deal-footer">
+                  <span class="deal-style">Ideal for business and leisure</span>
+                  <span class="deal-rating"><span class="deal-star">★</span> 4.8</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Dubai -->
+          <div class="swiper-slide h-auto">
+            <div class="deal-card" data-city="Dubai" data-iata="DXB" data-label="Dubai (DXB) — Dubai Intl" role="button" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" class="deal-card-img" alt="Dubai, UAE" loading="lazy">
+              <div class="deal-card-overlay"></div>
+              <div class="deal-shine"></div>
+              <div class="deal-badge-pos">
+                <span class="deal-glass-badge">Dubai, UAE</span>
+              </div>
+              <div class="deal-card-body">
+                <p class="deal-category">Modern Luxury Escape</p>
+                <h3 class="deal-title">Dubai</h3>
+                <p class="deal-desc">A stylish destination with beaches, shopping, premium stays, and a modern travel feel.</p>
+                <div class="deal-footer">
+                  <span class="deal-style">Ideal for premium travel</span>
+                  <span class="deal-rating"><span class="deal-star">★</span> 4.9</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Kyoto -->
+          <div class="swiper-slide h-auto">
+            <div class="deal-card" data-city="Kyoto" data-iata="KIX" data-label="Osaka/Kyoto (KIX) — Kansai Intl" role="button" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" class="deal-card-img" alt="Kyoto, Japan" loading="lazy">
+              <div class="deal-card-overlay"></div>
+              <div class="deal-shine"></div>
+              <div class="deal-badge-pos">
+                <span class="deal-glass-badge">Kyoto, Japan</span>
+              </div>
+              <div class="deal-card-body">
+                <p class="deal-category">Culture & Heritage</p>
+                <h3 class="deal-title">Kyoto</h3>
+                <p class="deal-desc">A peaceful destination known for temples, gardens, local charm, and meaningful travel experiences.</p>
+                <div class="deal-footer">
+                  <span class="deal-style">Ideal for cultural journeys</span>
+                  <span class="deal-rating"><span class="deal-star">★</span> 4.7</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5: Cappadocia -->
+          <div class="swiper-slide h-auto">
+            <div class="deal-card" data-city="Cappadocia" data-iata="IST" data-label="Istanbul/Cappadocia (IST) — Istanbul Airport" role="button" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?auto=format&fit=crop&w=800&q=80" class="deal-card-img" alt="Cappadocia, Turkey" loading="lazy">
+              <div class="deal-card-overlay"></div>
+              <div class="deal-shine"></div>
+              <div class="deal-badge-pos">
+                <span class="deal-glass-badge">Cappadocia, Turkey</span>
+              </div>
+              <div class="deal-card-body">
+                <p class="deal-category">Scenic Travel Escape</p>
+                <h3 class="deal-title">Cappadocia</h3>
+                <p class="deal-desc">A unique place with peaceful views, soft landscapes, and memorable travel moments.</p>
+                <div class="deal-footer">
+                  <span class="deal-style">Ideal for scenic getaways</span>
+                  <span class="deal-rating"><span class="deal-star">★</span> 4.8</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6: Swiss Alps / Zermatt -->
+          <div class="swiper-slide h-auto">
+            <div class="deal-card" data-city="Swiss Alps" data-iata="ZRH" data-label="Zurich (ZRH) — Zurich Airport" role="button" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80" class="deal-card-img" alt="Zermatt, Switzerland" loading="lazy">
+              <div class="deal-card-overlay"></div>
+              <div class="deal-shine"></div>
+              <div class="deal-badge-pos">
+                <span class="deal-glass-badge">Zermatt, Switzerland</span>
+              </div>
+              <div class="deal-card-body">
+                <p class="deal-category">Mountain Nature Escape</p>
+                <h3 class="deal-title">Swiss Alps</h3>
+                <p class="deal-desc">Fresh mountain air, snowy views, calm moments, and a relaxing nature-focused trip.</p>
+                <div class="deal-footer">
+                  <span class="deal-style">Ideal for nature lovers</span>
+                  <span class="deal-rating"><span class="deal-star">★</span> 5.0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Custom Pagination Dots -->
+        <div class="deals-pagination"></div>
+      </div>
+    </section>
+  </section>
+
+  <!-- Main Content Layout (Desktop & Supporting Sections) -->
+  <main class="main-wrapper">
+
+    <!-- SECTION: Plan Your Trip with Ease -->
+    <section id="planTrip" class="agency-services-section">
+      <div class="section-headline-group">
+        <span class="tag-pill">Flight Planning</span>
+        <h2>Plan Your Trip with Ease</h2>
+        <p>Search available flight options, review itinerary details, and compare prices before continuing with your booking.</p>
+      </div>
+
+      <div class="services-grid-list">
+        <!-- Feature 1 -->
+        <div class="service-card-item">
+          <div class="service-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+            </svg>
+          </div>
+          <h4>Explore Flight Options</h4>
+          <p>Search routes and travel dates to view available flight offers.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="service-card-item">
+          <div class="service-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" x2="18" y1="20" y2="10"/>
+              <line x1="12" x2="12" y1="20" y2="4"/>
+              <line x1="6" x2="6" y1="20" y2="14"/>
+            </svg>
+          </div>
+          <h4>Compare Available Fares</h4>
+          <p>Review flight details and displayed prices before selecting your itinerary.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="service-card-item">
+          <div class="service-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+            </svg>
+          </div>
+          <h4>Booking Assistance</h4>
+          <p>Contact our support team for help with your travel booking, where available.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: How It Works -->
+    <section id="howItWorks" class="how-it-works-section">
+      <div class="section-headline-group">
+        <span class="tag-pill">Booking Process</span>
+        <h2>How It Works</h2>
+        <p>A simple, transparent booking flow from search to confirmation.</p>
+      </div>
+
+      <div class="how-it-works-grid">
+        <div class="process-card-item">
+          <div class="step-num-pill">1</div>
+          <h4>Search your route</h4>
+          <p>Select verified departure and arrival airports with your travel dates.</p>
+        </div>
+
+        <div class="process-card-item">
+          <div class="step-num-pill">2</div>
+          <h4>Compare available flights</h4>
+          <p>Review scheduled flight times, operating carriers, and total fares.</p>
+        </div>
+
+        <div class="process-card-item">
+          <div class="step-num-pill">3</div>
+          <h4>Review your itinerary and fare</h4>
+          <p>Revalidate fare availability before entering traveler details.</p>
+        </div>
+
+        <div class="process-card-item">
+          <div class="step-num-pill">4</div>
+          <h4>Enter passenger information</h4>
+          <p>Provide names and required documents as shown on government IDs.</p>
+        </div>
+
+        <div class="process-card-item">
+          <div class="step-num-pill">5</div>
+          <h4>Complete supported booking</h4>
+          <p>Finalize payment or handoff through the authorized booking provider.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Trust & Transparency Disclosures -->
+    <section id="disclosures" class="travel-disclosures-card">
+      <div class="disclosures-header">
+        <div class="disclosures-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" x2="12" y1="16" y2="12"/>
+            <line x1="12" x2="12.01" y1="8" y2="8"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Important Information & Travel Disclosures</h3>
+          <p class="disclosures-sub">Consumer transparency statement for United States travelers</p>
+        </div>
+      </div>
+
+      <div class="disclosures-body">
+        <div class="disclosure-row">
+          <strong>Independent Service:</strong>
+          <span>FScheapfare is an independent flight search and booking assistance tool. We are not an airline and do not operate scheduled flights.</span>
+        </div>
+        <div class="disclosure-row">
+          <strong>Fares & Availability:</strong>
+          <span>All airfares, schedules, and seat availability are provided by scheduled airline distribution systems. Prices and availability are subject to change until ticketing is verified by the operating carrier.</span>
+        </div>
+        <div class="disclosure-row">
+          <strong>Baggage & Terms:</strong>
+          <span>Baggage allowances and cancellation rules are established by the respective operating airline. Review all itinerary terms prior to purchase.</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Passenger Modal Popup (Properly Hidden by Default via CSS) -->
+  <div id="homePaxModal" class="modal-overlay">
+    <div class="modal-content-card">
+      <div class="modal-card-header">
+        <h3 class="modal-title">Select Travelers & Cabin</h3>
+        <button class="modal-close-btn" id="btnCloseHomePax" title="Close" aria-label="Close traveler selector">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="counter-row">
+        <div class="counter-info">
+          <h5>Adults</h5>
+          <p>Age 12+ years</p>
+        </div>
+        <div class="counter-controls">
+          <button type="button" class="counter-btn" id="btnHDecA" aria-label="Decrease adults">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" x2="19" y1="12" y2="12"/></svg>
+          </button>
+          <span class="counter-num" id="lblHAdults">1</span>
+          <button type="button" class="counter-btn" id="btnHIncA" aria-label="Increase adults">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="counter-row">
+        <div class="counter-info">
+          <h5>Children</h5>
+          <p>Age 2 - 11 years</p>
+        </div>
+        <div class="counter-controls">
+          <button type="button" class="counter-btn" id="btnHDecC" aria-label="Decrease children">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" x2="19" y1="12" y2="12"/></svg>
+          </button>
+          <span class="counter-num" id="lblHChildren">0</span>
+          <button type="button" class="counter-btn" id="btnHIncC" aria-label="Increase children">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="counter-row">
+        <div class="counter-info">
+          <h5>Infants</h5>
+          <p>Under 2 years (in lap)</p>
+        </div>
+        <div class="counter-controls">
+          <button type="button" class="counter-btn" id="btnHDecI" aria-label="Decrease infants">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" x2="19" y1="12" y2="12"/></svg>
+          </button>
+          <span class="counter-num" id="lblHInfants">0</span>
+          <button type="button" class="counter-btn" id="btnHIncI" aria-label="Increase infants">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group-custom" style="margin-top: 18px;">
+        <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 6px; display: block; letter-spacing: 0.5px;">Cabin Class</label>
+        <select id="selHCabin" class="input-control" style="font-weight: 700; width: 100%; padding: 10px 14px; border-radius: 12px; border: 1px solid #cbd5e1; background: #f8fafc;">
+          <option value="Economy" selected>Economy</option>
+          <option value="Premium Economy">Premium Economy</option>
+          <option value="Business">Business</option>
+          <option value="First Class">First Class</option>
+        </select>
+      </div>
+
+      <button type="button" class="btn-app-search" id="btnSaveHPax" style="margin-top: 20px; padding: 14px; border-radius: 12px; width: 100%;">
+        Apply Selection
+      </button>
+    </div>
+  </div>
+
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col brand-col">
+        <a href="/" class="brand-logo-area" style="margin-bottom: 14px;">
+          <img src="/assets/images/logo.png" alt="FScheapfare" class="footer-logo-img" style="height: 32px; width: auto; filter: brightness(0) invert(1); opacity: 0.95;">
+        </a>
+        <p class="brand-desc"><strong>FS CHEAP FARE NETWORK PRIVATE LIMITED</strong> is an IATA Approved travel platform providing global booking solutions for Flights, Hotels, Cruises, Trains, and Car Rentals.</p>
+        <p style="font-size: 12px; color: #94a3b8; margin-top: 8px;">Address: 30 N GOULD ST STE 377 SHERIDAN WY 82801</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="/flights">Search Flights</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/refund-policy">Refund & Cancellation</a></li>
+          <li><a href="/disclaimer">General Disclaimer</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Customer Support</h5>
+        <ul>
+          <li><a href="tel:+18888855061">+1 (888) 885-5061 (Toll-Free)</a></li>
+          <li><a href="mailto:support@fscheapfare.com">support@fscheapfare.com</a></li>
+          <li><a href="/flights">Check Route Fares</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Trust & Security</h5>
+        <div class="footer-trust-box">
+          <div class="trust-badge-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>256-Bit SSL Encryption</span>
+          </div>
+          <div class="trust-badge-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            <span>IATA Approved Partner</span>
+          </div>
+          <div class="trust-badge-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 18V6"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/></svg>
+            <span>Real-Time USD Currency Quotes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <span>© 2026 FS CHEAP FARE NETWORK PRIVATE LIMITED. All rights reserved. Registered US Travel Agency Partner.</span>
+      </div>
+      <div class="footer-legal-links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-and-conditions">Terms & Conditions</a>
+        <a href="/cookie-policy">Cookie Policy</a>
+        <a href="/refund-policy">Refund Policy</a>
+        <a href="/disclaimer">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="/js/home-autocomplete.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Status | FScheapfare</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="navbar-container">
+      <a href="/" class="brand-logo-area">
+        <img src="/assets/images/logo.png" alt="FScheapfare" class="brand-logo-img">
+      </a>
+      <div class="nav-actions-right">
+        <a href="tel:+18888855061" class="btn-header-cta" title="24/7 Booking Assistance: +1 (888) 885-5061">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>+1 (888) 885-5061</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+    <div class="funnel-card" style="text-align: center; max-width: 640px; margin: 40px auto;">
+      
+      <div id="statusSpinner" class="spinner-ring"></div>
+      
+      <!-- Verified State Heading & Subtitle (Exact Copy) -->
+      <h2 style="font-family: var(--font-heading); font-size: 24px; font-weight: 800; margin-bottom: 8px;" id="statusHeading">
+        We're checking your booking status.
+      </h2>
+      <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 28px;" id="statusSubtitle">
+        Please do not close this window while we verify your reservation with the operating carrier.
+      </p>
+
+      <!-- Verified State Progression Box -->
+      <div style="background: #f8fafc; border-radius: 18px; padding: 22px; text-align: left; display: flex; flex-direction: column; gap: 14px;" id="statusStepsBox">
+        <div style="display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 700; color: #10b981;">
+          <span>✓</span> <span>Authorized Payment Verification Completed</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 700; color: #0284c7;" id="stepState2">
+          <span>⏳</span> <span>Payment received. Your booking is awaiting confirmation.</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 700; color: #94a3b8;" id="stepState3">
+          <span>○</span> <span>Carrier GDS Booking Reference Allocation</span>
+        </div>
+      </div>
+
+      <div id="failureStateNotice" style="display: none; margin-top: 20px; background: #fef2f2; border: 1px solid #fecaca; border-radius: 14px; padding: 16px; color: #991b1b; text-align: left; font-size: 13px;">
+        <strong>Booking Issue:</strong> <span id="failMsg">We couldn't confirm your booking. Please contact support.</span>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="/assets/images/logo.png" alt="FScheapfare" class="footer-logo-img">
+        <span>© 2026 FScheapfare. All rights reserved.</span>
+      </div>
+      <div>24/7 Support: +1 (888) 885-5061</div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const bookingId = urlParams.get('bookingId') || 'FS-789421';
+
+      const heading = document.getElementById('statusHeading');
+      const subtitle = document.getElementById('statusSubtitle');
+      const step2 = document.getElementById('stepState2');
+      const step3 = document.getElementById('stepState3');
+      const failNotice = document.getElementById('failureStateNotice');
+
+      try {
+        // Retrieve server-side booking record
+        const res = await fetch(`/api/booking/${bookingId}`);
+        if (!res.ok) {
+          heading.textContent = "We couldn't confirm your booking. Please contact support.";
+          failNotice.style.display = 'block';
+          document.getElementById('statusSpinner').style.display = 'none';
+          return;
+        }
+
+        const booking = await res.json();
+
+        // State 1 -> State 2 Transition
+        setTimeout(() => {
+          step2.innerHTML = '<span style="color:#10b981;">✓</span> <span>Payment received. Your booking is awaiting confirmation.</span>';
+          step2.style.color = '#10b981';
+
+          step3.innerHTML = '<span style="color:#0284c7;">⏳</span> <span>Carrier GDS Record & PNR Allocation...</span>';
+          step3.style.color = '#0284c7';
+        }, 1200);
+
+        // State 2 -> State 3 (Confirmed) Transition
+        setTimeout(() => {
+          step3.innerHTML = '<span style="color:#10b981;">✓</span> <span>Carrier PNR Allocated: ' + (booking.pnr || 'CF-VERIFIED') + '</span>';
+          step3.style.color = '#10b981';
+
+          heading.textContent = "Your flight booking is confirmed.";
+          subtitle.textContent = "Loading your confirmed itinerary and electronic documents...";
+        }, 2200);
+
+        // Redirect to Confirmation
+        setTimeout(() => {
+          window.location.href = `/booking/confirmation?bookingId=${bookingId}`;
+        }, 3200);
+
+      } catch (err) {
+        console.error(err);
+        heading.textContent = "We couldn't confirm your booking. Please contact support.";
+        failNotice.style.display = 'block';
+        document.getElementById('statusSpinner').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

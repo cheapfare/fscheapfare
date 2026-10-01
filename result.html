@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Available Flights | FScheapfare</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230284c7'><path d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/></svg>">
+</head>
+<body style="background-color: #f8fafc; padding-bottom: 80px;">
+
+  <!-- Site Navigation Header: Official Logo + CTA Button Only (No Emojis) -->
+  <header class="site-header">
+    <div class="navbar-container">
+      <a href="/" class="brand-logo-area">
+        <img src="/assets/images/logo.png" alt="FScheapfare" class="brand-logo-img">
+      </a>
+
+      <div class="nav-actions-right">
+        <a href="tel:+18888855061" class="btn-header-cta" title="24/7 Booking Assistance: +1 (888) 885-5061">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>+1 (888) 885-5061</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper" style="max-width: 960px; margin: 0 auto; padding: 16px 16px 64px;">
+    
+    <!-- Route Summary Banner -->
+    <div class="results-route-banner" id="resultsRouteBanner">
+      <div class="route-banner-left">
+        <a href="/" class="btn-route-back" title="Change search route" aria-label="Go back to search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </a>
+        <div class="route-endpoints-group">
+          <div class="endpoint-block">
+            <span class="endpoint-iata" id="displayOriginIata"></span>
+            <span class="endpoint-city" id="displayOriginCity"></span>
+          </div>
+          <div class="route-flight-trail">
+            <span class="trail-dot"></span>
+            <span class="trail-dash"></span>
+            <span class="trail-plane">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+            </span>
+            <span class="trail-dash"></span>
+            <span class="trail-dot end"></span>
+          </div>
+          <div class="endpoint-block">
+            <span class="endpoint-iata" id="displayDestIata"></span>
+            <span class="endpoint-city" id="displayDestCity"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="route-banner-meta">
+        <span class="route-meta-pill" id="displayDatePill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          <span>Loading dates...</span>
+        </span>
+        <span class="route-meta-pill" id="displayPaxPill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>1 Traveler · Economy</span>
+        </span>
+        <a href="/" class="btn-modify-search">Modify Search</a>
+      </div>
+    </div>
+
+    <!-- Responsive Date Selector Carousel (7 on Desktop, 4 on Phone + Pick Date Button) -->
+    <div class="results-date-strip" id="resultsDateStrip"></div>
+    <input type="date" id="manualDateInput" style="position: absolute; opacity: 0; pointer-events: none; width: 0; height: 0;">
+
+    <!-- Flight Offer Cards Stream -->
+    <div id="resultsListContainer">
+      <!-- Live Search Status Banner -->
+      <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
+        <div style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #eff6ff; color: #0284c7; margin-bottom: 12px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 1.2s linear infinite;">
+            <line x1="12" y1="2" x2="12" y2="6"></line>
+            <line x1="12" y1="18" x2="12" y2="22"></line>
+            <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+            <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+            <line x1="2" y1="12" x2="6" y2="12"></line>
+            <line x1="18" y1="12" x2="22" y2="12"></line>
+            <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+            <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+          </svg>
+        </div>
+        <h3 style="font-size: 16px; font-weight: 800; color: #0f172a; margin: 0 0 6px;">Searching Real-Time Live Flight Fares...</h3>
+        <p style="font-size: 13px; color: #64748b; margin: 0; font-weight: 500;">Connecting directly to airline reservation systems for live seat availability and verified fares.</p>
+      </div>
+
+      <!-- Loading Skeleton Cards -->
+      <div class="ticket-card" style="padding: 24px; opacity: 0.7; animation: aptPulse 1.2s infinite ease-in-out;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+          <div style="height: 24px; width: 180px; background: #e2e8f0; border-radius: 6px;"></div>
+          <div style="height: 24px; width: 80px; background: #e2e8f0; border-radius: 12px;"></div>
+        </div>
+        <div style="height: 48px; width: 100%; background: #f1f5f9; border-radius: 8px; margin-bottom: 16px;"></div>
+        <div style="height: 24px; width: 220px; background: #e2e8f0; border-radius: 6px;"></div>
+      </div>
+      <div class="ticket-card" style="padding: 24px; opacity: 0.4; animation: aptPulse 1.2s infinite ease-in-out 0.2s;">
+        <div style="height: 48px; width: 100%; background: #f1f5f9; border-radius: 8px;"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Floating Bottom Bar Matching Reference Image 3: [ ≡ Sort | ∇ Filter ] -->
+  <div class="floating-bottom-bar" id="floatingBottomBar">
+    <button type="button" class="floating-bar-btn" id="btnFloatSort">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" y1="6" x2="20" y2="6"/>
+        <line x1="4" y1="12" x2="14" y2="12"/>
+        <line x1="4" y1="18" x2="8" y2="18"/>
+      </svg>
+      <span>Sort</span>
+      <span class="floating-active-dot" id="sortActiveDot"></span>
+    </button>
+    <div class="floating-bar-divider"></div>
+    <button type="button" class="floating-bar-btn" id="btnFloatFilter">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+      </svg>
+      <span>Filter</span>
+      <span class="floating-active-dot" id="filterActiveDot" style="display: none;"></span>
+    </button>
+  </div>
+
+  <!-- Bottom Sheet Drawer for Mobile & Desktop Sort & Filter -->
+  <div class="bottom-sheet-overlay" id="bottomSheetOverlay">
+    <div class="bottom-sheet-content">
+      <div class="bottom-sheet-drag-handle"></div>
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div>
+          <h3 id="sheetTitle" style="font-size: 18px; font-weight: 800; color: #0f172a; margin: 0;">Sort & Filter Flights</h3>
+          <p style="font-size: 12px; color: #64748b; margin: 3px 0 0;">Customize prices, stops, and preferred airlines</p>
+        </div>
+        <button type="button" id="btnCloseSheet" style="background: #f1f5f9; border: none; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #475569;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Sheet Sort Section -->
+      <div style="margin-bottom: 22px;">
+        <div style="font-size: 12px; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Sort By</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <button type="button" class="pill-trip-btn active sheet-sort-btn" data-sort="cheapest" style="padding: 12px; font-size: 13.5px; justify-content: center; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>Lowest Price</span>
+          </button>
+          <button type="button" class="pill-trip-btn sheet-sort-btn" data-sort="fastest" style="padding: 12px; font-size: 13.5px; justify-content: center; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Shortest Time</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Sheet Stops Section -->
+      <div style="margin-bottom: 22px;">
+        <div style="font-size: 12px; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Flight Stops</div>
+        <div style="display: flex; gap: 10px;">
+          <button type="button" class="pill-trip-btn active sheet-stops-btn" data-stops="all" style="flex: 1; padding: 11px; font-size: 13px; justify-content: center; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><line x1="9" y1="12" x2="15" y2="12"/></svg>
+            <span>All Flights</span>
+          </button>
+          <button type="button" class="pill-trip-btn sheet-stops-btn" data-stops="direct" style="flex: 1; padding: 11px; font-size: 13px; justify-content: center; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <span>Nonstop Direct</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Sheet Airlines Section -->
+      <div style="margin-bottom: 26px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <div style="font-size: 12px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">Operating Airline</div>
+          <span style="font-size: 11px; color: #0284c7; font-weight: 700;">Verified Carriers</span>
+        </div>
+        <div id="sheetAirlinesList" style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button type="button" class="pill-trip-btn active sheet-airline-chip" data-airline="ALL" style="padding: 6px 14px; font-size: 12px;">All Airlines</button>
+        </div>
+      </div>
+
+      <!-- Apply Button: Black Professional Button with SVG -->
+      <button type="button" id="btnApplySheet" class="btn-black-cta" style="width: 100%; justify-content: center; font-size: 15px; padding: 14px 20px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        <span>Apply Flight Filters</span>
+      </button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="/assets/images/logo.png" alt="FScheapfare" class="footer-logo-img">
+        <span>© 2026 FScheapfare. All rights reserved.</span>
+      </div>
+      <div>24/7 Support: +1 (888) 885-5061</div>
+    </div>
+  </footer>
+
+  <script src="/js/results.js"></script>
+</body>
+</html>

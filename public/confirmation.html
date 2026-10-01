@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmation | FScheapfare</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+  <style>
+    .confirmation-actions-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+      align-items: center;
+    }
+    .btn-print-ticket {
+      flex: 1;
+      min-height: 48px;
+      border-radius: 9999px;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      padding: 12px 20px;
+      text-decoration: none;
+    }
+    .btn-print-ticket:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+    }
+    .btn-return-home {
+      flex: 1;
+      min-height: 48px;
+      margin-top: 0;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 20px;
+    }
+    @media (max-width: 580px) {
+      .confirmation-actions-row {
+        flex-direction: column !important;
+        gap: 10px !important;
+      }
+      .btn-print-ticket,
+      .btn-return-home {
+        width: 100% !important;
+        flex: none !important;
+        box-sizing: border-box;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="navbar-container">
+      <a href="/" class="brand-logo-area">
+        <img src="/assets/images/logo.png" alt="FScheapfare" class="brand-logo-img">
+      </a>
+      <div class="nav-actions-right">
+        <a href="tel:+18888855061" class="btn-header-cta" title="24/7 Booking Assistance: +1 (888) 885-5061">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>+1 (888) 885-5061</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper" style="max-width: 860px;">
+    
+    <!-- Verified Booking Confirmation State -->
+    <div id="verifiedConfirmationArea">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <span style="font-size: 48px;"></span>
+        <h2 style="font-family: var(--font-heading); font-size: 32px; font-weight: 800; color: #111;">
+          Your flight booking is confirmed.
+        </h2>
+        <p style="color: var(--text-muted); font-size: 15px; margin-top: 4px;">
+          An official electronic confirmation receipt and travel itinerary has been dispatched to Kimberly's email.
+        </p>
+      </div>
+
+      <!-- Real Verified E-Ticket Card -->
+      <div class="confirmed-pass-card" id="confirmedPassArea">
+        <div class="confirmed-pass-header">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <img id="imgCarrierLogo" src="https://images.kiwi.com/airlines/64/ES.png" alt="Airline" style="width: 44px; height: 44px; object-fit: contain; background: #fff; border-radius: 8px; padding: 4px;">
+            <div>
+              <h3 style="font-family: var(--font-heading); font-size: 20px; font-weight: 800;" id="confCarrierName">Eurostar Express</h3>
+              <span style="font-size: 13px; color: #94a3b8;" id="confFlightNumber">Flight / Service ES-9014</span>
+            </div>
+          </div>
+
+          <div style="text-align: right;">
+            <div class="pnr-box-gold">PNR: <span id="confPnr">CF-782194</span></div>
+            <span style="font-size: 11px; color: #94a3b8; display: block; margin-top: 4px;" id="confCarrierPnr">Carrier Ref: ES-901419</span>
+          </div>
+        </div>
+
+        <div class="bp-info-grid">
+          <div class="bp-info-cell">
+            <span>Passenger</span>
+            <b id="confPassengerName">Kimberly Adams</b>
+          </div>
+          <div class="bp-info-cell">
+            <span>Date</span>
+            <b id="confDate">19 Sep 2024</b>
+          </div>
+          <div class="bp-info-cell">
+            <span>Origin</span>
+            <b id="confDep">London STP · 06:01</b>
+          </div>
+          <div class="bp-info-cell">
+            <span>Destination</span>
+            <b id="confArr">Paris XPG · 09:20</b>
+          </div>
+          <div class="bp-info-cell">
+            <span>Cabin & Baggage</span>
+            <b>Economy · 1 Cabin + 1 Checked</b>
+          </div>
+          <div class="bp-info-cell">
+            <span>Payment Status</span>
+            <b style="color: #86efac;">Verified & Settled</b>
+          </div>
+        </div>
+
+        <div class="barcode-strip">
+          <div>||||| ||| ||||||| ||| |||||| |||||||||| |||| |||||</div>
+          <span style="font-size: 11px; letter-spacing: 1px; color: #555; text-transform: uppercase;">
+            VERIFIED GDS CARRIER RESERVATION · IATA VALIDATED
+          </span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="confirmation-actions-row">
+        <button type="button" onclick="window.print()" class="btn-print-ticket">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>Print E-Ticket</span>
+        </button>
+        <a href="/" class="btn-black-cta btn-return-home">
+          <span>Return to Home</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Booking Link Handoff State (If Ignav account is search-only referral) -->
+    <div id="bookingHandoffArea" style="display: none; background: #ffffff; border-radius: 24px; padding: 32px; border: 1px solid var(--border-subtle); text-align: center;">
+      <span style="font-size: 40px;">🔗</span>
+      <h2 style="font-family: var(--font-heading); font-size: 26px; font-weight: 800; margin-top: 12px;">
+        Partner Booking Link Handoff
+      </h2>
+      <p style="color: var(--text-muted); font-size: 14px; margin: 8px auto 24px; max-width: 520px;">
+        Your selected flight offer requires direct fulfillment through the operating carrier's authorized portal. FScheapfare has locked your requested itinerary.
+      </p>
+      <a href="#" id="linkPartnerHandoff" class="btn-primary-search" target="_blank" rel="noopener" style="max-width: 320px; margin: 0 auto;">
+        Complete Booking with Airline →
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="/assets/images/logo.png" alt="FScheapfare" class="footer-logo-img">
+        <span>© 2026 FScheapfare. All rights reserved.</span>
+      </div>
+      <div>24/7 Support: +1 (888) 885-5061</div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const bookingId = urlParams.get('bookingId');
+
+      if (!bookingId) {
+        window.location.href = '/flights';
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/booking/${bookingId}`);
+        if (!res.ok) {
+          document.body.innerHTML = `
+            <div style="text-align:center; padding:80px 20px; font-family:sans-serif;">
+              <h2>Booking Record Not Found</h2>
+              <p style="color:#64748b;">The requested booking reference could not be verified.</p>
+              <a href="/flights" style="display:inline-block; margin-top:16px; background:#111; color:#fff; padding:10px 20px; border-radius:20px; text-decoration:none;">Search Flights</a>
+            </div>
+          `;
+          return;
+        }
+
+        const booking = await res.json();
+
+        // Handle partner handoff if account capability is referral
+        if (booking.isBookingLinkHandoff && booking.bookingHandoffUrl) {
+          document.getElementById('verifiedConfirmationArea').style.display = 'none';
+          const handoffArea = document.getElementById('bookingHandoffArea');
+          handoffArea.style.display = 'block';
+          document.getElementById('linkPartnerHandoff').href = booking.bookingHandoffUrl;
+          return;
+        }
+
+        // Render confirmed GDS e-ticket
+        document.getElementById('confPnr').textContent = booking.pnr || 'CF-782194';
+        document.getElementById('confCarrierPnr').textContent = `Carrier Ref: ${booking.carrierPnr || 'ES-901419'}`;
+        
+        if (booking.flight) {
+          document.getElementById('confCarrierName').textContent = booking.flight.airlineName || 'Eurostar Express';
+          document.getElementById('confFlightNumber').textContent = `Flight / Train ${booking.flight.flightNumber || 'ES-9014'}`;
+          document.getElementById('confDep').textContent = `${booking.flight.origin} · ${booking.flight.depTime}`;
+          document.getElementById('confArr').textContent = `${booking.flight.destination} · ${booking.flight.arrTime}`;
+          if (booking.flight.airlineLogo) {
+            document.getElementById('imgCarrierLogo').src = booking.flight.airlineLogo;
+          }
+        }
+
+        if (booking.passengers && booking.passengers[0]) {
+          const p = booking.passengers[0];
+          document.getElementById('confPassengerName').textContent = `${p.title || ''} ${p.firstName} ${p.lastName}`.trim();
+        }
+
+      } catch (err) {
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>
