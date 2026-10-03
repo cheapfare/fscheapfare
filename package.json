@@ -4,16 +4,10 @@
   "type": "module",
   "description": "FS Cheap Fare Network - Modern Flight Booking Platform",
   "scripts": {
-    "start": "python3 -m http.server 3000"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
-  "keywords": [
-    "flight-booking",
-    "travel",
-    "cheap-fares"
-  ],
-  "author": "",
-  "license": "ISC",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^18.0.4",

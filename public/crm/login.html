@@ -145,7 +145,13 @@
             })
           });
 
-          const data = await res.json();
+          let data;
+          try {
+            data = await res.json();
+          } catch (jsonErr) {
+            data = { error: `Server error (${res.status}: ${res.statusText || 'Unexpected response'})` };
+          }
+
           if (res.ok && data.success) {
             localStorage.setItem('fs_crm_token', data.token);
             localStorage.setItem('fs_crm_user', JSON.stringify(data.user));

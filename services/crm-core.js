@@ -10,9 +10,13 @@ const DATA_DIR = path.join(__dirname, '..', 'data');
 const DB_FILE = path.join(DATA_DIR, 'crm_data.json');
 const USERS_FILE = path.join(DATA_DIR, 'crm_users.json');
 
-// Ensure data directory exists
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
+// Ensure data directory exists safely (works even in read-only environments like Vercel)
+try {
+  if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  }
+} catch (e) {
+  // Read-only filesystem warning, safe to continue
 }
 
 // Password hashing helper using standard crypto
@@ -116,7 +120,11 @@ function initUsersDb() {
     }
   ];
 
-  fs.writeFileSync(USERS_FILE, JSON.stringify(initialUsers, null, 2));
+  try {
+    fs.writeFileSync(USERS_FILE, JSON.stringify(initialUsers, null, 2));
+  } catch (e) {
+    // Read-only filesystem (e.g. Vercel)
+  }
   return initialUsers;
 }
 
@@ -147,7 +155,11 @@ function initCoreDb() {
     ]
   };
 
-  fs.writeFileSync(DB_FILE, JSON.stringify(initialData, null, 2));
+  try {
+    fs.writeFileSync(DB_FILE, JSON.stringify(initialData, null, 2));
+  } catch (e) {
+    // Read-only filesystem (e.g. Vercel)
+  }
   return initialData;
 }
 
@@ -161,11 +173,19 @@ class CRMCoreService {
   }
 
   saveUsers() {
-    fs.writeFileSync(USERS_FILE, JSON.stringify(this.users, null, 2));
+    try {
+      fs.writeFileSync(USERS_FILE, JSON.stringify(this.users, null, 2));
+    } catch (e) {
+      // Read-only filesystem (e.g. Vercel)
+    }
   }
 
   saveDb() {
-    fs.writeFileSync(DB_FILE, JSON.stringify(this.db, null, 2));
+    try {
+      fs.writeFileSync(DB_FILE, JSON.stringify(this.db, null, 2));
+    } catch (e) {
+      // Read-only filesystem (e.g. Vercel)
+    }
   }
 
   // AUDIT LOGGING
