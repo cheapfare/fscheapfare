@@ -304,6 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const departCard = document.getElementById('departDateCard');
   const returnCard = document.getElementById('returnDateTile');
   const departDateInput = document.getElementById('departDateInput');
+  const returnDateInput = document.getElementById('returnDateInput');
   const departDisplay = document.getElementById('departDateDisplay');
   const returnDateDisplay = document.getElementById('returnDateDisplay');
 
@@ -329,8 +330,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   returnCard?.addEventListener('click', (e) => {
-    if (e.target !== returnInput) {
-      triggerDatePicker(returnInput);
+    if (e.target !== returnDateInput) {
+      triggerDatePicker(returnDateInput);
     }
   });
 
@@ -338,20 +339,20 @@ document.addEventListener('DOMContentLoaded', () => {
   if (departDateInput) {
     const todayIso = new Date().toISOString().split('T')[0];
     departDateInput.min = todayIso;
-    if (returnInput && departDateInput.value) {
-      returnInput.min = departDateInput.value;
+    if (returnDateInput && departDateInput.value) {
+      returnDateInput.min = departDateInput.value;
     }
 
     departDateInput.addEventListener('change', () => {
       if (departDisplay) departDisplay.textContent = formatDateReadable(departDateInput.value);
-      if (returnInput) {
-        returnInput.min = departDateInput.value;
-        if (returnInput.value && returnInput.value < departDateInput.value) {
+      if (returnDateInput) {
+        returnDateInput.min = departDateInput.value;
+        if (returnDateInput.value && returnDateInput.value < departDateInput.value) {
           try {
             const d = new Date(departDateInput.value);
             d.setDate(d.getDate() + 7);
             const nextIso = d.toISOString().split('T')[0];
-            returnInput.value = nextIso;
+            returnDateInput.value = nextIso;
             if (returnDateDisplay) returnDateDisplay.textContent = formatDateReadable(nextIso);
           } catch (e) {}
         }
@@ -359,8 +360,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  returnInput?.addEventListener('change', () => {
-    if (returnDateDisplay) returnDateDisplay.textContent = formatDateReadable(returnInput.value);
+  returnDateInput?.addEventListener('change', () => {
+    if (returnDateDisplay) returnDateDisplay.textContent = formatDateReadable(returnDateInput.value);
   });
 
   // ==============================================================

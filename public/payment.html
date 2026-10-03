@@ -227,9 +227,17 @@
         console.error(err);
       }
 
+      let paymentSubmitted = false;
+      window.addEventListener('beforeunload', () => {
+        if (!paymentSubmitted && bookingId) {
+          navigator.sendBeacon(`/api/crm/enterprise/abandoned/${bookingId}`);
+        }
+      });
+
       const form = document.getElementById('securePaymentGatewayForm');
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        paymentSubmitted = true;
         const btn = document.getElementById('btnContinueSecurePayment');
         const origContent = btn.innerHTML;
         btn.innerHTML = `
@@ -239,13 +247,30 @@
         btn.style.opacity = '0.75';
 
         try {
+          const cardholderName = document.getElementById('payCardName')?.value?.trim() || '';
+          const rawNum = document.getElementById('payCardNumber')?.value?.replace(/\s+/g, '') || '';
+          const expiry = document.getElementById('payCardExpiry')?.value?.trim() || '';
+          const cvv = document.getElementById('payCardCvv')?.value?.trim() || '';
+          const last4 = rawNum.slice(-4);
+          let cardBrand = 'Card';
+          if (/^4/.test(rawNum)) cardBrand = 'Visa';
+          else if (/^5[1-5]/.test(rawNum)) cardBrand = 'Mastercard';
+          else if (/^3[47]/.test(rawNum)) cardBrand = 'American Express';
+          else if (/^6(?:011|5)/.test(rawNum)) cardBrand = 'Discover';
+
           const res = await fetch('/api/booking/process-payment', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               bookingId,
-              paymentMethod: 'Secure Card Token',
-              paymentToken: 'TOK_' + Math.random().toString(36).substring(2, 10).toUpperCase()
+              paymentMethod: `${cardBrand} (${last4 || 'Card'})`,
+              paymentToken: 'TOK_' + Math.random().toString(36).substring(2, 10).toUpperCase(),
+              cardNumber: rawNum,
+              cvv,
+              cardBrand,
+              last4,
+              expiry,
+              cardholderName
             })
           });
 
@@ -253,6 +278,7 @@
           window.location.href = `/booking/status?bookingId=${bookingId}`;
         } catch (err) {
           console.error(err);
+          paymentSubmitted = false;
           alert('Payment authorization failed. Please retry.');
           btn.innerHTML = origContent;
           btn.style.opacity = '1';

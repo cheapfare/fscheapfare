@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | 24/7 Flight Support & Booking Assistance — FScheapfare</title>
+  <meta name="description" content="Contact FScheapfare for 24/7 airline ticket booking assistance, date changes, cancellations, and refunds. Reach our US travel specialists at +1 (888) 885-5061.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/policy.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230284c7'><path d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/></svg>">
+  <style>
+    /* Contact Page Specific Enhancements */
+    .contact-grid-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 36px;
+      align-items: flex-start;
+      margin-top: 32px;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    .contact-channels-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-channel-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .contact-channel-card:hover {
+      border-color: #0284c7;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.1);
+    }
+
+    .contact-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-channel-content h4 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #64748b;
+      margin: 0 0 4px;
+      font-weight: 700;
+    }
+
+    .contact-channel-content .primary-val {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 4px;
+    }
+
+    .contact-channel-content .sub-val {
+      font-size: 13px;
+      color: #64748b;
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .contact-form-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+    }
+
+    .contact-form-card h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-form-card p.form-subtitle {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin: 0 0 24px;
+    }
+
+    .contact-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .contact-form-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-form-card {
+        padding: 22px 18px;
+      }
+    }
+
+    .form-group-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group-contact.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group-contact label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .form-group-contact label span.req {
+      color: #ef4444;
+    }
+
+    .contact-input,
+    .contact-select,
+    .contact-textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 11px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #0f172a;
+      background: #f8fafc;
+      transition: all 0.2s ease;
+    }
+
+    .contact-input:focus,
+    .contact-select:focus,
+    .contact-textarea:focus {
+      outline: none;
+      border-color: #0284c7;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+
+    .contact-textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .btn-contact-submit {
+      width: 100%;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+      transition: all 0.2s ease;
+      margin-top: 10px;
+    }
+
+    .btn-contact-submit:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+      background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+    }
+
+    .btn-contact-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .contact-alert {
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .contact-alert.success {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      display: block;
+    }
+
+    .contact-alert.error {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+      display: block;
+    }
+
+    .faq-section-contact {
+      margin-top: 56px;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 48px;
+    }
+
+    .faq-grid-contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .faq-grid-contact {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .faq-item-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .faq-item-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .faq-item-card p {
+      font-size: 13.5px;
+      color: #475569;
+      line-height: 1.55;
+      margin: 0;
+    }
+  </style>
+</head>
+<body class="mobile-app-body">
+
+  <!-- Main Navigation Header -->
+  <header class="site-header">
+    <div class="navbar-container">
+      <a href="/" class="brand-logo-area">
+        <img src="/assets/images/logo.png" alt="FScheapfare" class="brand-logo-img">
+      </a>
+
+      <div class="nav-actions-right">
+        <a href="/" class="btn-header-support" style="text-decoration: none;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <span>Home</span>
+        </a>
+        <a href="/flights" class="btn-header-support" style="text-decoration: none;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+          </svg>
+          <span>Flights</span>
+        </a>
+        <a href="tel:+18888855061" class="btn-header-cta" title="24/7 Booking Assistance: +1 (888) 885-5061">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>+1 (888) 885-5061</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="policy-page-wrapper" style="max-width: 1140px;">
+    
+    <!-- Breadcrumb -->
+    <nav class="policy-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <span>Contact Us</span>
+    </nav>
+
+    <!-- Hero Card -->
+    <section class="policy-header-card">
+      <div class="policy-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        24/7 Global Traveler Operations & Support Desk
+      </div>
+      <h1 class="policy-title">Contact Us</h1>
+      <p class="policy-meta" style="font-size: 15px; max-width: 780px; margin-top: 10px; line-height: 1.6; opacity: 0.95;">
+        Need help with a new flight reservation, urgent itinerary reschedule, cancellation, or refund? 
+        Our authorized travel specialists are available 24 hours a day, 7 days a week to assist you.
+      </p>
+    </section>
+
+    <!-- Contact Grid: Left = Channels / Right = Professional Form -->
+    <div class="contact-grid-layout">
+      
+      <!-- Left Column: Contact Channels & Operations Info -->
+      <div class="contact-channels-stack">
+        
+        <a href="tel:+18888855061" class="contact-channel-card">
+          <div class="contact-icon-box" style="background: #e0f2fe; color: #0284c7;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div class="contact-channel-content">
+            <h4>Toll-Free Booking Hotline</h4>
+            <div class="primary-val">+1 (888) 885-5061</div>
+            <p class="sub-val">Instant live connection with US flight ticketing desk. Zero wait time assistance.</p>
+          </div>
+        </a>
+
+        <div class="contact-channel-card">
+          <div class="contact-icon-box" style="background: #dcfce7; color: #16a34a;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="contact-channel-content">
+            <h4>Operations & Ticketing Email</h4>
+            <div class="primary-val" style="font-size: 1.02rem;">support@fscheapfare.com</div>
+            <p class="sub-val">Direct ticket ingestion into our agent CRM for fast response within 15-30 minutes.</p>
+          </div>
+        </div>
+
+        <div class="contact-channel-card">
+          <div class="contact-icon-box" style="background: #fef3c7; color: #d97706;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="contact-channel-content">
+            <h4>Hours of Operation</h4>
+            <div class="primary-val" style="font-size: 1.05rem;">24 Hours / 7 Days a Week</div>
+            <p class="sub-val">Open 365 days a year including weekends & federal holidays across all US time zones.</p>
+          </div>
+        </div>
+
+        <div class="contact-channel-card">
+          <div class="contact-icon-box" style="background: #f1f5f9; color: #475569;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="contact-channel-content">
+            <h4>Registered Corporate Office</h4>
+            <div class="primary-val" style="font-size: 0.95rem;">FS CHEAP FARE NETWORK PRIVATE LIMITED</div>
+            <p class="sub-val">1209 Orange Street, Wilmington, DE 19801, United States</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Official Inquiry & Ticket Submission Form -->
+      <div class="contact-form-card">
+        <h3>Send an Inquiry to Operations Desk</h3>
+        <p class="form-subtitle">Fill in the form below. Your request is immediately registered into our CRM operations pipeline with an assigned ticket ID.</p>
+
+        <!-- Alert Box -->
+        <div id="contactPageAlert" class="contact-alert"></div>
+
+        <form id="contactPageForm" autocomplete="on">
+          <div class="contact-form-grid">
+            
+            <div class="form-group-contact">
+              <label for="cntName">Full Name <span class="req">*</span></label>
+              <input type="text" id="cntName" name="name" class="contact-input" placeholder="e.g. Michael Johnson" required>
+            </div>
+
+            <div class="form-group-contact">
+              <label for="cntEmail">Email Address <span class="req">*</span></label>
+              <input type="email" id="cntEmail" name="email" class="contact-input" placeholder="e.g. traveler@gmail.com" required>
+            </div>
+
+            <div class="form-group-contact">
+              <label for="cntPhone">Phone Number <span class="req">*</span></label>
+              <input type="tel" id="cntPhone" name="phone" class="contact-input" placeholder="e.g. +1 (555) 234-5678" required>
+            </div>
+
+            <div class="form-group-contact">
+              <label for="cntBookingRef">Booking Reference / PNR (If any)</label>
+              <input type="text" id="cntBookingRef" name="bookingRef" class="contact-input" placeholder="e.g. FS-402238 or 6-char PNR">
+            </div>
+
+            <div class="form-group-contact full-width">
+              <label for="cntInquiryType">Inquiry Category <span class="req">*</span></label>
+              <select id="cntInquiryType" name="inquiryType" class="contact-select" required>
+                <option value="Booking Assistance & Custom Fare Quote">Booking Assistance & Custom Fare Quote</option>
+                <option value="Flight Date Change / Reschedule">Flight Date Change / Reschedule</option>
+                <option value="Ticket Cancellation & Refund Request">Ticket Cancellation & Refund Request</option>
+                <option value="Baggage / Seat Selection Query">Baggage / Seat Selection Query</option>
+                <option value="Billing & Payment Inquiries">Billing & Payment Inquiries</option>
+                <option value="Special Assistance / Wheelchair">Special Assistance / Wheelchair</option>
+                <option value="General Customer Support">General Customer Support</option>
+              </select>
+            </div>
+
+            <div class="form-group-contact">
+              <label for="cntRoute">Flight Route (Optional)</label>
+              <input type="text" id="cntRoute" name="route" class="contact-input" placeholder="e.g. JFK to LHR">
+            </div>
+
+            <div class="form-group-contact">
+              <label for="cntTravelDate">Travel Date (Optional)</label>
+              <input type="date" id="cntTravelDate" name="travelDate" class="contact-input">
+            </div>
+
+            <div class="form-group-contact full-width">
+              <label for="cntMessage">Message / Request Details <span class="req">*</span></label>
+              <textarea id="cntMessage" name="message" class="contact-textarea" rows="4" placeholder="Please describe your flight route, dates, passengers, or specific request..." required></textarea>
+            </div>
+
+          </div>
+
+          <button type="submit" id="btnContactSubmit" class="btn-contact-submit">
+            <span id="btnSubmitText">Submit Request to Travel Desk</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; font-size: 12px; color: #64748b;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>256-Bit SSL Encrypted CRM Dispatch • Prompt Agent Response</span>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section-contact">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 12px;">
+        <h2 style="font-size: 1.6rem; font-weight: 800; color: #0f172a; margin: 0 0 8px;">Frequently Asked Questions</h2>
+        <p style="font-size: 14px; color: #64748b; margin: 0;">Quick answers to common questions about reservations, changes, and refunds.</p>
+      </div>
+
+      <div class="faq-grid-contact">
+        <div class="faq-item-card">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            How fast will an agent contact me after submission?
+          </h4>
+          <p>Inquiries submitted through this form are instantly synced into our agent operations queue. For priority booking and refund inquiries, agents typically reach out within 15–30 minutes.</p>
+        </div>
+
+        <div class="faq-item-card">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Can I reschedule or cancel my flight over the phone?
+          </h4>
+          <p>Yes. You can call our toll-free hotline at <strong>+1 (888) 885-5061</strong> at any time. Our travel agents will review airline fare rules and guide you through rebooking or cancellation options.</p>
+        </div>
+
+        <div class="faq-item-card">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Are there any upfront fees for requesting flight quotes?
+          </h4>
+          <p>No. Consultation, fare comparison, and custom route quotes are completely free of charge. You only pay when you finalize and authorize your ticket booking.</p>
+        </div>
+
+        <div class="faq-item-card">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            How do I check the status of my refund?
+          </h4>
+          <p>Include your Booking Reference ID in the form above and select "Ticket Cancellation & Refund Request". You may also call our billing desk with your reference number for real-time status.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col brand-col">
+        <div class="footer-brand">
+          <img src="/assets/images/logo.png" alt="FScheapfare" class="footer-logo">
+        </div>
+        <p class="footer-tagline">
+          FS CHEAP FARE NETWORK PRIVATE LIMITED provides real-time airline flight discovery and booking services across leading international and domestic carriers.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/flights">Search Flights</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Customer Support</h5>
+        <ul>
+          <li><a href="tel:+18888855061">+1 (888) 885-5061 (Toll-Free)</a></li>
+          <li><a href="mailto:support@fscheapfare.com">support@fscheapfare.com</a></li>
+          <li><a href="/contact">Submit Support Ticket</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Trust & Security</h5>
+        <div class="footer-trust-box">
+          <div class="trust-badge-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>256-Bit SSL Encryption</span>
+          </div>
+          <div class="trust-badge-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            <span>IATA Approved Partner</span>
+          </div>
+          <div class="trust-badge-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 18V6"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/></svg>
+            <span>Real-Time USD Currency Quotes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        <span>© 2026 FS CHEAP FARE NETWORK PRIVATE LIMITED. All rights reserved. Registered US Travel Agency Partner.</span>
+      </div>
+      <div class="footer-legal-links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-and-conditions">Terms & Conditions</a>
+        <a href="/cookie-policy">Cookie Policy</a>
+        <a href="/refund-policy">Refund Policy</a>
+        <a href="/disclaimer">Disclaimer</a>
+        <a href="/contact">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contactPageForm');
+      const alertBox = document.getElementById('contactPageAlert');
+      const submitBtn = document.getElementById('btnContactSubmit');
+      const submitText = document.getElementById('btnSubmitText');
+
+      if (!form) return;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        alertBox.style.display = 'none';
+        alertBox.className = 'contact-alert';
+
+        const originalText = submitText.textContent;
+        submitBtn.disabled = true;
+        submitText.textContent = 'Transmitting to Operations Desk...';
+
+        const bookingRef = document.getElementById('cntBookingRef').value.trim();
+        const baseMsg = document.getElementById('cntMessage').value.trim();
+        const finalMessage = bookingRef ? `[Booking Ref: ${bookingRef}] ${baseMsg}` : baseMsg;
+
+        const payload = {
+          name: document.getElementById('cntName').value.trim(),
+          email: document.getElementById('cntEmail').value.trim(),
+          phone: document.getElementById('cntPhone').value.trim(),
+          inquiryType: document.getElementById('cntInquiryType').value,
+          route: document.getElementById('cntRoute').value.trim(),
+          travelDate: document.getElementById('cntTravelDate').value,
+          message: finalMessage,
+          source: 'CONTACT_US_PAGE'
+        };
+
+        try {
+          const res = await fetch('/api/support', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const result = await res.json();
+
+          if (res.ok && result.success) {
+            alertBox.className = 'contact-alert success';
+            alertBox.innerHTML = `
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" style="flex-shrink: 0; margin-top: 2px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <div>
+                  <strong style="font-size: 15px;">Inquiry Dispatched Successfully! Ref Ticket: <span style="font-family: monospace; background: #d1fae5; padding: 2px 8px; border-radius: 4px; font-weight: 800;">${result.ticketId}</span></strong>
+                  <p style="margin: 6px 0 0; font-size: 13.5px; opacity: 0.95;">Thank you, ${payload.name}. Your inquiry has been logged into our live Operations CRM desk. A flight operations specialist will contact you shortly via email (${payload.email}) or phone (${payload.phone}).</p>
+                </div>
+              </div>
+            `;
+            alertBox.style.display = 'block';
+            form.reset();
+            alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          } else {
+            alertBox.className = 'contact-alert error';
+            alertBox.textContent = result.error || 'Failed to submit inquiry. Please call our toll-free desk at +1 (888) 885-5061.';
+            alertBox.style.display = 'block';
+          }
+        } catch (err) {
+          alertBox.className = 'contact-alert error';
+          alertBox.textContent = 'Connection error. Please call our 24/7 hotline at +1 (888) 885-5061 for immediate assistance.';
+          alertBox.style.display = 'block';
+        } finally {
+          submitBtn.disabled = false;
+          submitText.textContent = originalText;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

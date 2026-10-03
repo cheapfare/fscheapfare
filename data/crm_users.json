@@ -1,0 +1,55 @@
+[
+  {
+    "id": "USR-0001",
+    "name": "Super Admin",
+    "email": "fscheapfare@gmail.com",
+    "role": "SUPER ADMIN",
+    "status": "Active",
+    "permissions": [
+      "dashboard.view",
+      "leads.view",
+      "leads.create",
+      "leads.edit",
+      "leads.delete",
+      "customers.view",
+      "customers.edit",
+      "bookings.view",
+      "bookings.create",
+      "bookings.edit",
+      "bookings.cancel",
+      "payments.view",
+      "card.view",
+      "reports.view",
+      "reports.export",
+      "users.manage",
+      "settings.access"
+    ],
+    "salt": "200be9cdbea1d0073011999e50a50914",
+    "hash": "2ec53efeae5490ed903777c71d3ca831068767344818803654687cd9bd250d8bb46e72f6c2bff5411a78e9265f6ab029497fb8ced267f7129be6953ccbfe0855",
+    "forcePasswordChange": true,
+    "createdAt": "2026-10-03T14:39:56.919Z"
+  },
+  {
+    "id": "USR-7968",
+    "name": "Deepak",
+    "email": "rvisharma05@gmail.com",
+    "role": "Manager",
+    "status": "Active",
+    "permissions": [
+      "dashboard.view",
+      "customers.view",
+      "customers.edit",
+      "bookings.view",
+      "bookings.create",
+      "bookings.edit",
+      "payments.view",
+      "card.view",
+      "reports.view",
+      "reports.export"
+    ],
+    "salt": "25d7342b8f21ae1e687dec533d173a85",
+    "hash": "c35780ed49c58fcb6825e3c5b3e64bad586a1025485452c9b904a6e1898e922cc05b8e02e31545f854e6dd51012e907b05efab273bec25ba902b703a7a862247",
+    "forcePasswordChange": true,
+    "createdAt": "2026-10-03T15:58:23.082Z"
+  }
+]

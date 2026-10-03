@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FScheapfare CRM — Simple Professional Flight Booking Operations</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230284c7'><path d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/crm/crm.css">
+</head>
+<body class="crm-app">
+
+  <!-- Mobile Sidebar Backdrop -->
+  <div class="crm-backdrop" id="crmBackdrop"></div>
+
+  <!-- Layout Container -->
+  <div class="crm-layout">
+
+    <!-- 7. VERY SIMPLE SIDEBAR (Minimal Modern SaaS) -->
+    <aside class="crm-sidebar" id="crmSidebar">
+      <div class="sidebar-brand">
+        <a href="/crm" class="brand-link" style="display: flex; align-items: center; gap: 8px;">
+          <img src="/assets/images/logo.png" alt="FScheapfare" style="height: 32px; width: auto; object-fit: contain; max-width: 140px;">
+          <span class="brand-tag">CRM</span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <!-- Exact 7 items as required -->
+        <a href="#dashboard" class="nav-item active" data-nav="dashboard" id="nav-dashboard">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="#leads" class="nav-item" data-nav="leads" id="nav-leads">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Leads</span>
+          <span class="nav-badge" id="badgeLeadsCount">--</span>
+        </a>
+
+        <a href="#bookings" class="nav-item" data-nav="bookings" id="nav-bookings">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+          <span>Bookings</span>
+        </a>
+
+        <a href="#customers" class="nav-item" data-nav="customers" id="nav-customers">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Customers</span>
+        </a>
+
+        <a href="#payments" class="nav-item" data-nav="payments" id="nav-payments">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+          <span>Payments</span>
+        </a>
+
+        <a href="#users" class="nav-item" data-nav="users" id="nav-users">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Users & Access</span>
+        </a>
+
+        <a href="#settings" class="nav-item" data-nav="settings" id="nav-settings">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-user">
+        <div class="user-meta">
+          <div class="user-avatar" id="sidebarUserAvatar">SA</div>
+          <div class="user-details">
+            <span class="user-name" id="sidebarUserName">Super Admin</span>
+            <span class="user-role" id="sidebarUserRole">SUPER ADMIN</span>
+          </div>
+        </div>
+        <button type="button" class="btn-logout" id="btnLogout" title="Sign out">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Viewport -->
+    <main class="crm-main">
+
+      <!-- Minimal Modern Topbar -->
+      <header class="crm-topbar">
+        <div class="topbar-left">
+          <button type="button" class="btn-mobile-toggle" id="btnMobileToggle" aria-label="Toggle Navigation">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div class="topbar-title-wrap">
+            <h1 class="topbar-title" id="pageTitle">Dashboard</h1>
+            <span class="topbar-live-dot" title="Live booking funnel sync active"></span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Refresh button to reload live CRM data -->
+          <button type="button" class="btn btn-secondary btn-sm" id="btnHeaderRefresh" title="Refresh Live Data" style="display: inline-flex; align-items: center; gap: 6px; font-weight: 600;">
+            <svg id="iconHeaderRefresh" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+            </svg>
+            <span>Refresh</span>
+          </button>
+
+          <!-- Quick search -->
+          <div class="topbar-search">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="globalSearchInput" placeholder="Quick search..." autocomplete="off">
+          </div>
+
+          <!-- Direct action if permissions allow -->
+          <button type="button" class="btn btn-primary btn-sm" id="btnQuickNewLead" title="Create Lead">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>New Lead</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- VIEW: DASHBOARD (Requirement 8, 9, 10) -->
+      <section class="crm-view active" id="view-dashboard">
+        <!-- Dashboard Header -->
+        <div class="view-header">
+          <div>
+            <h2 class="welcome-heading">Welcome back, <span id="welcomeUserName">Admin</span></h2>
+            <p class="welcome-sub">Here is your flight operations and booking summary for today.</p>
+          </div>
+          <!-- Date Filter Pills -->
+          <div class="date-filter-group" id="dashboardDateFilters">
+            <button type="button" class="filter-pill" data-period="today">Today</button>
+            <button type="button" class="filter-pill" data-period="7d">7 Days</button>
+            <button type="button" class="filter-pill active" data-period="30d">30 Days</button>
+            <button type="button" class="filter-pill" data-period="custom">Custom</button>
+          </div>
+        </div>
+
+        <!-- 8. KPI CARDS (EXACTLY 5 CARDS) -->
+        <div class="kpi-grid">
+          <!-- Card 1: New Leads -->
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-title">New Leads</span>
+              <div class="kpi-icon kpi-icon-blue">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="kpiNewLeads">128</div>
+            <div class="kpi-meta"><span class="kpi-trend up">↑ 12%</span> vs last period</div>
+          </div>
+
+          <!-- Card 2: Bookings -->
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-title">Bookings</span>
+              <div class="kpi-icon kpi-icon-green">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="kpiBookings">42</div>
+            <div class="kpi-meta"><span class="kpi-trend up">↑ 8%</span> confirmed</div>
+          </div>
+
+          <!-- Card 3: Payment Pending -->
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-title">Payment Pending</span>
+              <div class="kpi-icon kpi-icon-amber">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="kpiPaymentPending">18</div>
+            <div class="kpi-meta"><span class="kpi-meta-sub">Awaiting checkout</span></div>
+          </div>
+
+          <!-- Card 4: Abandoned -->
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-title">Abandoned</span>
+              <div class="kpi-icon kpi-icon-red">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="kpiAbandoned">27</div>
+            <div class="kpi-meta"><span class="kpi-meta-sub">Left before card entry</span></div>
+          </div>
+
+          <!-- Card 5: Revenue -->
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-title">Revenue</span>
+              <div class="kpi-icon kpi-icon-emerald">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+            </div>
+            <div class="kpi-value" id="kpiRevenue">$18,450</div>
+            <div class="kpi-meta"><span class="kpi-trend up">↑ 15%</span> total volume</div>
+          </div>
+        </div>
+
+        <!-- 9. ONE SIMPLE BOOKING GRAPH -->
+        <div class="chart-section">
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <h3 class="chart-title">Booking Overview</h3>
+                <span class="chart-sub">Ticket volume trend across active periods</span>
+              </div>
+              <div class="chart-toggles" id="chartRangeToggles">
+                <button type="button" class="btn-toggle" data-range="7d">7 Days</button>
+                <button type="button" class="btn-toggle active" data-range="30d">30 Days</button>
+                <button type="button" class="btn-toggle" data-range="90d">90 Days</button>
+              </div>
+            </div>
+            <div class="chart-canvas-wrap">
+              <svg id="bookingTrendSvg" viewBox="0 0 800 220" preserveAspectRatio="none" class="chart-svg">
+                <!-- Grid Lines -->
+                <line x1="40" y1="30" x2="780" y2="30" stroke="#f1f5f9" stroke-width="1"/>
+                <line x1="40" y1="80" x2="780" y2="80" stroke="#f1f5f9" stroke-width="1"/>
+                <line x1="40" y1="130" x2="780" y2="130" stroke="#f1f5f9" stroke-width="1"/>
+                <line x1="40" y1="180" x2="780" y2="180" stroke="#f1f5f9" stroke-width="1"/>
+                <!-- Area and Line Paths dynamically rendered -->
+                <defs>
+                  <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0284c7" stop-opacity="0.25"/>
+                    <stop offset="100%" stop-color="#0284c7" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+                <path id="svgAreaPath" d="" fill="url(#chartGradient)"/>
+                <path id="svgLinePath" d="" fill="none" stroke="#0284c7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <g id="svgPointsGroup"></g>
+              </svg>
+              <div class="chart-labels-x" id="chartLabelsX"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. RECENT LEADS (Max 7-8 columns, view button) -->
+        <div class="card recent-leads-card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Recent Leads</h3>
+              <span class="card-sub">Latest inquiries from flight search & checkout funnel</span>
+            </div>
+            <a href="#leads" class="btn-link" id="btnSeeAllLeads">View all leads →</a>
+          </div>
+          <div class="table-responsive">
+            <table class="crm-table">
+              <thead>
+                <tr>
+                  <th>Lead ID</th>
+                  <th>Customer</th>
+                  <th>Route</th>
+                  <th>Travel Date</th>
+                  <th>Status</th>
+                  <th>Payment</th>
+                  <th>Created</th>
+                  <th style="text-align: right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="dashboardRecentLeadsBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: LEADS (Requirement 11, 12, 17) -->
+      <section class="crm-view" id="view-leads">
+        <div class="view-header">
+          <div>
+            <h2 class="view-title">Lead Management</h2>
+            <p class="welcome-sub">All inbound flight inquiries from the search funnel.</p>
+          </div>
+          <button type="button" class="btn btn-primary" id="btnOpenNewLeadModal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>New Lead</span>
+          </button>
+        </div>
+
+        <!-- Filters Bar (Requirement 11) -->
+        <div class="filters-bar">
+          <div class="filter-search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="leadsSearchInput" placeholder="Search Leads by name, ID, route, email...">
+          </div>
+          <div class="filters-right">
+            <!-- 12. & 17. Only these 6 statuses + Abandoned filter -->
+            <select class="form-select" id="filterLeadStatus">
+              <option value="">All Statuses</option>
+              <option value="NEW">New</option>
+              <option value="PASSENGER DETAILS">Passenger Details</option>
+              <option value="PAYMENT PENDING">Payment Pending</option>
+              <option value="BOOKED">Booked</option>
+              <option value="CANCELLED">Cancelled</option>
+              <option value="ABANDONED">Abandoned</option>
+            </select>
+
+            <select class="form-select" id="filterLeadPayment">
+              <option value="">All Payments</option>
+              <option value="Paid">Paid</option>
+              <option value="Pending">Pending</option>
+              <option value="Failed">Failed</option>
+              <option value="Refunded">Refunded</option>
+            </select>
+
+            <button type="button" class="btn btn-secondary btn-icon-only" id="btnRefreshLeads" title="Refresh">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Clean Leads Table (Requirement 11) -->
+        <div class="card">
+          <div class="table-responsive">
+            <table class="crm-table" id="leadsTable">
+              <thead>
+                <tr>
+                  <th style="width: 36px;"><input type="checkbox" id="selectAllLeads"></th>
+                  <th>Lead ID</th>
+                  <th>Customer</th>
+                  <th>Route</th>
+                  <th>Travel Date</th>
+                  <th>Status</th>
+                  <th>Payment</th>
+                  <th>Created</th>
+                  <th style="text-align: right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="leadsTableBody">
+                <!-- Dynamically populated or rendered as mobile cards -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: LEAD DETAIL PAGE (Requirement 13 & 14) -->
+      <section class="crm-view" id="view-lead-detail">
+        <div class="detail-top-nav">
+          <button type="button" class="btn btn-secondary btn-sm" id="btnBackToLeads">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            <span>Back to Leads</span>
+          </button>
+          <div class="detail-actions">
+            <span class="text-muted text-sm">Status:</span>
+            <select class="form-select form-select-sm" id="detailStatusSelect">
+              <option value="NEW">New</option>
+              <option value="PASSENGER DETAILS">Passenger Details</option>
+              <option value="PAYMENT PENDING">Payment Pending</option>
+              <option value="BOOKED">Booked</option>
+              <option value="CANCELLED">Cancelled</option>
+              <option value="ABANDONED">Abandoned</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Lead Detail Header -->
+        <div class="detail-header-card">
+          <div class="detail-header-info">
+            <h2 class="detail-name" id="detailCustomerName">John Smith</h2>
+            <div class="detail-badges">
+              <span class="lead-id-tag" id="detailLeadId">FS-LEAD-00128</span>
+              <span class="crm-badge" id="detailStatusBadge">Payment Pending</span>
+            </div>
+          </div>
+          <div class="detail-amount-box">
+            <span class="amount-label">Trip Fare</span>
+            <span class="amount-val" id="detailAmount">$428.50 USD</span>
+          </div>
+        </div>
+
+        <!-- 5 COMPREHENSIVE SECTIONS: CONTACT, ADDRESS, TRIP, PAYMENT, ROSTER -->
+        <div class="detail-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+          <!-- 1. CUSTOMER & CONTACT DETAILS -->
+          <div class="card detail-section-card">
+            <div class="card-header border-bottom">
+              <h3 class="card-title text-base">Contact Details</h3>
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="meta-label">Customer Name</span>
+                <span class="meta-value font-medium" id="detailCustName">--</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Email Address</span>
+                <span class="meta-value" id="detailCustEmail">--</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Telephone</span>
+                <span class="meta-value font-medium" id="detailCustPhone">--</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Lead Source</span>
+                <span class="meta-value" id="detailCustSource">Web Booking</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Created At</span>
+                <span class="meta-value" id="detailCustCreated">--</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. RESIDENTIAL & BILLING ADDRESS -->
+          <div class="card detail-section-card">
+            <div class="card-header border-bottom">
+              <h3 class="card-title text-base">Billing & Address</h3>
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="meta-label">Residential Street</span>
+                <span class="meta-value font-medium" id="detailResidentialStreet">--</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">City, State ZIP</span>
+                <span class="meta-value" id="detailCityStateZip">--</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Country</span>
+                <span class="meta-value" id="detailCountry">--</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Billing Address</span>
+                <span class="meta-value font-medium" id="detailBillingAddress">--</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. TRIP & FLIGHT ITINERARY -->
+          <div class="card detail-section-card">
+            <div class="card-header border-bottom">
+              <h3 class="card-title text-base">Trip Details</h3>
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="meta-label">Route</span>
+                <span class="meta-value font-medium" id="detailRoute">--</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Departure</span>
+                <span class="meta-value" id="detailDepDate">--</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Return</span>
+                <span class="meta-value" id="detailRetDate">--</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Passengers</span>
+                <span class="meta-value" id="detailPaxCount">1 Passenger</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Cabin</span>
+                <span class="meta-value" id="detailCabin">Economy</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. PAYMENT METHODS & FULL CARD DETAILS -->
+          <div class="card detail-section-card">
+            <div class="card-header border-bottom">
+              <h3 class="card-title text-base">Payment Methods</h3>
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span class="meta-label">Payment Status</span>
+                <span class="meta-value" id="detailPayStatus">Pending</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Total Amount</span>
+                <span class="meta-value font-medium" id="detailPayAmount">$0.00 USD</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Card Number</span>
+                <span class="meta-value font-mono font-bold" id="detailPayCardNumber" style="letter-spacing: 1px;">--</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Expiry (MM/YY)</span>
+                <span class="meta-value font-medium" id="detailPayExpiry">--</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">CVV / CVC</span>
+                <span class="meta-value" id="detailPayCvv">--</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Cardholder</span>
+                <span class="meta-value font-medium" id="detailPayHolder">--</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Transaction ID</span>
+                <span class="meta-value font-mono text-xs" id="detailPayTxn">--</span>
+              </div>
+
+              <!-- Secure View Action (Requires card.view) -->
+              <div class="mt-3 pt-2 border-top">
+                <button type="button" class="btn btn-outline-primary btn-full" id="btnOpenSecurePayment">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <span>View Authorized Card Vault</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14. PASSENGER DETAILS (Expandable cards) -->
+        <div class="card mt-4">
+          <div class="card-header border-bottom">
+            <h3 class="card-title text-base">Traveler Roster</h3>
+            <span class="text-sm text-muted" id="detailPaxCountSub">1 Passenger</span>
+          </div>
+          <div class="card-body p-0" id="detailPassengersContainer">
+            <!-- Expandable Passenger Cards populated dynamically -->
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: BOOKINGS (Requirement 15) -->
+      <section class="crm-view" id="view-bookings">
+        <div class="view-header">
+          <div>
+            <h2 class="view-title">Bookings</h2>
+            <p class="welcome-sub">All ticketed reservations and confirmed itineraries.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="table-responsive">
+            <table class="crm-table">
+              <thead>
+                <tr>
+                  <th>Booking ID</th>
+                  <th>Customer</th>
+                  <th>Route</th>
+                  <th>Flight</th>
+                  <th>Travel Date</th>
+                  <th>Booking Status</th>
+                  <th>Payment</th>
+                  <th>Amount</th>
+                  <th style="text-align: right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="bookingsTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: CUSTOMERS (Requirement 18) -->
+      <section class="crm-view" id="view-customers">
+        <div class="view-header">
+          <div>
+            <h2 class="view-title">Customers</h2>
+            <p class="welcome-sub">Customer profiles, flight history, and contact references.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="table-responsive">
+            <table class="crm-table">
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Bookings</th>
+                  <th>Last Booking</th>
+                  <th>Status</th>
+                  <th style="text-align: right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="customersTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: PAYMENTS (Requirement 16) -->
+      <section class="crm-view" id="view-payments">
+        <div class="view-header">
+          <div>
+            <h2 class="view-title">Payment Management</h2>
+            <p class="welcome-sub">Transactions, settlements, and tokenized payment references.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="table-responsive">
+            <table class="crm-table">
+              <thead>
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>Customer</th>
+                  <th>Booking</th>
+                  <th>Amount</th>
+                  <th>Payment Method</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th style="text-align: right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="paymentsTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: USERS & ACCESS (Requirement 3 & 4) -->
+      <section class="crm-view" id="view-users">
+        <div class="view-header">
+          <div>
+            <h2 class="view-title">Users & Access Management</h2>
+            <p class="welcome-sub">Manage staff accounts, assign roles, and configure granular permissions.</p>
+          </div>
+          <button type="button" class="btn btn-primary" id="btnOpenAddUserModal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>Add User</span>
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="table-responsive">
+            <table class="crm-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th>Permissions Summary</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="usersTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: SETTINGS & AUDIT LOG (Requirement 27, 28, 30) -->
+      <section class="crm-view" id="view-settings">
+        <div class="view-header">
+          <div>
+            <h2 class="view-title">Settings & Security</h2>
+            <p class="welcome-sub">System authentication, security policies, and administrative audit trails.</p>
+          </div>
+        </div>
+
+        <div class="settings-grid">
+          <!-- Account Security Card -->
+          <div class="card">
+            <div class="card-header border-bottom">
+              <h3 class="card-title text-base">Account Security</h3>
+            </div>
+            <div class="card-body">
+              <form id="changePasswordForm">
+                <div class="form-group mb-3">
+                  <label class="form-label" for="newAdminPassword">Change Password</label>
+                  <input type="password" id="newAdminPassword" class="form-input" placeholder="Enter new strong password" minlength="6" required>
+                  <p class="text-xs text-muted mt-1">Minimum 6 characters with mixed numbers/symbols.</p>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Update Password</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- PCI DSS & System Info -->
+          <div class="card">
+            <div class="card-header border-bottom">
+              <h3 class="card-title text-base">PCI-DSS & Security Status</h3>
+            </div>
+            <div class="card-body">
+              <div class="security-badge-item">
+                <div class="status-indicator-green"></div>
+                <div>
+                  <strong>CVV Storage Prohibited:</strong>
+                  <p class="text-xs text-muted">CVV/CVC is never logged, stored in CRM database, or displayed post-authorization.</p>
+                </div>
+              </div>
+              <div class="security-badge-item mt-3">
+                <div class="status-indicator-green"></div>
+                <div>
+                  <strong>Tokenized Vault Integration:</strong>
+                  <p class="text-xs text-muted">Masked card display with secure authorization references for authorized personnel.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 30. AUDIT LOG (Simple: User, Action, Date, Time) -->
+        <div class="card mt-4">
+          <div class="card-header border-bottom">
+            <h3 class="card-title text-base">Security Audit Log</h3>
+            <span class="text-xs text-muted">Administrative trail of sensitive actions</span>
+          </div>
+          <div class="table-responsive">
+            <table class="crm-table">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Action</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody id="auditLogsTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ==============================================================
+       MODALS
+       ============================================================== -->
+
+  <!-- MODAL: ADD / EDIT USER WITH CUSTOM PERMISSIONS (Requirement 3 & 4) -->
+  <div class="crm-modal-backdrop" id="userModal">
+    <div class="crm-modal-dialog">
+      <div class="crm-modal-header">
+        <h3 class="crm-modal-title" id="userModalTitle">Add New User</h3>
+        <button type="button" class="btn-modal-close" id="btnCloseUserModal">&times;</button>
+      </div>
+      <form id="userForm">
+        <div class="crm-modal-body">
+          <input type="hidden" id="userFormId">
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="userNameInput">Full Name *</label>
+              <input type="text" id="userNameInput" class="form-input" placeholder="e.g. John Smith" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="userEmailInput">Email Address *</label>
+              <input type="email" id="userEmailInput" class="form-input" placeholder="e.g. john@company.com" required>
+            </div>
+          </div>
+
+          <div class="form-row-2 mt-3">
+            <div class="form-group">
+              <label class="form-label" for="userPasswordInput">Password <span id="pwdRequiredNotice">*</span></label>
+              <input type="password" id="userPasswordInput" class="form-input" placeholder="Password (min 6 chars)">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="userRoleSelect">Role *</label>
+              <select id="userRoleSelect" class="form-select" required>
+                <option value="Admin">Admin</option>
+                <option value="Manager">Manager</option>
+                <option value="Agent" selected>Agent</option>
+                <option value="Custom">Custom</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group mt-3">
+            <label class="form-label" for="userStatusSelect">Account Status</label>
+            <select id="userStatusSelect" class="form-select">
+              <option value="Active">Active</option>
+              <option value="Disabled">Disabled</option>
+            </select>
+          </div>
+
+          <!-- 4. CUSTOM ACCESS PERMISSIONS CHECKBOXES -->
+          <div class="permissions-card mt-4">
+            <div class="permissions-card-header">
+              <h4 class="text-sm font-semibold">Access Permissions</h4>
+              <span class="text-xs text-muted" id="permRoleNote">Pre-set by Role. Select "Custom" to edit individually.</span>
+            </div>
+            
+            <div class="permissions-grid">
+              <!-- Dashboard -->
+              <div class="perm-section">
+                <span class="perm-title">Dashboard</span>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="dashboard.view">
+                  <span>View</span>
+                </label>
+              </div>
+
+              <!-- Leads -->
+              <div class="perm-section">
+                <span class="perm-title">Leads</span>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="leads.view">
+                  <span>View</span>
+                </label>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="leads.create">
+                  <span>Create</span>
+                </label>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="leads.edit">
+                  <span>Edit</span>
+                </label>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="leads.delete">
+                  <span>Delete</span>
+                </label>
+              </div>
+
+              <!-- Customers -->
+              <div class="perm-section">
+                <span class="perm-title">Customers</span>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="customers.view">
+                  <span>View</span>
+                </label>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="customers.edit">
+                  <span>Edit</span>
+                </label>
+              </div>
+
+              <!-- Bookings -->
+              <div class="perm-section">
+                <span class="perm-title">Bookings</span>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="bookings.view">
+                  <span>View</span>
+                </label>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="bookings.create">
+                  <span>Create</span>
+                </label>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="bookings.edit">
+                  <span>Edit</span>
+                </label>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="bookings.cancel">
+                  <span>Cancel</span>
+                </label>
+              </div>
+
+              <!-- Payments -->
+              <div class="perm-section">
+                <span class="perm-title">Payments</span>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="payments.view">
+                  <span>View</span>
+                </label>
+              </div>
+
+              <!-- Card Information -->
+              <div class="perm-section">
+                <span class="perm-title">Card Information</span>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="card.view">
+                  <span>View Secure Payment Details</span>
+                </label>
+              </div>
+
+              <!-- Reports -->
+              <div class="perm-section">
+                <span class="perm-title">Reports</span>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="reports.view">
+                  <span>View</span>
+                </label>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="reports.export">
+                  <span>Export</span>
+                </label>
+              </div>
+
+              <!-- Users -->
+              <div class="perm-section">
+                <span class="perm-title">Users</span>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="users.manage">
+                  <span>Manage</span>
+                </label>
+              </div>
+
+              <!-- Settings -->
+              <div class="perm-section">
+                <span class="perm-title">Settings</span>
+                <label class="perm-item">
+                  <input type="checkbox" name="perm" value="settings.access">
+                  <span>Access</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="crm-modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnCancelUserModal">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btnSaveUser">Save User</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: SECURE PAYMENT VIEW (Requirement 6: Masked Vault, No CVV) -->
+  <div class="crm-modal-backdrop" id="securePaymentModal">
+    <div class="crm-modal-dialog">
+      <div class="crm-modal-header">
+        <div class="d-flex align-items-center gap-2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+          <h3 class="crm-modal-title">Authorized Payment Vault Details</h3>
+        </div>
+        <button type="button" class="btn-modal-close" id="btnCloseSecurePaymentModal">&times;</button>
+      </div>
+      <div class="crm-modal-body">
+        <div class="pci-notice-banner" style="background: #f0fdf4; border-color: #bbf7d0; color: #166534;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span><strong>Authorized Payment Record:</strong> Viewing customer authorized payment method details for travel ticketing and verification.</span>
+        </div>
+
+        <div class="secure-card-display mt-3">
+          <div class="secure-card-top">
+            <span class="secure-card-brand" id="vaultCardBrand">VISA</span>
+            <span class="secure-chip"></span>
+          </div>
+          <div class="secure-card-number" id="vaultMaskedNumber" style="letter-spacing: 2px; font-weight: 700;">---- ---- ---- ----</div>
+          <div class="secure-card-bottom" style="display: flex; justify-content: space-between; align-items: flex-end;">
+            <div>
+              <span class="sc-label">Cardholder</span>
+              <span class="sc-val" id="vaultCardholderName">--</span>
+            </div>
+            <div>
+              <span class="sc-label">Expires</span>
+              <span class="sc-val" id="vaultExpiry">--</span>
+            </div>
+            <div>
+              <span class="sc-label">CVV / CVC</span>
+              <span class="sc-val" id="vaultCvv" style="font-weight: 800; color: #fde047; letter-spacing: 1.5px; font-size: 15px;">---</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="vault-metadata mt-3">
+          <div class="meta-row">
+            <span class="meta-label">Full Card Number</span>
+            <span class="meta-value font-mono font-bold" id="vaultFullNumber" style="letter-spacing: 1px; color: #0284c7; font-size: 1rem;">--</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Security Code (CVV)</span>
+            <span class="meta-value font-mono font-bold" id="vaultMetaCvv" style="color: #0f172a; background: #fef08a; padding: 2px 10px; border-radius: 4px; font-size: 0.95rem;">--</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Expiration Date</span>
+            <span class="meta-value font-medium" id="vaultMetaExpiry">--</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Cardholder Name</span>
+            <span class="meta-value font-medium" id="vaultMetaHolder">--</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Billing Address</span>
+            <span class="meta-value font-medium" id="vaultBillingAddress">--</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Residential Address</span>
+            <span class="meta-value" id="vaultResidentialAddress">--</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Payment Status</span>
+            <span class="crm-badge badge-green" id="vaultStatus">Paid</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Transaction ID</span>
+            <span class="meta-value font-mono" id="vaultTxnId">TXN-102938</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Total Authorized</span>
+            <span class="meta-value font-medium" id="vaultAmount">$0.00 USD</span>
+          </div>
+        </div>
+      </div>
+      <div class="crm-modal-footer">
+        <button type="button" class="btn btn-secondary" id="btnDismissSecurePayment">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: MANUAL NEW LEAD -->
+  <div class="crm-modal-backdrop" id="newLeadModal">
+    <div class="crm-modal-dialog">
+      <div class="crm-modal-header">
+        <h3 class="crm-modal-title">Create Manual Lead</h3>
+        <button type="button" class="btn-modal-close" id="btnCloseNewLeadModal">&times;</button>
+      </div>
+      <form id="newLeadForm">
+        <div class="crm-modal-body">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="nlFirstName">First Name *</label>
+              <input type="text" id="nlFirstName" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="nlLastName">Last Name *</label>
+              <input type="text" id="nlLastName" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-row-2 mt-3">
+            <div class="form-group">
+              <label class="form-label" for="nlEmail">Email Address *</label>
+              <input type="email" id="nlEmail" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="nlPhone">Phone Number *</label>
+              <input type="tel" id="nlPhone" class="form-input" placeholder="+1 (555) 000-0000" required>
+            </div>
+          </div>
+
+          <div class="form-row-2 mt-3">
+            <div class="form-group">
+              <label class="form-label" for="nlOrigin">Origin Airport *</label>
+              <input type="text" id="nlOrigin" class="form-input" placeholder="e.g. JFK" maxlength="3" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="nlDestination">Destination Airport *</label>
+              <input type="text" id="nlDestination" class="form-input" placeholder="e.g. LAX" maxlength="3" required>
+            </div>
+          </div>
+
+          <div class="form-row-2 mt-3">
+            <div class="form-group">
+              <label class="form-label" for="nlDepartureDate">Departure Date *</label>
+              <input type="date" id="nlDepartureDate" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="nlReturnDate">Return Date (Optional)</label>
+              <input type="date" id="nlReturnDate" class="form-input">
+            </div>
+          </div>
+
+          <div class="form-row-2 mt-3">
+            <div class="form-group">
+              <label class="form-label" for="nlCabin">Cabin Class</label>
+              <select id="nlCabin" class="form-select">
+                <option value="Economy">Economy</option>
+                <option value="Premium Economy">Premium Economy</option>
+                <option value="Business">Business</option>
+                <option value="First">First</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="nlAmount">Estimated Fare (USD)</label>
+              <input type="number" id="nlAmount" class="form-input" placeholder="350.00" step="0.01">
+            </div>
+          </div>
+        </div>
+
+        <div class="crm-modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnCancelNewLeadModal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create Lead</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: CUSTOMER HISTORY -->
+  <div class="crm-modal-backdrop" id="customerModal">
+    <div class="crm-modal-dialog">
+      <div class="crm-modal-header">
+        <h3 class="crm-modal-title" id="custModalTitle">Customer Information</h3>
+        <button type="button" class="btn-modal-close" id="btnCloseCustomerModal">&times;</button>
+      </div>
+      <div class="crm-modal-body" id="customerModalContent">
+        <!-- Rendered dynamically: Customer info, booking history, payment references -->
+      </div>
+      <div class="crm-modal-footer">
+        <button type="button" class="btn btn-secondary" id="btnDismissCustomerModal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="/crm/crm.js"></script>
+</body>
+</html>

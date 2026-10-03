@@ -333,42 +333,56 @@ body {
 /* App Header Row (Greeting & Destination Title) */
 .app-greeting-row {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 20px;
-  gap: 16px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: clamp(16px, 2.8vw, 26px);
+  gap: 8px;
+  width: 100%;
 }
 
 .greeting-text-group {
-  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .greeting-user-tag {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-  color: #475569;
-  display: block;
-  margin-bottom: 4px;
-  letter-spacing: -0.2px;
+  color: #0284c7;
+  display: inline-block;
+  margin-bottom: 6px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
 }
 
 .welcome-title {
   font-family: var(--font-heading);
-  font-size: clamp(24px, 5.5vw, 32px);
+  font-size: clamp(24px, 4.5vw, 42px) !important;
   font-weight: 800;
-  color: #111827 !important;
-  letter-spacing: -0.03em;
+  color: #0f172a !important;
+  letter-spacing: -0.035em;
   line-height: 1.15;
-  margin: 0 0 6px;
-  word-wrap: break-word;
+  margin: 0 0 10px 0;
+  text-wrap: balance;
+  word-break: normal;
+  overflow-wrap: break-word;
+  text-align: center;
 }
 
 .hero-subtitle {
   color: #64748b !important;
-  font-size: 13.5px;
-  line-height: 1.5;
-  margin: 0;
-  word-wrap: break-word;
+  font-size: clamp(13.5px, 1.2vw + 10px, 16px) !important;
+  line-height: 1.55;
+  margin: 0 auto;
+  max-width: 620px;
+  text-wrap: pretty;
+  word-break: normal;
+  overflow-wrap: break-word;
+  text-align: center;
 }
 
 .greeting-actions-right {
@@ -1017,6 +1031,18 @@ body {
   z-index: 2;
 }
 
+.native-hidden-date::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
 .formatted-date-label {
   font-family: inherit;
   font-size: 14.5px;
@@ -1133,19 +1159,21 @@ body {
   }
 
   .welcome-title {
-    font-size: 38px !important;
+    font-size: clamp(36px, 3.2vw, 46px) !important;
     font-weight: 800;
     color: #0f172a !important;
     letter-spacing: -0.035em;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    text-wrap: balance;
   }
 
   .hero-subtitle {
-    font-size: 15.5px !important;
-    max-width: 640px;
+    font-size: 16px !important;
+    max-width: 660px;
     margin: 0 auto;
     color: #64748b;
     line-height: 1.6;
+    text-wrap: pretty;
   }
 
   /* Form Container as Elevated Travel Engine Card */
@@ -3264,8 +3292,27 @@ body {
   .support-text-mobile {
     display: inline !important;
   }
-  .welcome-title { font-size: 24px; }
-  .hero-subtitle { font-size: 14px; }
+  .welcome-title {
+    font-size: clamp(23px, 6.8vw, 27px) !important;
+    line-height: 1.18;
+    margin-bottom: 8px;
+    text-wrap: balance;
+  }
+  .hero-subtitle {
+    font-size: 13.5px !important;
+    line-height: 1.5;
+    text-wrap: pretty;
+  }
+  .app-date-card {
+    padding: 11px 12px;
+  }
+  .app-tile-value {
+    font-size: 13px;
+    gap: 6px;
+  }
+  .formatted-date-label {
+    font-size: 13px;
+  }
   .trip-type-strip { width: 100%; }
   .pill-trip-btn { flex: 1; justify-content: center; padding: 7px 10px; font-size: 12px; }
   .route-input-group { padding: 8px 12px; }
@@ -3735,5 +3782,362 @@ body {
   color: #ffffff;
   box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
 }
+
+/* ==============================================================
+   CUSTOMER SUPPORT DESK & INQUIRY FORM (Website -> CRM Pipeline)
+   ============================================================== */
+.btn-header-support {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.btn-header-support:hover {
+  background: #e2e8f0;
+  color: #0284c7;
+}
+
+.support-desk-section {
+  padding: 60px 20px;
+  background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  margin-top: 40px;
+}
+
+.support-desk-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.support-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.support-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  width: fit-content;
+  border: 1px solid #bae6fd;
+}
+
+.live-dot-pulse {
+  width: 8px;
+  height: 8px;
+  background-color: #0284c7;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7);
+  animation: pulse-dot 1.8s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(2, 132, 199, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(2, 132, 199, 0); }
+}
+
+.support-heading {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.support-desc {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.support-channels-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.support-channel-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+.support-channel-card:hover {
+  transform: translateY(-2px);
+  border-color: #0284c7;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.1);
+}
+
+.channel-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.channel-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.channel-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.5px;
+}
+
+.channel-val {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.channel-sub {
+  font-size: 12px;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.support-trust-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.trust-point-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* Support Form Card */
+.support-form-col {
+  width: 100%;
+}
+
+.support-form-card {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.form-card-header {
+  margin-bottom: 20px;
+}
+
+.form-card-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.form-card-sub {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.support-inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.support-form-row.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.support-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.support-field label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.required-star {
+  color: #ef4444;
+}
+
+.support-field input,
+.support-field select,
+.support-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-family: inherit;
+  color: #0f172a;
+  background: #f8fafc;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.support-field input:focus,
+.support-field select:focus,
+.support-field textarea:focus {
+  outline: none;
+  border-color: #0284c7;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+}
+
+.btn-support-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #0284c7;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  border-radius: 12px;
+  padding: 13px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 6px;
+}
+.btn-support-submit:hover {
+  background: #0369a1;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.25);
+}
+.btn-support-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-privacy-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.support-alert {
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+.support-alert.success {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+.support-alert.error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Floating Support Button */
+.floating-support-pill {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.floating-support-pill:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: #0284c7;
+  box-shadow: 0 12px 30px rgba(2, 132, 199, 0.35);
+}
+
+@media (max-width: 900px) {
+  .support-desk-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .support-heading {
+    font-size: 1.6rem;
+  }
+  .support-form-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .support-form-row.two-cols {
+    grid-template-columns: 1fr;
+  }
+  .floating-support-pill .floating-pill-text {
+    display: none;
+  }
+  .floating-support-pill {
+    padding: 12px;
+    border-radius: 50%;
+    bottom: 18px;
+    right: 18px;
+  }
+}
+
 
 

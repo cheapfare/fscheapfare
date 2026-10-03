@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FScheapfare CRM — Secure Staff Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/crm/crm.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230284c7'><path d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/></svg>">
+</head>
+<body class="crm-auth-body">
+
+  <div class="crm-auth-container">
+    <div class="crm-auth-card">
+      
+      <!-- Brand & Header -->
+      <div class="crm-auth-header" style="text-align: center;">
+        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 14px;">
+          <img src="/assets/images/logo.png" alt="FScheapfare" style="height: 42px; width: auto; object-fit: contain;">
+        </div>
+        <div class="crm-auth-brand-badge" style="margin: 0 auto 12px; display: inline-flex;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+          </svg>
+          <span>Operations & Agent Desk</span>
+        </div>
+        <h1 class="crm-auth-title">Sign in to CRM</h1>
+        <p class="crm-auth-subtitle">Authorized travel agents & operations personnel only.</p>
+      </div>
+
+      <!-- Alert Message -->
+      <div id="loginAlertBox" class="crm-alert crm-alert-error" style="display: none;"></div>
+
+      <!-- Login Form -->
+      <form id="crmLoginForm" autocomplete="on">
+        <div class="crm-form-group">
+          <label for="crmEmail" class="crm-form-label">Work Email Address</label>
+          <div class="crm-input-wrap">
+            <svg class="crm-input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <input 
+              type="email" 
+              id="crmEmail" 
+              class="crm-form-input crm-has-icon" 
+              placeholder="Enter your work email" 
+              value=""
+              autocomplete="username" 
+              required 
+              autofocus
+            >
+          </div>
+        </div>
+
+        <div class="crm-form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label for="crmPassword" class="crm-form-label" style="margin-bottom: 0;">Password</label>
+            <button type="button" id="btnTogglePassword" class="crm-link-action" tabindex="-1">Show</button>
+          </div>
+          <div class="crm-input-wrap">
+            <svg class="crm-input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <input 
+              type="password" 
+              id="crmPassword" 
+              class="crm-form-input crm-has-icon" 
+              placeholder="Enter your password" 
+              value=""
+              autocomplete="current-password"
+              required
+            >
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; margin: 16px 0 22px;">
+          <label class="crm-checkbox-item">
+            <input type="checkbox" id="chkRememberMe" checked>
+            <span>Keep me signed in</span>
+          </label>
+          <span style="font-size: 11.5px; color: var(--crm-text-muted);">Encrypted Session</span>
+        </div>
+
+        <button type="submit" id="btnLoginSubmit" class="crm-btn crm-btn-primary crm-btn-block">
+          <span>Sign In to CRM</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Security Notice -->
+      <div class="crm-auth-footer">
+        <div class="crm-auth-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span>PCI-DSS Tokenized Architecture • 256-Bit TLS</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('crmLoginForm');
+      const emailInput = document.getElementById('crmEmail');
+      const passInput = document.getElementById('crmPassword');
+      const alertBox = document.getElementById('loginAlertBox');
+      const toggleBtn = document.getElementById('btnTogglePassword');
+      const submitBtn = document.getElementById('btnLoginSubmit');
+
+      // Clear any auto-filled value on initial load
+      if (emailInput) emailInput.value = '';
+      if (passInput) passInput.value = '';
+
+      // Toggle password visibility
+      toggleBtn.addEventListener('click', () => {
+        const isPass = passInput.type === 'password';
+        passInput.type = isPass ? 'text' : 'password';
+        toggleBtn.textContent = isPass ? 'Hide' : 'Show';
+      });
+
+      // Submit Login
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        alertBox.style.display = 'none';
+        submitBtn.disabled = true;
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = `<span>Signing in...</span>`;
+
+        try {
+          const res = await fetch('/api/crm/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: emailInput.value.trim(),
+              password: passInput.value
+            })
+          });
+
+          const data = await res.json();
+          if (res.ok && data.success) {
+            localStorage.setItem('fs_crm_token', data.token);
+            localStorage.setItem('fs_crm_user', JSON.stringify(data.user));
+            window.location.href = '/crm/';
+          } else {
+            alertBox.textContent = data.error || 'Authentication failed. Please verify credentials.';
+            alertBox.style.display = 'block';
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+          }
+        } catch (err) {
+          alertBox.textContent = 'Unable to reach authentication server. Please check connection.';
+          alertBox.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
