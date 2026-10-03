@@ -204,7 +204,7 @@ class CRMCoreService {
     return entry;
   }
 
-  // 1. AUTHENTICATION & SESSIONS
+  // 1. AUTHENTICATION & SESSIONS (Stateless Cryptographic Tokens for Vercel/Serverless Support)
   login(email, password) {
     const user = this.users.find(u => u.email.toLowerCase() === email.trim().toLowerCase());
     if (!user) {
@@ -219,18 +219,25 @@ class CRMCoreService {
       return { success: false, error: 'Invalid email address or password.' };
     }
 
-    const token = 'FS_SESSION_' + crypto.randomBytes(24).toString('hex');
-    const sessionData = {
+    // 7-day expiration
+    const expiresAt = Date.now() + 1000 * 60 * 60 * 24 * 7;
+    const sessionPayload = {
       userId: user.id,
       name: user.name,
       email: user.email,
       role: user.role,
       permissions: user.permissions,
       forcePasswordChange: !!user.forcePasswordChange,
-      expiresAt: Date.now() + 1000 * 60 * 60 * 12
+      expiresAt
     };
 
-    activeSessions.set(token, sessionData);
+    // Generate cryptographic HMAC-SHA256 signature so any serverless lambda can verify it statelessly
+    const secret = process.env.CRM_JWT_SECRET || 'fscheapfare_crm_secret_key_2026_super_secure';
+    const payloadB64 = Buffer.from(JSON.stringify(sessionPayload)).toString('base64url');
+    const signature = crypto.createHmac('sha256', secret).update(payloadB64).digest('base64url');
+    const token = `FS_SESS_${payloadB64}.${signature}`;
+
+    activeSessions.set(token, sessionPayload);
     this.logAudit(user, 'User signed in successfully');
 
     return {
@@ -248,20 +255,47 @@ class CRMCoreService {
   }
 
   verifySession(token) {
-    if (!token || !activeSessions.has(token)) return null;
-    const session = activeSessions.get(token);
-    if (Date.now() > session.expiresAt) {
+    if (!token) return null;
+
+    // 1. Check in-memory session first
+    if (activeSessions.has(token)) {
+      const session = activeSessions.get(token);
+      if (Date.now() <= session.expiresAt) return session;
       activeSessions.delete(token);
       return null;
     }
-    return session;
+
+    // 2. Stateless cryptographic verification (works across all Vercel/serverless invocations)
+    if (token.startsWith('FS_SESS_')) {
+      const raw = token.slice(8);
+      const dotIndex = raw.lastIndexOf('.');
+      if (dotIndex !== -1) {
+        const payloadB64 = raw.substring(0, dotIndex);
+        const signature = raw.substring(dotIndex + 1);
+        const secret = process.env.CRM_JWT_SECRET || 'fscheapfare_crm_secret_key_2026_super_secure';
+        const expectedSig = crypto.createHmac('sha256', secret).update(payloadB64).digest('base64url');
+        if (signature === expectedSig) {
+          try {
+            const payload = JSON.parse(Buffer.from(payloadB64, 'base64url').toString('utf8'));
+            if (Date.now() <= payload.expiresAt) {
+              activeSessions.set(token, payload);
+              return payload;
+            }
+          } catch (e) {}
+        }
+      }
+    }
+
+    return null;
   }
 
   logout(token) {
-    if (token && activeSessions.has(token)) {
-      const s = activeSessions.get(token);
-      if (s) this.logAudit(s, 'User logged out');
-      activeSessions.delete(token);
+    if (token) {
+      if (activeSessions.has(token)) {
+        const s = activeSessions.get(token);
+        if (s) this.logAudit(s, 'User logged out');
+        activeSessions.delete(token);
+      }
     }
     return true;
   }

@@ -75,20 +75,31 @@
       return;
     }
 
-    // Verify session
+    // Load cached user session immediately to prevent premature redirect
+    const cachedUser = localStorage.getItem('fs_crm_user');
+    if (cachedUser) {
+      try {
+        currentUser = JSON.parse(cachedUser);
+        updateUserUI();
+      } catch (e) {}
+    }
+
+    // Verify session with server
     const meRes = await apiFetch('/api/crm/auth/me');
-    if (!meRes || !meRes.user) {
+    if (meRes && meRes.user) {
+      currentUser = meRes.user;
+      localStorage.setItem('fs_crm_user', JSON.stringify(currentUser));
+      updateUserUI();
+    } else if (!currentUser) {
       redirectToLogin();
       return;
     }
 
-    currentUser = meRes.user;
-    updateUserUI();
     setupEventListeners();
     setupNavigation();
 
     // Check if user must change password
-    if (currentUser.forcePasswordChange) {
+    if (currentUser && currentUser.forcePasswordChange) {
       showNotice('Please update your temporary password in Settings.');
     }
 
