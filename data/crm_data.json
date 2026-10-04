@@ -1,24 +1,86 @@
 {
-  "leads": [],
+  "leads": [
+    {
+      "id": "FS-LEAD-49291",
+      "customerName": "Sarah Jenkins",
+      "firstName": "Sarah",
+      "lastName": "Jenkins",
+      "email": "sarah.jenkins@example.com",
+      "phone": "+1 202-555-0143",
+      "address": null,
+      "residentialAddress": null,
+      "billingAddress": null,
+      "contact": {
+        "email": "sarah.jenkins@example.com",
+        "phone": "+1 202-555-0143"
+      },
+      "origin": "JFK",
+      "destination": "MIA",
+      "route": "JFK → MIA",
+      "departureDate": "2026-11-20",
+      "returnDate": null,
+      "tripType": "One Way",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Sarah",
+          "lastName": "Jenkins",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "carrier": "Major Airline",
+      "flightNumber": "FL 100",
+      "amount": 289,
+      "currency": "USD",
+      "status": "PASSENGER DETAILS",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "WEB_BOOKING",
+      "createdAt": "2026-10-04T06:57:32.058Z",
+      "updatedAt": "2026-10-04T06:57:32.058Z"
+    }
+  ],
   "bookings": [],
-  "customers": [],
+  "customers": [
+    {
+      "id": "CUST-4099",
+      "name": "Sarah Jenkins",
+      "email": "sarah.jenkins@example.com",
+      "phone": "+1 202-555-0143",
+      "bookingsCount": 0,
+      "lastBooking": "--",
+      "status": "Active",
+      "createdAt": "2026-10-04T06:57:32.059Z"
+    }
+  ],
   "payments": [],
   "auditLogs": [
     {
-      "id": "LOG-23817",
+      "id": "LOG-52059",
+      "user": "System",
+      "action": "Lead captured upon traveler details submit: FS-LEAD-49291 (Sarah Jenkins)",
+      "date": "Oct 04, 2026",
+      "time": "12:27 PM",
+      "timestamp": "2026-10-04T06:57:32.059Z"
+    },
+    {
+      "id": "LOG-33739",
       "user": "Super Admin",
       "action": "User signed in successfully",
       "date": "Oct 04, 2026",
-      "time": "12:23 AM",
-      "timestamp": "2026-10-03T18:53:43.860Z"
+      "time": "12:27 PM",
+      "timestamp": "2026-10-04T06:57:13.750Z"
     },
     {
-      "id": "LOG-0001",
+      "id": "LOG-05656",
       "user": "System",
-      "action": "CRM database reset to clean state (0 leads, 0 bookings, 0 payments). Ready for live operations.",
-      "date": "04 Oct 2026",
-      "time": "00:20",
-      "timestamp": "2026-10-03T18:50:00.000Z"
+      "action": "Lead captured upon traveler details submit: FS-TEST-99999 (TestUser MongoValidation)",
+      "date": "Oct 04, 2026",
+      "time": "12:25 PM",
+      "timestamp": "2026-10-04T06:55:05.705Z"
     }
   ]
 }

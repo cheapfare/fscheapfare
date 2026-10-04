@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
+import { getDb } from './mongo.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -170,6 +171,159 @@ class CRMCoreService {
   constructor() {
     this.users = initUsersDb();
     this.db = initCoreDb();
+    // Warm up and sync from MongoDB Atlas in background
+    this.syncFromMongo().catch(err => console.warn('[CRM Initial Mongo Sync Warning]:', err.message));
+  }
+
+  // --- MONGODB PERSISTENCE & REAL-TIME SYNC ---
+  async syncFromMongo() {
+    try {
+      const db = await getDb();
+      if (!db) return false;
+
+      // 1. Users sync
+      const usersCol = db.collection('crm_users');
+      const mongoUsers = await usersCol.find({}).toArray();
+      if (mongoUsers.length === 0) {
+        // Seed default Super Admin & Agent into MongoDB
+        const seedUsers = this.users.map(({ _id, ...u }) => u);
+        await usersCol.insertMany(seedUsers);
+      } else {
+        // Ensure primary Super Admin account is always present
+        const hasSuperAdmin = mongoUsers.some(u => u.role === 'SUPER ADMIN' || u.email.toLowerCase() === 'fscheapfare@gmail.com');
+        if (!hasSuperAdmin) {
+          const defaultAdmin = this.users.find(u => u.role === 'SUPER ADMIN');
+          if (defaultAdmin) {
+            const clean = { ...defaultAdmin };
+            delete clean._id;
+            await usersCol.insertOne(clean);
+            mongoUsers.push(clean);
+          }
+        }
+        this.users = mongoUsers.map(({ _id, ...u }) => u);
+      }
+
+      // 2. Leads sync
+      const leadsCol = db.collection('crm_leads');
+      const mongoLeads = await leadsCol.find({}).sort({ createdAt: -1 }).toArray();
+      this.db.leads = mongoLeads.map(({ _id, ...l }) => l);
+
+      // 3. Bookings sync
+      const bookingsCol = db.collection('crm_bookings');
+      const mongoBookings = await bookingsCol.find({}).sort({ createdAt: -1 }).toArray();
+      this.db.bookings = mongoBookings.map(({ _id, ...b }) => b);
+
+      // 4. Customers sync
+      const custCol = db.collection('crm_customers');
+      const mongoCust = await custCol.find({}).sort({ createdAt: -1 }).toArray();
+      this.db.customers = mongoCust.map(({ _id, ...c }) => c);
+
+      // 5. Payments sync
+      const payCol = db.collection('crm_payments');
+      const mongoPayments = await payCol.find({}).sort({ date: -1 }).toArray();
+      this.db.payments = mongoPayments.map(({ _id, ...p }) => p);
+
+      // 6. Audit logs sync
+      const auditCol = db.collection('crm_audit');
+      const mongoAudit = await auditCol.find({}).sort({ timestamp: -1 }).limit(300).toArray();
+      if (mongoAudit.length > 0) {
+        this.db.auditLogs = mongoAudit.map(({ _id, ...a }) => a);
+      }
+
+      return true;
+    } catch (err) {
+      console.warn('[CRM Sync From Mongo Warning]:', err.message);
+      return false;
+    }
+  }
+
+  async _persistLead(lead) {
+    if (!lead || !lead.id) return;
+    try {
+      const db = await getDb();
+      if (!db) return;
+      const doc = { ...lead };
+      delete doc._id;
+      await db.collection('crm_leads').updateOne({ id: lead.id }, { $set: doc }, { upsert: true });
+    } catch (err) {
+      console.warn('[CRM Mongo Lead Persist Error]:', err.message);
+    }
+  }
+
+  async _persistBooking(booking) {
+    if (!booking || !booking.id) return;
+    try {
+      const db = await getDb();
+      if (!db) return;
+      const doc = { ...booking };
+      delete doc._id;
+      await db.collection('crm_bookings').updateOne({ id: booking.id }, { $set: doc }, { upsert: true });
+    } catch (err) {
+      console.warn('[CRM Mongo Booking Persist Error]:', err.message);
+    }
+  }
+
+  async _persistCustomer(cust) {
+    if (!cust || !cust.id) return;
+    try {
+      const db = await getDb();
+      if (!db) return;
+      const doc = { ...cust };
+      delete doc._id;
+      await db.collection('crm_customers').updateOne({ id: cust.id }, { $set: doc }, { upsert: true });
+    } catch (err) {
+      console.warn('[CRM Mongo Customer Persist Error]:', err.message);
+    }
+  }
+
+  async _persistPayment(payment) {
+    if (!payment || !payment.transactionId) return;
+    try {
+      const db = await getDb();
+      if (!db) return;
+      const doc = { ...payment };
+      delete doc._id;
+      await db.collection('crm_payments').updateOne({ transactionId: payment.transactionId }, { $set: doc }, { upsert: true });
+    } catch (err) {
+      console.warn('[CRM Mongo Payment Persist Error]:', err.message);
+    }
+  }
+
+  async _persistUser(user) {
+    if (!user || !user.id) return;
+    try {
+      const db = await getDb();
+      if (!db) return;
+      const doc = { ...user };
+      delete doc._id;
+      await db.collection('crm_users').updateOne({ id: user.id }, { $set: doc }, { upsert: true });
+    } catch (err) {
+      console.warn('[CRM Mongo User Persist Error]:', err.message);
+    }
+  }
+
+  async _deleteUserFromMongo(userId) {
+    if (!userId) return;
+    try {
+      const db = await getDb();
+      if (!db) return;
+      await db.collection('crm_users').deleteOne({ id: userId });
+    } catch (err) {
+      console.warn('[CRM Mongo Delete User Error]:', err.message);
+    }
+  }
+
+  async _persistAudit(entry) {
+    if (!entry) return;
+    try {
+      const db = await getDb();
+      if (!db) return;
+      const doc = { ...entry };
+      delete doc._id;
+      await db.collection('crm_audit').insertOne(doc);
+    } catch (err) {
+      console.warn('[CRM Mongo Audit Persist Error]:', err.message);
+    }
   }
 
   saveUsers() {
@@ -201,6 +355,7 @@ class CRMCoreService {
     this.db.auditLogs.unshift(entry);
     if (this.db.auditLogs.length > 500) this.db.auditLogs.pop();
     this.saveDb();
+    this._persistAudit(entry);
     return entry;
   }
 
@@ -309,6 +464,7 @@ class CRMCoreService {
     user.hash = hash;
     user.forcePasswordChange = false;
     this.saveUsers();
+    this._persistUser(user);
 
     this.logAudit(actor || user, `Password changed for user ${user.name} (${user.email})`);
     return { success: true, message: 'Password updated successfully.' };
@@ -356,6 +512,7 @@ class CRMCoreService {
 
     this.users.push(newUser);
     this.saveUsers();
+    this._persistUser(newUser);
     this.logAudit(actor, `Created new employee: ${newUser.name} (${newUser.role})`);
     return { success: true, user: newUser };
   }
@@ -386,6 +543,7 @@ class CRMCoreService {
     }
 
     this.saveUsers();
+    this._persistUser(user);
     this.logAudit(actor, `Updated user profile: ${user.name} (${user.email})`);
     return { success: true, user };
   }
@@ -399,6 +557,7 @@ class CRMCoreService {
 
     this.users = this.users.filter(u => u.id !== userId);
     this.saveUsers();
+    this._deleteUserFromMongo(userId);
     this.logAudit(actor, `Deleted user account: ${user.name} (${user.email})`);
     return { success: true };
   }
@@ -487,9 +646,11 @@ class CRMCoreService {
         status: existing.status === 'BOOKED' ? 'BOOKED' : 'PASSENGER DETAILS',
         updatedAt: new Date().toISOString()
       };
+      this._persistLead(this.db.leads[existingIndex]);
     } else {
       this.db.leads.unshift(leadRecord);
       this.findOrCreateCustomer(leadRecord);
+      this._persistLead(leadRecord);
     }
 
     this.saveDb();
@@ -535,6 +696,7 @@ class CRMCoreService {
     this.db.leads.unshift(leadRecord);
     this.findOrCreateCustomer(leadRecord);
     this.saveDb();
+    this._persistLead(leadRecord);
     this.logAudit('Support Form', `Support inquiry received: ${leadRecord.id} (${customerName}) - ${leadRecord.inquiryType}`);
     return leadRecord;
   }
@@ -547,6 +709,7 @@ class CRMCoreService {
       lead.abandonedAt = new Date().toISOString();
       lead.updatedAt = new Date().toISOString();
       this.saveDb();
+      this._persistLead(lead);
       this.logAudit('System', `Customer abandoned checkout on lead: ${leadId}`);
     }
   }
@@ -626,6 +789,9 @@ class CRMCoreService {
     this.findOrCreateCustomer(lead, true);
 
     this.saveDb();
+    this._persistLead(lead);
+    this._persistBooking(bookingRecord);
+    this._persistPayment(paymentRecord);
     this.logAudit('Payment Gateway', `Booking confirmed & ticket issued: ${bookingId} (PNR: ${bookingRecord.pnr})`);
     return { lead, booking: bookingRecord, payment: paymentRecord };
   }
@@ -656,6 +822,7 @@ class CRMCoreService {
       };
       this.db.customers.unshift(cust);
     }
+    this._persistCustomer(cust);
     return cust;
   }
 
@@ -679,6 +846,7 @@ class CRMCoreService {
     }
 
     this.saveDb();
+    this._persistLead(lead);
     this.logAudit(actor, `Updated status of lead ${leadId} from "${oldStatus}" to "${status}"`);
     return { success: true, lead };
   }
@@ -715,6 +883,7 @@ class CRMCoreService {
     this.db.leads.unshift(newLead);
     this.findOrCreateCustomer(newLead);
     this.saveDb();
+    this._persistLead(newLead);
     this.logAudit(actor, `Created new manual lead: ${newLead.id} for ${newLead.customerName}`);
     return newLead;
   }

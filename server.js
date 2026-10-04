@@ -277,7 +277,7 @@ app.post('/api/flights/revalidate', async (req, res) => {
 });
 
 // Passenger Form Validation & Pending Order Creation
-app.post('/api/booking/create', (req, res) => {
+app.post('/api/booking/create', async (req, res) => {
   const { flight, passengers, contact } = req.body;
 
   if (!flight || !passengers || !Array.isArray(passengers) || passengers.length === 0) {
@@ -380,6 +380,7 @@ app.post('/api/booking/create', (req, res) => {
     });
 
     // Auto-capture lead in CRMCoreService immediately
+    await CRMCoreService.syncFromMongo();
     CRMCoreService.recordPassengerStepLead({
       bookingId,
       pnr,
@@ -416,7 +417,7 @@ app.post('/api/booking/create', (req, res) => {
 });
 
 // Process Tokenized / Hosted Payment
-app.post('/api/booking/process-payment', (req, res) => {
+app.post('/api/booking/process-payment', async (req, res) => {
   const { bookingId, paymentToken, paymentMethod } = req.body;
 
   if (!bookingId || !bookingStore.has(bookingId)) {
@@ -449,6 +450,7 @@ app.post('/api/booking/process-payment', (req, res) => {
     });
 
     // Confirm booking in CRMCoreService
+    await CRMCoreService.syncFromMongo();
     CRMCoreService.confirmBookingAndPayment(bookingId, {
       amount: booking.pricing?.total,
       currency: booking.pricing?.currency || 'USD',
@@ -516,11 +518,12 @@ function checkPermission(permission) {
 }
 
 // 1. Authentication
-app.post('/api/crm/auth/login', (req, res) => {
+app.post('/api/crm/auth/login', async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     return res.status(400).json({ error: 'Email and password are required.' });
   }
+  await CRMCoreService.syncFromMongo();
   const result = CRMCoreService.login(email, password);
   if (!result.success) {
     return res.status(401).json({ error: result.error });
@@ -538,70 +541,81 @@ app.get('/api/crm/auth/me', requireCrmAuth, (req, res) => {
   res.json({ user: req.crmUser });
 });
 
-app.post('/api/crm/auth/change-password', requireCrmAuth, (req, res) => {
+app.post('/api/crm/auth/change-password', requireCrmAuth, async (req, res) => {
   const { newPassword } = req.body;
   if (!newPassword || newPassword.length < 6) {
     return res.status(400).json({ error: 'New password must be at least 6 characters.' });
   }
+  await CRMCoreService.syncFromMongo();
   const result = CRMCoreService.changePassword(req.crmUser.userId, newPassword, req.crmUser);
   res.json(result);
 });
 
 // 2. Users & Access Management (Super Admin & Users with users.manage)
-app.get('/api/crm/users', requireCrmAuth, checkPermission('users.manage'), (req, res) => {
+app.get('/api/crm/users', requireCrmAuth, checkPermission('users.manage'), async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   res.json({ users: CRMCoreService.getUsers() });
 });
 
-app.post('/api/crm/users', requireCrmAuth, checkPermission('users.manage'), (req, res) => {
+app.post('/api/crm/users', requireCrmAuth, checkPermission('users.manage'), async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   const result = CRMCoreService.createUser(req.body, req.crmUser);
   if (!result.success) return res.status(400).json({ error: result.error });
   res.status(201).json(result);
 });
 
-app.patch('/api/crm/users/:id', requireCrmAuth, checkPermission('users.manage'), (req, res) => {
+app.patch('/api/crm/users/:id', requireCrmAuth, checkPermission('users.manage'), async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   const result = CRMCoreService.updateUser(req.params.id, req.body, req.crmUser);
   if (!result.success) return res.status(400).json({ error: result.error });
   res.json(result);
 });
 
-app.delete('/api/crm/users/:id', requireCrmAuth, checkPermission('users.manage'), (req, res) => {
+app.delete('/api/crm/users/:id', requireCrmAuth, checkPermission('users.manage'), async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   const result = CRMCoreService.deleteUser(req.params.id, req.crmUser);
   if (!result.success) return res.status(400).json({ error: result.error });
   res.json(result);
 });
 
 // 3. Simple Dashboard Analytics (5 KPIs, 1 chart, recent leads)
-app.get('/api/crm/analytics', requireCrmAuth, checkPermission('dashboard.view'), (req, res) => {
+app.get('/api/crm/analytics', requireCrmAuth, checkPermission('dashboard.view'), async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   const data = CRMCoreService.getDashboardAnalytics(req.query.period || '30d');
   res.json(data);
 });
 
 // 4. Leads Management
-app.get('/api/crm/leads', requireCrmAuth, checkPermission('leads.view'), (req, res) => {
+app.get('/api/crm/leads', requireCrmAuth, checkPermission('leads.view'), async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   const leads = CRMCoreService.getLeads(req.query);
   res.json({ total: leads.length, leads });
 });
 
-app.get('/api/crm/leads/:id', requireCrmAuth, checkPermission('leads.view'), (req, res) => {
+app.get('/api/crm/leads/:id', requireCrmAuth, checkPermission('leads.view'), async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   const lead = CRMCoreService.getLeadById(req.params.id);
   if (!lead) return res.status(404).json({ error: 'Lead not found.' });
   res.json(lead);
 });
 
-app.patch('/api/crm/leads/:id/status', requireCrmAuth, checkPermission('leads.edit'), (req, res) => {
+app.patch('/api/crm/leads/:id/status', requireCrmAuth, checkPermission('leads.edit'), async (req, res) => {
   const { status } = req.body;
+  await CRMCoreService.syncFromMongo();
   const result = CRMCoreService.updateLeadStatus(req.params.id, status, req.crmUser);
   if (!result.success) return res.status(400).json({ error: result.error });
   res.json(result);
 });
 
-app.post('/api/crm/leads', requireCrmAuth, checkPermission('leads.create'), (req, res) => {
+app.post('/api/crm/leads', requireCrmAuth, checkPermission('leads.create'), async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   const newLead = CRMCoreService.createManualLead(req.body, req.crmUser);
   res.status(201).json({ success: true, lead: newLead });
 });
 
 // 5. PCI-DSS Secure Payment View (Requires card.view permission)
-app.get('/api/crm/leads/:id/secure-payment', requireCrmAuth, checkPermission('card.view'), (req, res) => {
+app.get('/api/crm/leads/:id/secure-payment', requireCrmAuth, checkPermission('card.view'), async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   const lead = CRMCoreService.getLeadById(req.params.id);
   if (!lead) return res.status(404).json({ error: 'Lead not found.' });
   
@@ -634,40 +648,47 @@ app.get('/api/crm/leads/:id/secure-payment', requireCrmAuth, checkPermission('ca
 });
 
 // 6. Bookings
-app.get('/api/crm/bookings', requireCrmAuth, checkPermission('bookings.view'), (req, res) => {
+app.get('/api/crm/bookings', requireCrmAuth, checkPermission('bookings.view'), async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   res.json({ bookings: CRMCoreService.getBookings() });
 });
 
 // 7. Customers
-app.get('/api/crm/customers', requireCrmAuth, checkPermission('customers.view'), (req, res) => {
+app.get('/api/crm/customers', requireCrmAuth, checkPermission('customers.view'), async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   res.json({ customers: CRMCoreService.getCustomers() });
 });
 
-app.get('/api/crm/customers/:id', requireCrmAuth, checkPermission('customers.view'), (req, res) => {
+app.get('/api/crm/customers/:id', requireCrmAuth, checkPermission('customers.view'), async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   const cust = CRMCoreService.getCustomerById(req.params.id);
   if (!cust) return res.status(404).json({ error: 'Customer not found.' });
   res.json(cust);
 });
 
 // 8. Payments Ledger
-app.get('/api/crm/payments', requireCrmAuth, checkPermission('payments.view'), (req, res) => {
+app.get('/api/crm/payments', requireCrmAuth, checkPermission('payments.view'), async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   res.json({ payments: CRMCoreService.getPayments() });
 });
 
 // 9. Simple Audit Logs
-app.get('/api/crm/audit-logs', requireCrmAuth, (req, res) => {
+app.get('/api/crm/audit-logs', requireCrmAuth, async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   res.json({ auditLogs: CRMCoreService.getAuditLogs() });
 });
 
 // 10. Checkout Abandonment Beacon
-app.post('/api/crm/abandoned/:id', (req, res) => {
+app.post('/api/crm/abandoned/:id', async (req, res) => {
+  await CRMCoreService.syncFromMongo();
   CRMCoreService.markAbandoned(req.params.id);
   res.json({ success: true });
 });
 
 // 11. Website -> CRM Direct Ingestion API (Requirement 21)
-app.post('/api/leads', (req, res) => {
+app.post('/api/leads', async (req, res) => {
   try {
+    await CRMCoreService.syncFromMongo();
     const lead = CRMCoreService.recordPassengerStepLead(req.body);
     res.status(201).json({ success: true, leadId: lead.id, lead });
   } catch (err) {
@@ -676,12 +697,13 @@ app.post('/api/leads', (req, res) => {
 });
 
 // 12. Website Customer Support Form -> CRM Ingestion
-app.post('/api/support', (req, res) => {
+app.post('/api/support', async (req, res) => {
   try {
     const { name, email, phone, inquiryType, route, travelDate, message } = req.body;
     if (!name || (!email && !phone)) {
       return res.status(400).json({ error: 'Name and at least Email or Phone are required.' });
     }
+    await CRMCoreService.syncFromMongo();
     const lead = CRMCoreService.recordSupportInquiry(req.body);
     res.status(201).json({
       success: true,
@@ -694,11 +716,12 @@ app.post('/api/support', (req, res) => {
   }
 });
 
-app.post('/api/payments', (req, res) => {
+app.post('/api/payments', async (req, res) => {
   try {
     const { bookingId, leadId, paymentToken, paymentMethod, cardBrand, last4, cardNumber, cvv, expiry, cardholderName, billingAddress } = req.body;
     const targetId = leadId || bookingId;
     if (!targetId) return res.status(400).json({ error: 'leadId or bookingId required' });
+    await CRMCoreService.syncFromMongo();
     const result = CRMCoreService.confirmBookingAndPayment(targetId, {
       cardBrand: cardBrand || 'Card',
       cardNumber: cardNumber || '',
