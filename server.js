@@ -81,6 +81,11 @@ app.get('/flights', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'flights.html'));
 });
 
+// 2b. /flight-reservation: Quick Flight Reservation & Phone Desk
+app.get(['/flight-reservation', '/flight-reservation.html', '/airline-reservation', '/airline-reservation.html', '/reservation-desk', '/reservation-desk.html'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'flight-reservation.html'));
+});
+
 // 3. /result & /flights/results: Live Flight Results
 app.get(['/result', '/result.html', '/results', '/results.html', '/flights/results'], (req, res) => {
   const resultPath = fs.existsSync(path.join(__dirname, 'public', 'result.html'))
