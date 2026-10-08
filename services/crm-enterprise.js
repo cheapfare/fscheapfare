@@ -162,7 +162,7 @@ function getInitialStore() {
         followUpStatus: 'SCHEDULED',
         followUpDue: new Date(now + 4 * 60 * 60 * 1000).toISOString(),
         timeline: [
-          { time: d(75), title: 'Inbound Call on TFN', desc: 'Caller reached agent on +1 (888) 885-5061 requesting Thanksgiving Miami flight', icon: 'phone-incoming' },
+          { time: d(75), title: 'Inbound Call on TFN', desc: 'Caller reached agent on +1 (888) 308-9004 requesting Thanksgiving Miami flight', icon: 'phone-incoming' },
           { time: d(65), title: 'Quotation Provided', desc: 'Offered AA 1420 at $259/pax ($518 total)', icon: 'file-text' },
           { time: d(30), title: 'Follow-up Scheduled', desc: 'Customer comparing schedules with spouse, call back at 4:30 PM', icon: 'clock' }
         ],
