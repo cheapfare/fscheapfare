@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 const DATA_DIR = path.join(__dirname, '..', 'data');
 
 const DEFAULT_WEBHOOK_URL = process.env.GOOGLE_SHEET_WEBHOOK_URL || 
-  'https://script.google.com/macros/s/AKfycbyJpiXicF-sZwtn-BjTBHXyOtKDBKDjJ_TEoULNgWrG1QUvkmoyQFUabSe8TLcpcz2a/exec';
+  'https://script.google.com/macros/s/AKfycbwy2_gXkDwRHqHGSML0xZuWZOcgjP5zF0-8YMRaUFWg8RalRpv3obY1hb4KaLekC4-z/exec';
 
 const CONFIG_FILE = path.join(DATA_DIR, 'google-sheet-config.json');
 
