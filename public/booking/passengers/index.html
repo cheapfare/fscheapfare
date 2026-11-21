@@ -368,9 +368,17 @@
             return;
           }
 
+          // Persist in sessionStorage for payment step
+          try {
+            sessionStorage.setItem('fs_lead_passenger', JSON.stringify(passenger));
+            sessionStorage.setItem('fs_contact', JSON.stringify(contact));
+            sessionStorage.setItem('fs_booking_flight', JSON.stringify(flight));
+            if (data.bookingId) sessionStorage.setItem('fs_active_booking_id', data.bookingId);
+          } catch (e) {}
+
           // Resilient navigation supporting Live Server & Express
-          const nextUrl = data.nextUrl ? data.nextUrl.replace('/booking/payment', '/booking/payment/') : '/booking/payment/';
-          window.location.href = nextUrl;
+          const cleanNextUrl = `/booking/payment/?bookingId=${data.bookingId}`;
+          window.location.href = cleanNextUrl;
         } catch (err) {
           console.error(err);
           errBox.textContent = 'Server connection error. Please verify the Express backend is running on port 3000.';

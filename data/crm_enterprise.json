@@ -1,10 +1,10 @@
 {
   "counters": {
-    "lead": 105,
-    "booking": 54,
-    "transaction": 54,
+    "lead": 106,
+    "booking": 55,
+    "transaction": 55,
     "customer": 0,
-    "audit": 209
+    "audit": 211
   },
   "agents": [
     {
@@ -62,6 +62,101 @@
   ],
   "customers": [],
   "leads": [
+    {
+      "leadId": "FS-LEAD-000106",
+      "customerId": "FS-CUST-000051",
+      "isExistingCustomer": false,
+      "customerName": "Ady orbit",
+      "firstName": "Ady",
+      "lastName": "orbit",
+      "email": "adyorbit.co@gmail.com",
+      "phone": "+1 (456) 789-8765",
+      "billingAddress": {
+        "address": {
+          "street": "Tech Zone IV, Plot No 17, Amrapali Dream Valley,",
+          "city": "Greater Noida",
+          "state": "[Select state]",
+          "zip": "201318",
+          "country": "India"
+        }
+      },
+      "source": "WEB_BOOKING",
+      "status": "BOOKING_CONFIRMED",
+      "paymentStatus": "PAID",
+      "route": "LAX → ATL",
+      "origin": "LAX",
+      "destination": "ATL",
+      "date": "2026-12-15",
+      "returnDate": "2026-12-22",
+      "tripType": "Round Trip",
+      "cabin": "economy",
+      "carrier": "Frontier",
+      "flightNumber": "F9 4316",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "title": "Ms",
+          "firstName": "Ady",
+          "lastName": "orbit",
+          "dob": "2026-12-02",
+          "gender": "Male",
+          "nationality": "ew",
+          "address": {
+            "street": "Tech Zone IV, Plot No 17, Amrapali Dream Valley,",
+            "city": "Greater Noida",
+            "state": "[Select state]",
+            "zip": "201318",
+            "country": "India"
+          }
+        }
+      ],
+      "amount": 279,
+      "currency": "USD",
+      "assignedAgent": "Ravi Sharma",
+      "bookingOrderId": "FS-457869",
+      "pnr": "CF-637078",
+      "abandonedAt": null,
+      "createdAt": "2026-11-21T16:39:53.794Z",
+      "updatedAt": "2026-11-21T16:41:04.652Z",
+      "followUpStatus": "PENDING",
+      "followUpDue": "2026-11-21T17:39:53.794Z",
+      "timeline": [
+        {
+          "time": "2026-11-21T16:41:04.652Z",
+          "title": "Payment Authorized",
+          "desc": "Visa •••• 9876 paid $279 USD",
+          "icon": "credit-card"
+        },
+        {
+          "time": "2026-11-21T16:41:04.652Z",
+          "title": "Booking Confirmed",
+          "desc": "Ticket issued with PNR CF-637078",
+          "icon": "award"
+        },
+        {
+          "time": "2026-11-21T16:39:53.794Z",
+          "title": "Passenger Details Completed",
+          "desc": "Submitted traveler personal details for Ady orbit",
+          "icon": "user-check"
+        },
+        {
+          "time": "2026-11-21T16:39:53.794Z",
+          "title": "Payment Step Opened",
+          "desc": "Checkout modal launched. Awaiting card authorization.",
+          "icon": "credit-card"
+        }
+      ],
+      "notes": [
+        {
+          "id": "N-1795279193794",
+          "text": "Lead auto-captured upon passenger form submission before payment.",
+          "author": "System",
+          "timestamp": "2026-11-21T16:39:53.794Z"
+        }
+      ],
+      "bookingId": "FS-BKG-000055",
+      "transactionId": "FS-TXN-000055"
+    },
     {
       "leadId": "FS-LEAD-000105",
       "customerId": "FS-CUST-000051",
@@ -502,6 +597,28 @@
   ],
   "bookings": [
     {
+      "bookingId": "FS-BKG-000055",
+      "leadId": "FS-LEAD-000106",
+      "pnr": "CF-637078",
+      "carrierPnr": "FR-97766",
+      "customerName": "Ady orbit",
+      "phone": "+1 (456) 789-8765",
+      "email": "adyorbit.co@gmail.com",
+      "route": "LAX → ATL",
+      "airline": "Frontier",
+      "flightNumber": "F9 4316",
+      "depDate": "2026-12-15",
+      "depTime": "08:30 AM",
+      "arrDate": "2026-12-15",
+      "arrTime": "11:45 AM",
+      "cabin": "economy",
+      "passengersCount": 1,
+      "totalFare": 279,
+      "status": "CONFIRMED",
+      "ticketIssued": true,
+      "issuedAt": "2026-11-21T16:41:04.652Z"
+    },
+    {
       "bookingId": "FS-BKG-000054",
       "leadId": "FS-LEAD-000105",
       "pnr": "CF-337115",
@@ -591,6 +708,19 @@
     }
   ],
   "payments": [
+    {
+      "transactionId": "FS-TXN-000055",
+      "bookingId": "FS-BKG-000055",
+      "leadId": "FS-LEAD-000106",
+      "customerName": "Ady orbit",
+      "amount": 279,
+      "currency": "USD",
+      "paymentMethod": "Visa (9876)",
+      "cardBrand": "Visa",
+      "last4": "9876",
+      "status": "PAID",
+      "timestamp": "2026-11-21T16:41:04.652Z"
+    },
     {
       "transactionId": "FS-TXN-000054",
       "bookingId": "FS-BKG-000054",
@@ -5649,6 +5779,22 @@
   "followUps": [],
   "auditLogs": [
     {
+      "id": "AUD-211",
+      "user": "System",
+      "action": "Booking Confirmed",
+      "recordId": "FS-BKG-000055",
+      "details": "Booking confirmed for Ady orbit (CF-637078). Total: $279",
+      "timestamp": "2026-11-21T16:41:04.655Z"
+    },
+    {
+      "id": "AUD-210",
+      "user": "System",
+      "action": "Lead Created",
+      "recordId": "FS-LEAD-000106",
+      "details": "Passenger info submitted for Ady orbit (LAX → ATL)",
+      "timestamp": "2026-11-21T16:39:53.800Z"
+    },
+    {
       "id": "AUD-209",
       "user": "System",
       "action": "Booking Confirmed",
@@ -5898,6 +6044,22 @@
     }
   ],
   "notifications": [
+    {
+      "id": "NOTIF-MWQMX66O",
+      "type": "BOOKING",
+      "title": "Booking Confirmed",
+      "desc": "Ady orbit successfully booked LAX → ATL for $279 USD!",
+      "read": false,
+      "timestamp": "2026-11-21T16:41:04.656Z"
+    },
+    {
+      "id": "NOTIF-MWQMVNII",
+      "type": "PASSENGER_DETAILS",
+      "title": "Passenger Details Completed",
+      "desc": "Ady orbit submitted traveler info for LAX → ATL. Payment pending.",
+      "read": false,
+      "timestamp": "2026-11-21T16:39:53.802Z"
+    },
     {
       "id": "NOTIF-MWQLLSCV",
       "type": "BOOKING",

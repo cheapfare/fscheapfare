@@ -1,6 +1,135 @@
 {
   "leads": [
     {
+      "id": "FS-457869",
+      "customerName": "Ady orbit",
+      "firstName": "Ady",
+      "lastName": "orbit",
+      "email": "adyorbit.co@gmail.com",
+      "phone": "+1 (456) 789-8765",
+      "address": {
+        "street": "Tech Zone IV, Plot No 17, Amrapali Dream Valley,",
+        "city": "Greater Noida",
+        "state": "[Select state]",
+        "zip": "201318",
+        "country": "India"
+      },
+      "residentialAddress": {
+        "street": "Tech Zone IV, Plot No 17, Amrapali Dream Valley,",
+        "city": "Greater Noida",
+        "state": "[Select state]",
+        "zip": "201318",
+        "country": "India"
+      },
+      "billingAddress": {
+        "street": "Tech Zone IV, Plot No 17, Amrapali Dream Valley,",
+        "city": "Greater Noida",
+        "state": "[Select state]",
+        "zip": "201318",
+        "country": "India"
+      },
+      "contact": {
+        "email": "adyorbit.co@gmail.com",
+        "phone": "+1 (456) 789-8765",
+        "address": {
+          "street": "Tech Zone IV, Plot No 17, Amrapali Dream Valley,",
+          "city": "Greater Noida",
+          "state": "[Select state]",
+          "zip": "201318",
+          "country": "India"
+        }
+      },
+      "origin": "LAX",
+      "destination": "ATL",
+      "route": "LAX → ATL",
+      "departureDate": "2026-12-15",
+      "returnDate": "2026-12-22",
+      "tripType": "Round Trip",
+      "cabin": "economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "title": "Ms",
+          "firstName": "Ady",
+          "lastName": "orbit",
+          "dob": "2026-12-02",
+          "gender": "Male",
+          "nationality": "ew",
+          "address": {
+            "street": "Tech Zone IV, Plot No 17, Amrapali Dream Valley,",
+            "city": "Greater Noida",
+            "state": "[Select state]",
+            "zip": "201318",
+            "country": "India"
+          }
+        }
+      ],
+      "carrier": "Frontier",
+      "flightNumber": "F9 4316",
+      "amount": 279,
+      "currency": "USD",
+      "status": "BOOKED",
+      "paymentStatus": "Paid",
+      "payment": {
+        "cardBrand": "Visa",
+        "cardNumber": "4567897656789876",
+        "last4": "9876",
+        "cvv": "333",
+        "expiry": "33 / 33",
+        "cardholderName": "Ravi Sharma",
+        "billingAddress": {
+          "street": "Tech Zone IV, Plot No 17, Amrapali Dream Valley,",
+          "city": "Greater Noida",
+          "state": "[Select state]",
+          "zip": "201318",
+          "country": "India"
+        },
+        "transactionId": "TXN-573428",
+        "status": "Paid",
+        "amount": 279,
+        "currency": "USD"
+      },
+      "source": "WEB_BOOKING",
+      "createdAt": "2026-11-21T16:39:53.804Z",
+      "updatedAt": "2026-11-21T16:41:04.659Z",
+      "bookingId": "FS-BKG-93210"
+    },
+    {
+      "id": "FS-SUP-38443",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (456) 789-8765",
+      "origin": "",
+      "destination": "",
+      "route": "LAX -> ATL",
+      "departureDate": "2026-12-15",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: LAX to ATL on 2026-12-15. Trip: roundTrip, Cabin: Economy",
+      "createdAt": "2026-11-21T16:39:26.569Z",
+      "updatedAt": "2026-11-21T16:39:26.569Z"
+    },
+    {
       "id": "FS-147084",
       "customerName": "Ravi Sharma",
       "firstName": "Ravi",
@@ -950,6 +1079,28 @@
   ],
   "bookings": [
     {
+      "id": "FS-BKG-93210",
+      "leadId": "FS-457869",
+      "customerName": "Ady orbit",
+      "email": "adyorbit.co@gmail.com",
+      "phone": "+1 (456) 789-8765",
+      "origin": "LAX",
+      "destination": "ATL",
+      "route": "LAX → ATL",
+      "carrier": "Frontier",
+      "flightNumber": "F9 4316",
+      "departureDate": "2026-12-15",
+      "returnDate": "2026-12-22",
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "amount": 279,
+      "pnr": "CF-300267",
+      "carrierPnr": "FR-58457",
+      "passengersCount": 1,
+      "cabin": "economy",
+      "createdAt": "2026-11-21T16:41:04.659Z"
+    },
+    {
       "id": "FS-BKG-12538",
       "leadId": "FS-147084",
       "customerName": "Ravi Sharma",
@@ -1039,6 +1190,17 @@
     }
   ],
   "customers": [
+    {
+      "id": "CUST-6390",
+      "name": "Direct Search Traveler",
+      "email": "",
+      "phone": "+1 (456) 789-8765",
+      "bookingsCount": 1,
+      "lastBooking": "2026-12-15",
+      "status": "Active",
+      "createdAt": "2026-11-21T16:39:26.571Z",
+      "updatedAt": "2026-11-21T16:41:04.659Z"
+    },
     {
       "id": "CUST-6277",
       "name": "Ravi Sharma",
@@ -1147,6 +1309,16 @@
   ],
   "payments": [
     {
+      "transactionId": "TXN-573428",
+      "customer": "Ady orbit",
+      "booking": "FS-BKG-93210",
+      "amount": 279,
+      "currency": "USD",
+      "paymentMethod": "Visa •••• 9876",
+      "status": "Paid",
+      "date": "2026-11-21T16:41:04.659Z"
+    },
+    {
       "transactionId": "TXN-430578",
       "customer": "Ravi Sharma",
       "booking": "FS-BKG-12538",
@@ -1188,6 +1360,30 @@
     }
   ],
   "auditLogs": [
+    {
+      "id": "LOG-64659",
+      "user": "Payment Gateway",
+      "action": "Booking confirmed & ticket issued: FS-BKG-93210 (PNR: CF-300267)",
+      "date": "Nov 21, 2026",
+      "time": "10:11 PM",
+      "timestamp": "2026-11-21T16:41:04.660Z"
+    },
+    {
+      "id": "LOG-93805",
+      "user": "System",
+      "action": "Lead captured upon traveler details submit: FS-457869 (Ady orbit)",
+      "date": "Nov 21, 2026",
+      "time": "10:09 PM",
+      "timestamp": "2026-11-21T16:39:53.805Z"
+    },
+    {
+      "id": "LOG-66575",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-38443 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "10:09 PM",
+      "timestamp": "2026-11-21T16:39:26.779Z"
+    },
     {
       "id": "LOG-53904",
       "user": "Payment Gateway",

