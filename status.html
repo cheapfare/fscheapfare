@@ -91,6 +91,17 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
+      // Universal API Endpoint Resolver: Connects to port 3000 if opened on Live Server (port 5501)
+      function getApiEndpoint(endpoint) {
+        if (window.location.port && window.location.port !== '3000') {
+          return `http://localhost:3000${endpoint}`;
+        }
+        if (window.location.protocol === 'file:') {
+          return `http://localhost:3000${endpoint}`;
+        }
+        return endpoint;
+      }
+
       const urlParams = new URLSearchParams(window.location.search);
       const bookingId = urlParams.get('bookingId') || 'FS-789421';
 
@@ -102,7 +113,7 @@
 
       try {
         // Retrieve server-side booking record
-        const res = await fetch(`/api/booking/${bookingId}`);
+        const res = await fetch(getApiEndpoint(`/api/booking/${bookingId}`));
         if (!res.ok) {
           heading.textContent = "We couldn't confirm your booking. Please contact support.";
           failNotice.style.display = 'block';
@@ -132,7 +143,7 @@
 
         // Redirect to Confirmation
         setTimeout(() => {
-          window.location.href = `/booking/confirmation?bookingId=${bookingId}`;
+          window.location.href = `/booking/confirmation/?bookingId=${bookingId}`;
         }, 3200);
 
       } catch (err) {

@@ -137,6 +137,17 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
+      // Universal API Endpoint Resolver: Connects to port 3000 if opened on Live Server (port 5501)
+      function getApiEndpoint(endpoint) {
+        if (window.location.port && window.location.port !== '3000') {
+          return `http://localhost:3000${endpoint}`;
+        }
+        if (window.location.protocol === 'file:') {
+          return `http://localhost:3000${endpoint}`;
+        }
+        return endpoint;
+      }
+
       const urlParams = new URLSearchParams(window.location.search);
       const flightId = urlParams.get('flightId') || '';
       const currency = urlParams.get('currency') || localStorage.getItem('fs_currency') || 'USD';
@@ -168,7 +179,7 @@
           flightData: storedFlight
         };
 
-        const res = await fetch('/api/flights/revalidate', {
+        const res = await fetch(getApiEndpoint('/api/flights/revalidate'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
@@ -246,9 +257,15 @@
           total: flight.price || 140
         };
         const sym = pricing.symbol || '$';
-        const totalFormatted = `$${(pricing.total || 140).toLocaleString()}`;
-        const baseFormatted = `$${(pricing.baseFare || 115).toLocaleString()}`;
-        const taxesFormatted = `$${(pricing.taxes || 25).toLocaleString()}`;
+        const totalNum = pricing.total || flight.price || 140;
+        const discountPct = flight.discountPct || 48;
+        const originalPrice = flight.originalPrice || Math.round(totalNum / (1 - (discountPct / 100)));
+        const savingsAmount = originalPrice - totalNum;
+        const originalFormatted = `${sym}${originalPrice.toLocaleString()}`;
+        const savingsFormatted = `${sym}${savingsAmount.toLocaleString()}`;
+        const totalFormatted = `${sym}${totalNum.toLocaleString()}`;
+        const baseFormatted = `${sym}${(pricing.baseFare || Math.round(totalNum * 0.82)).toLocaleString()}`;
+        const taxesFormatted = `${sym}${(pricing.taxes || Math.round(totalNum * 0.18)).toLocaleString()}`;
 
         const isRound = Boolean(flight.isRoundTrip && flight.inbound);
 
@@ -382,7 +399,15 @@
           <h4 style="font-weight: 800; font-size: 17px; margin-bottom: 12px; color: #0f172a;">Verified Fare Breakdown (USD)</h4>
           <table class="fare-breakdown-table" style="width: 100%; border-collapse: collapse; margin-bottom: 28px;">
             <tr style="border-bottom: 1px solid #f1f5f9; padding: 12px 0;">
-              <td style="padding: 10px 0; color: #475569; font-size: 14px;">Base Airfare (${flight.cabinClass || 'Economy'})</td>
+              <td style="padding: 10px 0; color: #475569; font-size: 14px;">Published Airline Tariff</td>
+              <td style="padding: 10px 0; text-align: right; font-weight: 700; color: #94a3b8; font-size: 14px; text-decoration: line-through;">${originalFormatted}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #f1f5f9; padding: 12px 0;">
+              <td style="padding: 10px 0; color: #16a34a; font-size: 14px; font-weight: 700;">Instant Promotional Savings (${discountPct}% Off)</td>
+              <td style="padding: 10px 0; text-align: right; font-weight: 800; color: #16a34a; font-size: 14px;">-${savingsFormatted}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #f1f5f9; padding: 12px 0;">
+              <td style="padding: 10px 0; color: #475569; font-size: 14px;">Discounted Base Airfare (${flight.cabinClass || 'Economy'})</td>
               <td style="padding: 10px 0; text-align: right; font-weight: 700; color: #0f172a; font-size: 14px;">${baseFormatted}</td>
             </tr>
             <tr style="border-bottom: 1px solid #f1f5f9; padding: 12px 0;">
@@ -397,10 +422,10 @@
 
           <!-- Actions -->
           <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-            <a href="/flights/results" class="btn-book-ticket" style="background: #f1f5f9; color: #334155 !important; text-align: center; flex: 1; min-width: 180px; text-decoration: none; padding: 14px 20px; border-radius: 14px; font-weight: 700; font-size: 14px; border: 1px solid #cbd5e1; box-shadow: none; justify-content: center;">
+            <a href="/flights/results/" class="btn-book-ticket" style="background: #f1f5f9; color: #334155 !important; text-align: center; flex: 1; min-width: 180px; text-decoration: none; padding: 14px 20px; border-radius: 14px; font-weight: 700; font-size: 14px; border: 1px solid #cbd5e1; box-shadow: none; justify-content: center;">
               ← Back to Results
             </a>
-            <a href="/booking/passengers?flightId=${flight.flightId}" class="btn-black-cta" style="flex: 2; min-width: 240px; margin-top: 0; text-align: center; text-decoration: none; padding: 14px 24px; font-size: 15px;">
+            <a href="/booking/passengers/?flightId=${flight.flightId}" class="btn-black-cta" style="flex: 2; min-width: 240px; margin-top: 0; text-align: center; text-decoration: none; padding: 14px 24px; font-size: 15px;">
               <span>Continue to Passenger Details</span>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>

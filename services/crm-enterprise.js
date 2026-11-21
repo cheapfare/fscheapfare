@@ -629,7 +629,7 @@ export class CRMEnterpriseService {
 
     store.searches.unshift(searchEntry);
     if (store.searches.length > 500) store.searches.pop(); // keep last 500
-    this.saveStore(store);
+    // Keep searches in memory - do NOT write to disk on every search query to prevent Live Server infinite reload loops
     return searchEntry;
   }
 

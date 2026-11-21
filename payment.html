@@ -208,6 +208,17 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
+      // Universal API Endpoint Resolver: Connects to port 3000 if opened on Live Server (port 5501)
+      function getApiEndpoint(endpoint) {
+        if (window.location.port && window.location.port !== '3000') {
+          return `http://localhost:3000${endpoint}`;
+        }
+        if (window.location.protocol === 'file:') {
+          return `http://localhost:3000${endpoint}`;
+        }
+        return endpoint;
+      }
+
       const urlParams = new URLSearchParams(window.location.search);
       const bookingId = urlParams.get('bookingId') || 'FS-789421';
       document.getElementById('lblPaymentBookingId').textContent = bookingId;
@@ -237,11 +248,11 @@
       }
 
       try {
-        const res = await fetch(`/api/booking/${bookingId}`);
+        const res = await fetch(getApiEndpoint(`/api/booking/${bookingId}`));
         if (res.ok) {
           const booking = await res.json();
           const sym = booking.pricing?.symbol || (booking.pricing?.currency === 'USD' ? '$' : '€');
-          document.getElementById('lblPaymentTotal').textContent = `${sym}${booking.pricing?.total?.toLocaleString() || '171'}`;
+          document.getElementById('lblPaymentTotal').textContent = `${sym}${booking.pricing?.total?.toLocaleString() || '199'}`;
         }
       } catch (err) {
         console.error(err);
@@ -250,7 +261,9 @@
       let paymentSubmitted = false;
       window.addEventListener('beforeunload', () => {
         if (!paymentSubmitted && bookingId) {
-          navigator.sendBeacon(`/api/crm/enterprise/abandoned/${bookingId}`);
+          try {
+            navigator.sendBeacon(getApiEndpoint(`/api/crm/enterprise/abandoned/${bookingId}`));
+          } catch (e) {}
         }
       });
 
@@ -278,7 +291,7 @@
           else if (/^3[47]/.test(rawNum)) cardBrand = 'American Express';
           else if (/^6(?:011|5)/.test(rawNum)) cardBrand = 'Discover';
 
-          const res = await fetch('/api/booking/process-payment', {
+          const res = await fetch(getApiEndpoint('/api/booking/process-payment'), {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -295,11 +308,11 @@
           });
 
           const data = await res.json();
-          window.location.href = `/booking/status?bookingId=${bookingId}`;
+          window.location.href = `/booking/status/?bookingId=${bookingId}`;
         } catch (err) {
           console.error(err);
           paymentSubmitted = false;
-          alert('Payment authorization failed. Please retry.');
+          alert('Payment authorization failed. Please verify server connection and retry.');
           btn.innerHTML = origContent;
           btn.style.opacity = '1';
         }

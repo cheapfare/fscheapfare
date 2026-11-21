@@ -1,10 +1,10 @@
 {
   "counters": {
-    "lead": 0,
-    "booking": 0,
-    "transaction": 0,
+    "lead": 102,
+    "booking": 52,
+    "transaction": 52,
     "customer": 0,
-    "audit": 0
+    "audit": 204
   },
   "agents": [
     {
@@ -61,12 +61,5308 @@
     }
   ],
   "customers": [],
-  "leads": [],
-  "bookings": [],
-  "payments": [],
-  "searches": [],
+  "leads": [
+    {
+      "leadId": "FS-LEAD-000102",
+      "customerId": "FS-CUST-000051",
+      "isExistingCustomer": false,
+      "customerName": "Marketing Team",
+      "firstName": "Marketing",
+      "lastName": "Team",
+      "email": "marketing@airlineticketllc.com",
+      "phone": "+1 (123) 456-7890",
+      "billingAddress": {
+        "address": {
+          "street": "323",
+          "city": "23232",
+          "state": "3232",
+          "zip": "233",
+          "country": "232"
+        }
+      },
+      "source": "WEB_BOOKING",
+      "status": "BOOKING_CONFIRMED",
+      "paymentStatus": "PAID",
+      "route": "JFK → LAX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-12-24",
+      "returnDate": null,
+      "tripType": "One Way",
+      "cabin": "economy",
+      "carrier": "JetBlue",
+      "flightNumber": "B6 723",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "title": "Ms",
+          "firstName": "Marketing",
+          "lastName": "Team",
+          "dob": "8888-08-08",
+          "gender": "Male",
+          "nationality": "7878",
+          "address": {
+            "street": "323",
+            "city": "23232",
+            "state": "3232",
+            "zip": "233",
+            "country": "232"
+          }
+        }
+      ],
+      "amount": 509,
+      "currency": "USD",
+      "assignedAgent": "Ravi Sharma",
+      "bookingOrderId": "FS-882865",
+      "pnr": "CF-232865",
+      "abandonedAt": null,
+      "createdAt": "2026-11-21T13:26:19.328Z",
+      "updatedAt": "2026-11-21T13:26:28.798Z",
+      "followUpStatus": "PENDING",
+      "followUpDue": "2026-11-21T14:26:19.328Z",
+      "timeline": [
+        {
+          "time": "2026-11-21T13:26:28.798Z",
+          "title": "Payment Authorized",
+          "desc": "Card •••• 3456 paid $509 USD",
+          "icon": "credit-card"
+        },
+        {
+          "time": "2026-11-21T13:26:28.798Z",
+          "title": "Booking Confirmed",
+          "desc": "Ticket issued with PNR CF-232865",
+          "icon": "award"
+        },
+        {
+          "time": "2026-11-21T13:26:19.328Z",
+          "title": "Passenger Details Completed",
+          "desc": "Submitted traveler personal details for Marketing Team",
+          "icon": "user-check"
+        },
+        {
+          "time": "2026-11-21T13:26:19.328Z",
+          "title": "Payment Step Opened",
+          "desc": "Checkout modal launched. Awaiting card authorization.",
+          "icon": "credit-card"
+        }
+      ],
+      "notes": [
+        {
+          "id": "N-1795267579328",
+          "text": "Lead auto-captured upon passenger form submission before payment.",
+          "author": "System",
+          "timestamp": "2026-11-21T13:26:19.328Z"
+        }
+      ],
+      "bookingId": "FS-BKG-000052",
+      "transactionId": "FS-TXN-000052"
+    },
+    {
+      "leadId": "FS-LEAD-000101",
+      "customerId": "FS-CUST-000051",
+      "isExistingCustomer": false,
+      "customerName": "vs sdsv",
+      "firstName": "vs",
+      "lastName": "sdsv",
+      "email": "sv@gmail.com",
+      "phone": "+1 (345) 678-9876",
+      "billingAddress": {
+        "address": {
+          "street": "ds",
+          "city": "sdv",
+          "state": "sv",
+          "zip": "sv",
+          "country": "s"
+        }
+      },
+      "source": "WEB_BOOKING",
+      "status": "BOOKING_CONFIRMED",
+      "paymentStatus": "PAID",
+      "route": "DEL → BOM",
+      "origin": "DEL",
+      "destination": "BOM",
+      "date": "2026-12-25",
+      "returnDate": null,
+      "tripType": "One Way",
+      "cabin": "economy",
+      "carrier": "IndiGo",
+      "flightNumber": "6E 6814",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "title": "Ms",
+          "firstName": "vs",
+          "lastName": "sdsv",
+          "dob": "3333-03-03",
+          "gender": "Male",
+          "nationality": "sd",
+          "address": {
+            "street": "ds",
+            "city": "sdv",
+            "state": "sv",
+            "zip": "sv",
+            "country": "s"
+          }
+        }
+      ],
+      "amount": 76,
+      "currency": "USD",
+      "assignedAgent": "Ravi Sharma",
+      "bookingOrderId": "FS-589023",
+      "pnr": "CF-814490",
+      "abandonedAt": null,
+      "createdAt": "2026-11-21T12:19:55.018Z",
+      "updatedAt": "2026-11-21T12:20:07.727Z",
+      "followUpStatus": "PENDING",
+      "followUpDue": "2026-11-21T13:19:55.018Z",
+      "timeline": [
+        {
+          "time": "2026-11-21T12:20:07.727Z",
+          "title": "Payment Authorized",
+          "desc": "Card •••• 5678 paid $76 USD",
+          "icon": "credit-card"
+        },
+        {
+          "time": "2026-11-21T12:20:07.727Z",
+          "title": "Booking Confirmed",
+          "desc": "Ticket issued with PNR CF-814490",
+          "icon": "award"
+        },
+        {
+          "time": "2026-11-21T12:19:55.018Z",
+          "title": "Passenger Details Completed",
+          "desc": "Submitted traveler personal details for vs sdsv",
+          "icon": "user-check"
+        },
+        {
+          "time": "2026-11-21T12:19:55.018Z",
+          "title": "Payment Step Opened",
+          "desc": "Checkout modal launched. Awaiting card authorization.",
+          "icon": "credit-card"
+        }
+      ],
+      "notes": [
+        {
+          "id": "N-1795263595018",
+          "text": "Lead auto-captured upon passenger form submission before payment.",
+          "author": "System",
+          "timestamp": "2026-11-21T12:19:55.018Z"
+        }
+      ],
+      "bookingId": "FS-BKG-000051",
+      "transactionId": "FS-TXN-000051"
+    }
+  ],
+  "bookings": [
+    {
+      "bookingId": "FS-BKG-000052",
+      "leadId": "FS-LEAD-000102",
+      "pnr": "CF-232865",
+      "carrierPnr": "JE-36301",
+      "customerName": "Marketing Team",
+      "phone": "+1 (123) 456-7890",
+      "email": "marketing@airlineticketllc.com",
+      "route": "JFK → LAX",
+      "airline": "JetBlue",
+      "flightNumber": "B6 723",
+      "depDate": "2026-12-24",
+      "depTime": "08:30 AM",
+      "arrDate": "2026-12-24",
+      "arrTime": "11:45 AM",
+      "cabin": "economy",
+      "passengersCount": 1,
+      "totalFare": 509,
+      "status": "CONFIRMED",
+      "ticketIssued": true,
+      "issuedAt": "2026-11-21T13:26:28.798Z"
+    },
+    {
+      "bookingId": "FS-BKG-000051",
+      "leadId": "FS-LEAD-000101",
+      "pnr": "CF-814490",
+      "carrierPnr": "IN-42245",
+      "customerName": "vs sdsv",
+      "phone": "+1 (345) 678-9876",
+      "email": "sv@gmail.com",
+      "route": "DEL → BOM",
+      "airline": "IndiGo",
+      "flightNumber": "6E 6814",
+      "depDate": "2026-12-25",
+      "depTime": "08:30 AM",
+      "arrDate": "2026-12-25",
+      "arrTime": "11:45 AM",
+      "cabin": "economy",
+      "passengersCount": 1,
+      "totalFare": 76,
+      "status": "CONFIRMED",
+      "ticketIssued": true,
+      "issuedAt": "2026-11-21T12:20:07.727Z"
+    }
+  ],
+  "payments": [
+    {
+      "transactionId": "FS-TXN-000052",
+      "bookingId": "FS-BKG-000052",
+      "leadId": "FS-LEAD-000102",
+      "customerName": "Marketing Team",
+      "amount": 509,
+      "currency": "USD",
+      "paymentMethod": "Card (3456)",
+      "cardBrand": "Card",
+      "last4": "3456",
+      "status": "PAID",
+      "timestamp": "2026-11-21T13:26:28.798Z"
+    },
+    {
+      "transactionId": "FS-TXN-000051",
+      "bookingId": "FS-BKG-000051",
+      "leadId": "FS-LEAD-000101",
+      "customerName": "vs sdsv",
+      "amount": 76,
+      "currency": "USD",
+      "paymentMethod": "Card (5678)",
+      "cardBrand": "Card",
+      "last4": "5678",
+      "status": "PAID",
+      "timestamp": "2026-11-21T12:20:07.727Z"
+    }
+  ],
+  "searches": [
+    {
+      "id": "SRCH-MWQF6BY2",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-12-17",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T13:04:15.098Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQF44KM",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-12-17",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T13:02:32.230Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQEYNBP",
+      "origin": "LHR",
+      "destination": "JFK",
+      "date": "2026-12-23",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:58:16.597Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQEYMEM",
+      "origin": "DEL",
+      "destination": "BOM",
+      "date": "2026-12-23",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:58:15.406Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQEYLCX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-22",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:58:14.049Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQEYL3W",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-20",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:58:13.724Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQEYJKK",
+      "origin": "DEL",
+      "destination": "PAT",
+      "date": "2026-12-23",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:58:11.732Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQEU8AR",
+      "origin": "DEL",
+      "destination": "PAT",
+      "date": "2026-12-23",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:54:50.499Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQED8BS",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-12-17",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:41:37.384Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQEBXD1",
+      "origin": "DEL",
+      "destination": "PAT",
+      "date": "2026-12-23",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:40:36.517Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQEBHXQ",
+      "origin": "DEL",
+      "destination": "PAT",
+      "date": "2027-01-02",
+      "cabin": "Economy",
+      "pax": 2,
+      "timestamp": "2026-11-21T12:40:16.526Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQEBHHP",
+      "origin": "DEL",
+      "destination": "PAT",
+      "date": "2027-01-02",
+      "cabin": "Economy",
+      "pax": 2,
+      "timestamp": "2026-11-21T12:40:15.949Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQEBH91",
+      "origin": "DEL",
+      "destination": "PAT",
+      "date": "2027-01-02",
+      "cabin": "Economy",
+      "pax": 2,
+      "timestamp": "2026-11-21T12:40:15.637Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQE8DH9",
+      "origin": "DEL",
+      "destination": "PAT",
+      "date": "2027-01-02",
+      "cabin": "Economy",
+      "pax": 2,
+      "timestamp": "2026-11-21T12:37:50.781Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQE7VKE",
+      "origin": "DEL",
+      "destination": "PAT",
+      "date": "2027-01-01",
+      "cabin": "Economy",
+      "pax": 2,
+      "timestamp": "2026-11-21T12:37:27.566Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQE6MKJ",
+      "origin": "DEL",
+      "destination": "PAT",
+      "date": "2027-01-06",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:36:29.251Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQE597S",
+      "origin": "DEL",
+      "destination": "PAT",
+      "date": "2027-01-06",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:35:25.288Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQE37I9",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-12-16",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:33:49.761Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQE2XBR",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-12-15",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:33:36.567Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQDS1TX",
+      "origin": "DEN",
+      "destination": "ORD",
+      "date": "2026-12-15",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:25:09.189Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQDRM65",
+      "origin": "PAT",
+      "destination": "ZSJ",
+      "date": "2026-12-15",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:24:48.893Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQDKIX3",
+      "origin": "DEL",
+      "destination": "BOM",
+      "date": "2026-12-25",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:19:18.087Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD4OOJ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:59.059Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD488M",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:37.750Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3PCH",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:13.265Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3NVK",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:11.360Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3MSE",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:09.950Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3MFU",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:09.498Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3M6C",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:09.156Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3LWP",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:08.809Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3LMJ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:08.443Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3LE7",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:08.143Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3L48",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:07.784Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3KV2",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:07.454Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3KML",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:07.149Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3KCJ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:06.787Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3K1R",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:06.399Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3JSP",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:06.073Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3JKN",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:05.784Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3J9V",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:05.395Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3J1S",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:05.104Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3IS7",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:04.759Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3IHZ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:04.391Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3I89",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:04.041Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3I05",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:03.749Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3HRK",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:03.440Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3HHS",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:03.088Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3H90",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:02.772Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3GZR",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:02.439Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3GQW",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:02.120Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3GGU",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:01.758Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3G6O",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:01.392Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3FXJ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:01.063Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3FNN",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:00.707Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3FFZ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:00.431Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3F4D",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:06:00.013Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3EUA",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:59.650Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3EKJ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:59.299Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3EAN",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:58.943Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3E23",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:58.635Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3DS4",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:58.276Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3DIS",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:57.940Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3D9U",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:57.618Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3D15",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:57.305Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3CR9",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:56.949Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3CI7",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:56.623Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3C8A",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:56.266Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3BZR",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:55.959Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3BQS",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:55.636Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3BIY",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:55.354Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3B82",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:54.962Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3AYW",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:54.632Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3AP5",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:54.281Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3AGX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:53.985Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3A70",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:53.628Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD39XD",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:53.281Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD39NY",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:52.942Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD39EG",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:52.600Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD394A",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:52.234Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD38WX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:51.969Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD38ME",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:51.590Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD38DL",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:51.273Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3844",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:50.932Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD37VE",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:50.618Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD37KW",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:50.240Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD37AV",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:49.879Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD371F",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:49.539Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD36R5",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:49.169Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD36KL",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:48.933Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD36BB",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:48.599Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD360G",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:48.208Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD35QD",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:47.845Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD35JT",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:47.609Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3584",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:47.188Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD34Y9",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:46.833Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3431",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:45.709Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD33T0",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:45.348Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD33LB",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:45.071Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD33AE",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:44.678Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD330N",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:44.327Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD32T6",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:44.058Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD32KE",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:43.742Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD3291",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:43.333Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD321G",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:43.060Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD31QC",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:42.661Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD31G1",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:42.289Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD315V",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:41.923Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD30WK",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:41.588Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD30MZ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:41.243Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD30ES",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:40.948Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD305E",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:40.610Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2ZWZ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:40.307Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2ZOK",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:40.004Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2ZFZ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:39.695Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2Z50",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:39.300Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2YV6",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:38.946Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2YLM",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:38.602Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2YBB",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:38.231Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2Y2J",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:37.915Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2XT0",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:37.572Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2XIY",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:37.210Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2X94",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:36.857Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2WZG",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:36.508Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2WRK",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:36.224Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2WFK",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:35.792Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2W7O",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:35.508Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2VXI",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:35.142Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2VNS",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:34.792Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2VD1",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:34.405Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2V3T",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:34.073Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2UV8",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:33.764Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2UNA",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:33.478Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2UC2",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:33.074Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2U1W",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:32.708Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2TSC",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:32.364Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2TJB",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:32.039Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2TAI",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:31.722Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2T0T",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:31.373Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2STH",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:31.109Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2SJF",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:30.747Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2S96",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:30.378Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2RZX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:30.045Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2RPO",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:29.676Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2RCF",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:29.199Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2R28",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:28.832Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2QSW",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:28.496Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2QJU",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:28.170Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2QA5",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:27.821Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2PYW",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:27.416Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2PQG",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:27.112Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2PF3",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:26.703Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2P58",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:26.348Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2OUN",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:25.967Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2OL4",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:25.624Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2OE0",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:25.368Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2O4W",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:25.040Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2NVJ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:24.703Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2NLT",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:24.353Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2NDO",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:24.060Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2N30",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:23.676Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2MST",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:23.309Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2MIF",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:22.935Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2M8U",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:22.590Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2LYV",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:22.231Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2LOQ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:21.866Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2LFU",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:21.546Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2L68",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:21.200Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2KXT",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:20.897Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2KNJ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:20.527Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2KEA",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:20.194Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2K3V",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:19.819Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2JUD",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:19.477Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2JJO",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:19.092Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2JAC",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:18.756Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2J0H",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:18.401Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2IOL",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:17.973Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2IEW",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:17.624Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2I7C",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:17.352Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2HXN",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:17.003Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2HPK",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:16.712Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2HEA",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:16.306Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2FWD",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:14.365Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2FPH",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:14.117Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2FDD",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:13.681Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2F38",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:13.316Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2EUE",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:12.998Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2EKA",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:12.634Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2EAK",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:12.284Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2E0Z",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:11.939Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2DS9",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:11.625Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2DI4",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:11.260Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2DB0",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:11.004Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2CXR",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:10.527Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2CMH",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:10.121Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2CBJ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:09.727Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2C4B",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:09.467Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2BWJ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:09.187Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2BKH",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:08.753Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2BBY",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:08.446Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2B1U",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:08.082Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2ARN",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:07.715Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2AJE",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:07.418Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2A9K",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:07.064Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD29ZX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:06.717Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD29OQ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:06.314Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD29GF",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:06.015Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2966",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:05.646Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD28WY",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:05.314Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD28NW",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:04.988Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD28DZ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:04.631Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD284M",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:04.294Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD27U1",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:03.914Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD27JQ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:03.542Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD279Q",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:03.182Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD26H5",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:02.153Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2677",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:01.795Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD25R5",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:01.217Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD25IF",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:00.903Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD259F",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:00.579Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD24Z5",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:05:00.209Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD24JU",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:59.658Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD24A1",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:59.305Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD241W",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:59.012Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD23Q6",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:58.590Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD23AA",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:58.018Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD2307",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:57.655Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD22PQ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:57.278Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD22I3",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:57.003Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD21R3",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:56.031Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD21CP",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:55.513Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD212S",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:55.156Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD20QV",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:54.727Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD20HH",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:54.389Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD207S",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:54.040Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1ZYI",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:53.706Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1ZO6",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:53.334Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1ZG2",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:53.042Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1Z6W",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:52.712Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1YXG",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:52.372Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1YNZ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:52.031Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1YF8",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:51.716Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1Y5D",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:51.361Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1XSX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:50.913Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1XLC",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:50.640Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1X9E",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:50.210Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1WF0",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:49.117Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1W67",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:48.799Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1VXF",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:48.483Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1VO0",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:48.144Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1VDJ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:47.767Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1V4L",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:47.445Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1UTA",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:47.038Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1UKK",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:46.724Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1UAF",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:46.359Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1U0D",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:45.997Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1TQ3",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:45.627Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1TG3",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:45.267Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1T7S",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:44.968Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1SXP",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:44.605Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1SNH",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:44.237Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1SE6",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:43.902Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1S6N",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:43.631Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1RXW",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:43.316Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1RFF",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:42.651Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1QU8",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:41.888Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1Q29",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:40.881Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1PDZ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:40.007Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1ONW",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:39.068Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1NJM",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:37.618Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1MW9",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:36.777Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1MC2",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:36.050Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1LST",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:35.357Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1L05",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:34.325Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1KFB",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:33.575Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1JV9",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:32.853Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1JDS",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:32.224Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1IPT",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:31.361Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1I2S",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:30.532Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1HE8",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:29.648Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1GOH",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:28.721Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1G64",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:28.060Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1FMQ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:27.362Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1F86",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:26.838Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1F42",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:26.690Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1EXQ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:26.462Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1EX4",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:26.440Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1ESV",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:26.287Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1EOX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:26.145Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1EL7",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:26.011Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1EH7",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:25.867Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1EDE",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:25.730Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1ED5",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:25.722Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1E9C",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:25.584Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1E55",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:25.433Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1E08",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:25.256Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1DWC",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:25.116Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1DQY",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:24.922Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1DKE",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:24.686Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1DK4",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:24.676Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1DFT",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:24.521Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1DB0",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:24.348Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1D5Z",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:24.167Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1CZP",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:23.941Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1CZ8",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:23.924Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1CU7",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:23.743Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1CN6",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:23.490Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1CJA",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:23.350Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1CFA",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:23.206Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1CA6",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:23.022Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1C67",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:22.879Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1BA8",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:21.728Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1B4P",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:21.529Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1B2M",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:21.454Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1AYR",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:21.315Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1AUR",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:21.171Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1AQN",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:21.023Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1ALR",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:20.847Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1AFM",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:20.626Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1A0E",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:20.078Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD19S8",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:19.784Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD19QR",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:19.731Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD19MX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:19.593Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD19IE",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:19.430Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD19EZ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:19.307Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD198Y",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:19.090Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD197W",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:19.052Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1950",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:18.948Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD190X",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:18.801Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD190Q",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:18.794Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD18WJ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:18.643Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD18S8",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:18.488Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD18O6",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:18.342Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD18JX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:18.189Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD18DW",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:17.972Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD18D7",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:17.947Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1880",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:17.760Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD181W",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:17.540Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1813",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:17.511Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD17XR",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:17.391Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD17RQ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:17.174Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD17QF",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:17.127Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD17NQ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:17.030Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD17HT",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:16.817Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD17GQ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:16.778Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD17DT",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:16.673Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD17A1",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:16.537Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD179X",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:16.533Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD174L",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:16.341Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD172G",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:16.264Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD16ZV",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:16.171Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD16UI",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:15.978Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD16SJ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:15.907Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD16PI",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:15.798Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD16JV",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:15.595Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD16IL",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:15.549Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD16EH",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:15.401Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD169E",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:15.218Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD167Q",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:15.158Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1626",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:14.958Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD15ZT",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:14.873Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD15X2",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:14.774Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD15R7",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:14.563Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD15Q6",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:14.526Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD15N0",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:14.412Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD15IA",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:14.242Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD15FI",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:14.142Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1594",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:13.912Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD158Q",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:13.898Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1556",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:13.770Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD14Y8",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:13.520Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD14Y1",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:13.513Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD14R6",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:13.266Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD14IQ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:12.962Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD14HW",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:12.932Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD14A2",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:12.650Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD1408",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:12.296Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD13Y1",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:12.217Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD13RG",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:11.980Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD13R7",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:11.971Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD12O1",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:10.561Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD129F",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:10.035Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD123G",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:09.820Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD11WL",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:09.573Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD11SQ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:09.439Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD11NS",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:09.256Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD11H7",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:09.019Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD11GN",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:08.999Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD11CR",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:08.859Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD117M",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:08.674Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD115Q",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:08.606Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD112I",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:08.490Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD10XI",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:08.310Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD10VU",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:08.250Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD10R8",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:08.084Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD10R5",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:08.081Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD10LS",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:07.888Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD10JE",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:07.802Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD10HM",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:07.738Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD10CK",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:07.556Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD106S",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:07.348Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD105U",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:07.314Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD100W",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:07.136Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0ZW2",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:06.962Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0ZU1",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:06.889Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0ZP0",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:06.708Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0ZK7",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:06.535Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0ZFH",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:06.365Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0ZA3",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:06.171Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0Z60",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:06.024Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0Z5T",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:06.017Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0Z1O",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:05.868Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0YVR",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:05.655Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0YV4",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:05.632Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0YGM",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:05.110Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0YCT",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:04.973Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0YCM",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:04.966Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0Y8U",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:04.830Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0Y5N",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:04.715Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0Y29",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:04.593Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0XVP",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:04.357Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0XV4",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:04.336Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0XRG",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:04.204Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0XKY",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:03.970Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0XKO",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:03.960Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0XGY",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:03.826Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0XC8",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:03.656Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0X9P",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:03.565Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0X6Z",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:03.467Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0X2M",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:03.310Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0WZS",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:03.208Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0WV3",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:03.039Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0WSF",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:02.943Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0WPP",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:02.845Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0WJX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:02.637Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0WJ1",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:02.605Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0WFP",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:02.485Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0W9Q",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:02.270Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0W8X",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:02.241Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0W5N",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:02.123Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0VZ5",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:01.889Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0VYW",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:01.880Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQD0VTC",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:04:01.680Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW3I0",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:18.360Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW3G3",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:18.291Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW3BS",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:18.136Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW37L",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:17.985Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW34M",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:17.878Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW2ZP",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:17.701Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW2VI",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:17.550Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW2OW",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:17.312Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW2O2",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:17.282Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW2KR",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:17.163Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW2GG",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:17.008Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW2CG",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:16.864Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW27B",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:16.679Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW25D",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:16.609Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW209",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:16.425Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW1SH",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:16.145Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW1M9",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:15.921Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW14A",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:15.274Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW0XF",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:15.027Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW0Q0",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:14.760Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW0MI",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:14.634Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW0GE",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:14.414Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW0C8",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:14.264Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW08B",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:14.123Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW01T",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:13.889Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCW00X",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:13.857Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVZRF",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:13.515Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVZEV",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:13.063Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVZ6B",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:12.755Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVXFH",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:10.493Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVX4E",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:10.094Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVX08",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:09.944Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVWVS",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:09.784Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVWR9",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:09.621Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVWN6",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:09.474Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVWHS",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:09.280Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVWFP",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:09.205Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVWDJ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:09.127Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVW9I",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:08.982Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVW5L",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:08.841Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVW1A",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:08.686Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVVXE",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:08.546Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVVTN",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:08.411Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVVNQ",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:08.198Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVVLW",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:08.132Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVVJM",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:08.050Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVVFG",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:07.900Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVVB9",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:07.749Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVV78",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:07.604Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVV36",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:07.458Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVUZ5",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:07.313Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVUTX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:07.125Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVUOA",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:06.922Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVUN4",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:06.880Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVUIE",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:06.710Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVUBP",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:06.469Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVU7T",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:06.329Z",
+      "convertedToLead": false
+    },
+    {
+      "id": "SRCH-MWQCVU19",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-11-28",
+      "cabin": "Economy",
+      "pax": 1,
+      "timestamp": "2026-11-21T12:00:06.093Z",
+      "convertedToLead": false
+    }
+  ],
   "followUps": [],
   "auditLogs": [
+    {
+      "id": "AUD-204",
+      "user": "System",
+      "action": "Booking Confirmed",
+      "recordId": "FS-BKG-000052",
+      "details": "Booking confirmed for Marketing Team (CF-232865). Total: $509",
+      "timestamp": "2026-11-21T13:26:28.802Z"
+    },
+    {
+      "id": "AUD-203",
+      "user": "System",
+      "action": "Lead Created",
+      "recordId": "FS-LEAD-000102",
+      "details": "Passenger info submitted for Marketing Team (JFK → LAX)",
+      "timestamp": "2026-11-21T13:26:19.333Z"
+    },
+    {
+      "id": "AUD-202",
+      "user": "System",
+      "action": "Booking Confirmed",
+      "recordId": "FS-BKG-000051",
+      "details": "Booking confirmed for vs sdsv (CF-814490). Total: $76",
+      "timestamp": "2026-11-21T12:20:07.728Z"
+    },
+    {
+      "id": "AUD-201",
+      "user": "System",
+      "action": "Lead Created",
+      "recordId": "FS-LEAD-000101",
+      "details": "Passenger info submitted for vs sdsv (DEL → BOM)",
+      "timestamp": "2026-11-21T12:19:55.020Z"
+    },
     {
       "id": "AUD-227",
       "user": "System",
@@ -245,6 +5541,38 @@
     }
   ],
   "notifications": [
+    {
+      "id": "NOTIF-MWQFYX1K",
+      "type": "BOOKING",
+      "title": "Booking Confirmed",
+      "desc": "Marketing Team successfully booked JFK → LAX for $509 USD!",
+      "read": false,
+      "timestamp": "2026-11-21T13:26:28.808Z"
+    },
+    {
+      "id": "NOTIF-MWQFYPQK",
+      "type": "PASSENGER_DETAILS",
+      "title": "Passenger Details Completed",
+      "desc": "Marketing Team submitted traveler info for JFK → LAX. Payment pending.",
+      "read": false,
+      "timestamp": "2026-11-21T13:26:19.340Z"
+    },
+    {
+      "id": "NOTIF-MWQDLL82",
+      "type": "BOOKING",
+      "title": "Booking Confirmed",
+      "desc": "vs sdsv successfully booked DEL → BOM for $76 USD!",
+      "read": false,
+      "timestamp": "2026-11-21T12:20:07.730Z"
+    },
+    {
+      "id": "NOTIF-MWQDLBF1",
+      "type": "PASSENGER_DETAILS",
+      "title": "Passenger Details Completed",
+      "desc": "vs sdsv submitted traveler info for DEL → BOM. Payment pending.",
+      "read": false,
+      "timestamp": "2026-11-21T12:19:55.021Z"
+    },
     {
       "id": "NOTIF-MUSQD4HW",
       "type": "BOOKING",

@@ -7,3 +7,4 @@ yarn-debug.log*
 yarn-error.log*
 shot_*.png
 crm_preview_*.png
+data/*.csv

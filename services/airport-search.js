@@ -304,26 +304,22 @@ export class AirportSearchService {
       return this.getPopularAirports(limit, airlineFilter);
     }
 
-    const q = query.trim().toLowerCase();
+    let q = query.trim().toLowerCase();
     if (q.length === 0) {
       return this.getPopularAirports(limit, airlineFilter);
     }
 
-    // Check if user typed an airline name (e.g. "delta", "american", "united", "air india", "emirates")
-    for (const [airlineKey, hubCodes] of Object.entries(AIRLINE_HUBS)) {
-      if (airlineKey === q || (q.length >= 3 && airlineKey.includes(q))) {
-        const hubResults = [];
-        for (const code of hubCodes) {
-          const apt = airportsByIata.get(code);
-          if (apt) {
-            hubResults.push(this.formatAirportRecord(apt));
-          }
-        }
-        if (hubResults.length > 0) {
-          return hubResults.slice(0, limit);
-        }
+    // 1. Extract 3-letter IATA code if query is a full formatted display label like "New York (JFK) — ..." or "(DEL)"
+    const iataParenMatch = query.match(/\(([A-Za-z]{3})\)/);
+    if (iataParenMatch) {
+      const code = iataParenMatch[1].toUpperCase();
+      if (airportsByIata.has(code)) {
+        const found = airportsByIata.get(code);
+        return [this.formatAirportRecord(found)];
       }
     }
+
+    const normAirlineFilter = airlineFilter && airlineFilter !== 'ALL' ? airlineFilter.toLowerCase() : null;
 
     const exactIataMatches = [];
     const prefixIataMatches = [];
@@ -333,7 +329,12 @@ export class AirportSearchService {
     const nameMatches = [];
     const airstripMatches = [];
 
-    const normAirlineFilter = airlineFilter && airlineFilter !== 'ALL' ? airlineFilter.toLowerCase() : null;
+    // 2. Direct exact 3-letter IATA match check (Guaranteed priority #1 for DEL, JFK, BOM, LAX, etc.)
+    const cleanUpper = q.toUpperCase();
+    if (cleanUpper.length === 3 && airportsByIata.has(cleanUpper)) {
+      const exactApt = airportsByIata.get(cleanUpper);
+      exactIataMatches.push(this.formatAirportRecord(exactApt));
+    }
 
     for (const apt of airportsList) {
       const iata = (apt.iata || '').toLowerCase();
@@ -342,6 +343,9 @@ export class AirportSearchService {
       const name = (apt.name || '').toLowerCase();
       const state = (apt.state || '').toLowerCase();
       const isCommercial = apt.iata && apt.iata.trim().length === 3;
+
+      // Skip if already in exact matches
+      if (cleanUpper.length === 3 && iata === q) continue;
 
       // Check airline filter if present
       if (normAirlineFilter) {
@@ -352,13 +356,15 @@ export class AirportSearchService {
 
       const record = this.formatAirportRecord(apt);
 
-      if ((iata && iata === q) || (icao && icao === q)) {
+      if (iata === q || icao === q) {
         exactIataMatches.push(record);
-      } else if (iata && iata.startsWith(q)) {
-        prefixIataMatches.push(record);
+      } else if (isCommercial && (city === q || city.startsWith(q + ' ') || city.startsWith(q))) {
+        commercialCityMatches.push(record);
       } else if (record.isMajor && (city.includes(q) || name.includes(q))) {
         majorCommercialMatches.push(record);
-      } else if (isCommercial && (city === q || city.startsWith(q + ' ') || city.startsWith(q) || city.includes(q))) {
+      } else if (isCommercial && iata.startsWith(q)) {
+        prefixIataMatches.push(record);
+      } else if (isCommercial && city.includes(q)) {
         commercialCityMatches.push(record);
       } else if (isCommercial && (name.includes(q) || state.includes(q))) {
         nameMatches.push(record);
@@ -369,17 +375,35 @@ export class AirportSearchService {
       }
     }
 
-    // Sort prefix matches so major commercial hubs come first
+    // Sort prefix and city matches so major commercial hubs come first
     prefixIataMatches.sort((a, b) => (b.isMajor ? 1 : 0) - (a.isMajor ? 1 : 0));
     majorCommercialMatches.sort((a, b) => (b.isMajor ? 1 : 0) - (a.isMajor ? 1 : 0));
     commercialCityMatches.sort((a, b) => (b.isMajor ? 1 : 0) - (a.isMajor ? 1 : 0));
 
+    // 3. Airline Hub matching ONLY if user explicitly typed a full airline name (e.g. "delta", "emirates", "air india")
+    // and no direct commercial match was found
+    const airlineHubMatches = [];
+    if (exactIataMatches.length === 0 && commercialCityMatches.length === 0) {
+      for (const [airlineKey, hubCodes] of Object.entries(AIRLINE_HUBS)) {
+        if (airlineKey === q || (q.length >= 5 && (airlineKey.includes(q) || q.includes(airlineKey)))) {
+          for (const code of hubCodes) {
+            const apt = airportsByIata.get(code);
+            if (apt) {
+              airlineHubMatches.push(this.formatAirportRecord(apt));
+            }
+          }
+          break;
+        }
+      }
+    }
+
     const combined = [
       ...exactIataMatches,
+      ...commercialCityMatches,
       ...majorCommercialMatches,
       ...prefixIataMatches,
-      ...commercialCityMatches,
       ...nameMatches,
+      ...airlineHubMatches,
       ...otherCityMatches,
       ...airstripMatches
     ];
@@ -447,7 +471,9 @@ export class AirportSearchService {
       displayLabel: formattedLabel,
       airlines: airlines,
       airlinesText: airlines.join(' · '),
-      isMajor: isMajor
+      isMajor: isMajor,
+      lat: found.lat,
+      lon: found.lon
     };
   }
 

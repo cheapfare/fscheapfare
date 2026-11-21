@@ -7,6 +7,7 @@ import cors from 'cors';
 import { verifiedAirlines, currencyExchange, formatUSD } from './data/flights.js';
 import { IgnavService } from './services/ignav.js';
 import { AirportSearchService } from './services/airport-search.js';
+import { GoogleSheetService } from './services/google-sheet.js';
 import { CRMService } from './services/crm-service.js';
 import { CRMEnterpriseService } from './services/crm-enterprise.js';
 import CRMCoreService from './services/crm-core.js';
@@ -87,15 +88,22 @@ app.get(['/flight-reservation', '/flight-reservation.html', '/airline-reservatio
 });
 
 // 3. /result & /flights/results: Live Flight Results
-app.get(['/result', '/result.html', '/results', '/results.html', '/flights/results'], (req, res) => {
+const serveFlightResults = (req, res) => {
   const resultPath = fs.existsSync(path.join(__dirname, 'public', 'result.html'))
     ? path.join(__dirname, 'public', 'result.html')
     : path.join(__dirname, 'public', 'results.html');
   res.sendFile(resultPath);
-});
+};
+
+app.get('/flights/results', serveFlightResults);
+app.get('/flights/results.html', serveFlightResults);
+app.get('/results', serveFlightResults);
+app.get('/results.html', serveFlightResults);
+app.get('/result', serveFlightResults);
+app.get('/result.html', serveFlightResults);
 
 // 4. /book & /flights/review: Flight Review & Booking Funnel
-app.get(['/book', '/book.html', '/booking', '/booking.html', '/flights/review'], (req, res) => {
+app.get(['/book', '/book.html', '/booking', '/booking.html', '/flights/review', '/booking/review', '/booking/review/'], (req, res) => {
   const bookPath = fs.existsSync(path.join(__dirname, 'public', 'book.html'))
     ? path.join(__dirname, 'public', 'book.html')
     : path.join(__dirname, 'public', 'review.html');
@@ -103,22 +111,22 @@ app.get(['/book', '/book.html', '/booking', '/booking.html', '/flights/review'],
 });
 
 // 5. /booking/passengers: Passenger Details
-app.get('/booking/passengers', (req, res) => {
+app.get(['/booking/passengers', '/booking/passengers/', '/passengers', '/passengers.html'], (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'passengers.html'));
 });
 
 // 6. /booking/payment: Secure Payment
-app.get('/booking/payment', (req, res) => {
+app.get(['/booking/payment', '/booking/payment/', '/payment', '/payment.html'], (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'payment.html'));
 });
 
 // 7. /booking/status: Booking Status
-app.get('/booking/status', (req, res) => {
+app.get(['/booking/status', '/booking/status/', '/status', '/status.html'], (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'status.html'));
 });
 
 // 8. /booking/confirmation: Booking Confirmation
-app.get('/booking/confirmation', (req, res) => {
+app.get(['/booking/confirmation', '/booking/confirmation/', '/confirmation', '/confirmation.html'], (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'confirmation.html'));
 });
 
@@ -409,6 +417,33 @@ app.post('/api/booking/create', async (req, res) => {
       currency: flight.pricing?.currency || 'USD',
       passengers
     });
+    // Save to Google Sheet 2 (Lead Traveler Details & Booking)
+    try {
+      const leadPax = passengers && passengers[0] ? passengers[0] : {};
+      GoogleSheetService.saveLeadTravelerToSheet2({
+        bookingId,
+        pnr,
+        title: leadPax.title || '',
+        firstName: leadPax.firstName || '',
+        middleName: leadPax.middleName || '',
+        lastName: leadPax.lastName || '',
+        dob: leadPax.dob || '',
+        gender: leadPax.gender || '',
+        nationality: leadPax.nationality || '',
+        email: contact.email || '',
+        phone: contact.phone || '',
+        street: leadPax.address?.street || contact.address?.street || '',
+        city: leadPax.address?.city || contact.address?.city || '',
+        state: leadPax.address?.state || contact.address?.state || '',
+        zip: leadPax.address?.zip || contact.address?.zip || '',
+        country: leadPax.address?.country || contact.address?.country || '',
+        flight,
+        price: flight.pricing?.total || 0,
+        user_ip: req.ip || req.headers['x-forwarded-for'] || ''
+      });
+    } catch (sheetErr) {
+      console.warn('[GoogleSheet Sheet2 Error]:', sheetErr.message);
+    }
   } catch (crmErr) {
     console.error('[CRM Lead Auto-capture error]:', crmErr);
   }
@@ -417,8 +452,81 @@ app.post('/api/booking/create', async (req, res) => {
     status: 'SUCCESS',
     bookingId,
     pnr,
-    nextUrl: `/booking/payment?bookingId=${bookingId}`
+    nextUrl: `/booking/payment/?bookingId=${bookingId}`
   });
+});
+
+/* ==============================================================
+   GOOGLE SHEETS SYNC ENDPOINTS (Sheet1: Search, Sheet2: Lead)
+   ============================================================== */
+
+// Endpoint for 1st Form (homeSearchForm) -> Sheet1
+app.post('/api/sheet/save-search', async (req, res) => {
+  try {
+    const data = req.body || {};
+    data.user_ip = req.ip || req.headers['x-forwarded-for'] || '';
+    const result = await GoogleSheetService.saveSearchToSheet1(data);
+    res.json({
+      status: 'success',
+      sheet: 'Sheet1',
+      message: 'Flight search data successfully recorded in Sheet1',
+      result
+    });
+  } catch (err) {
+    console.error('[GoogleSheet] Error in /api/sheet/save-search:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Endpoint for 2nd Form (Lead Traveler Details) -> Sheet2
+app.post('/api/sheet/save-lead-traveler', async (req, res) => {
+  try {
+    const data = req.body || {};
+    data.user_ip = req.ip || req.headers['x-forwarded-for'] || '';
+    const result = await GoogleSheetService.saveLeadTravelerToSheet2(data);
+    res.json({
+      status: 'success',
+      sheet: 'Sheet2',
+      message: 'Lead Traveler details successfully recorded in Sheet2',
+      result
+    });
+  } catch (err) {
+    console.error('[GoogleSheet] Error in /api/sheet/save-lead-traveler:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Status check endpoint
+app.get('/api/sheet/status', (req, res) => {
+  res.json({
+    status: 'ACTIVE',
+    webhookConfigured: Boolean(GoogleSheetService.getWebhookUrl()),
+    webhookUrl: GoogleSheetService.getWebhookUrl(),
+    sheet1: 'Sheet1 (Flight Searches from homeSearchForm)',
+    sheet2: 'Sheet2 (Lead Traveler Details from passengerDetailsForm)',
+    backups: {
+      sheet1_csv: path.join(__dirname, 'data', 'sheet1_searches.csv'),
+      sheet2_csv: path.join(__dirname, 'data', 'sheet2_lead_travelers.csv')
+    }
+  });
+});
+
+// Dynamic webhook config endpoint
+app.post('/api/sheet/configure', (req, res) => {
+  try {
+    const { webhookUrl } = req.body || {};
+    if (!webhookUrl || !webhookUrl.startsWith('http')) {
+      return res.status(400).json({ error: 'Valid webhookUrl starting with http/https is required' });
+    }
+    GoogleSheetService.setWebhookUrl(webhookUrl);
+    res.json({
+      status: 'success',
+      message: 'Google Sheets webhook updated successfully',
+      webhookUrl: GoogleSheetService.getWebhookUrl()
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // Process Tokenized / Hosted Payment

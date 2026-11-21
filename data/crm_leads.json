@@ -1,1 +1,68 @@
-[]
+[
+  {
+    "leadId": "LD-702083",
+    "pnr": "CF-232865",
+    "customerName": "Marketing Team",
+    "phone": "+1 (123) 456-7890",
+    "email": "marketing@airlineticketllc.com",
+    "source": "WEB_BOOKING",
+    "status": "PAYMENT_PENDING",
+    "route": "JFK → LAX",
+    "origin": "JFK",
+    "originCity": "New York",
+    "destination": "LAX",
+    "destCity": "Los Angeles",
+    "date": "2026-12-24",
+    "returnDate": null,
+    "carrier": "JetBlue",
+    "flightNumber": "B6 723",
+    "cabin": "economy",
+    "passengersCount": 1,
+    "amount": 509,
+    "currency": "USD",
+    "paymentStatus": "PENDING",
+    "assignedAgent": "Ravi Sharma",
+    "billingAddress": "[object Object],  ",
+    "createdAt": "2026-11-21T13:26:19.319Z",
+    "notes": [
+      {
+        "text": "Customer submitted passenger information for 1 traveler(s) on JetBlue B6 723. Awaiting payment.",
+        "author": "Ravi Sharma",
+        "timestamp": "2026-11-21T13:26:19.319Z"
+      }
+    ]
+  },
+  {
+    "leadId": "LD-824237",
+    "pnr": "CF-814490",
+    "customerName": "vs sdsv",
+    "phone": "+1 (345) 678-9876",
+    "email": "sv@gmail.com",
+    "source": "WEB_BOOKING",
+    "status": "PAYMENT_PENDING",
+    "route": "DEL → BOM",
+    "origin": "DEL",
+    "originCity": "New Delhi",
+    "destination": "BOM",
+    "destCity": "Mumbai",
+    "date": "2026-12-25",
+    "returnDate": null,
+    "carrier": "IndiGo",
+    "flightNumber": "6E 6814",
+    "cabin": "economy",
+    "passengersCount": 1,
+    "amount": 76,
+    "currency": "USD",
+    "paymentStatus": "PENDING",
+    "assignedAgent": "Ravi Sharma",
+    "billingAddress": "[object Object],  ",
+    "createdAt": "2026-11-21T12:19:55.010Z",
+    "notes": [
+      {
+        "text": "Customer submitted passenger information for 1 traveler(s) on IndiGo 6E 6814. Awaiting payment.",
+        "author": "Ravi Sharma",
+        "timestamp": "2026-11-21T12:19:55.010Z"
+      }
+    ]
+  }
+]

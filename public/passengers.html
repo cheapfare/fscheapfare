@@ -256,6 +256,22 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Universal API Endpoint Resolver: Connects to port 3000 if opened on Live Server (port 5501)
+      function getApiEndpoint(endpoint) {
+        if (window.location.port && window.location.port !== '3000') {
+          return `http://localhost:3000${endpoint}`;
+        }
+        if (window.location.protocol === 'file:') {
+          return `http://localhost:3000${endpoint}`;
+        }
+        return endpoint;
+      }
+
+      const storedPhone = localStorage.getItem('fs_customer_phone');
+      const phoneInput = document.getElementById('contactPhone');
+      if (storedPhone && phoneInput && !phoneInput.value) {
+        phoneInput.value = storedPhone;
+      }
       const form = document.getElementById('passengerDetailsForm');
       const errBox = document.getElementById('formErrorMsg');
 
@@ -265,15 +281,15 @@
 
         const storedFlight = sessionStorage.getItem('fs_active_flight');
         const flight = storedFlight ? JSON.parse(storedFlight) : {
-          airlineName: 'Eurostar Express',
-          carrierCode: 'ES',
-          flightNumber: 'ES-9014',
-          origin: 'STP',
-          destination: 'XPG',
-          depTime: '06:01',
-          arrTime: '09:20',
-          duration: '2h 19m',
-          pricing: { currency: 'EUR', total: 171 }
+          airlineName: 'Delta Air Lines',
+          carrierCode: 'DL',
+          flightNumber: 'DL-482',
+          origin: 'JFK',
+          destination: 'LAX',
+          depTime: '07:00 AM',
+          arrTime: '10:15 AM',
+          duration: '6h 15m',
+          pricing: { currency: 'USD', total: 199 }
         };
 
         const passenger = {
@@ -306,8 +322,34 @@
         `;
         btn.style.opacity = '0.75';
 
+        // Direct Backup Dispatch to Sheet2 (Lead Traveler Details)
         try {
-          const res = await fetch('/api/booking/create', {
+          fetch(getApiEndpoint('/api/sheet/save-lead-traveler'), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              title: passenger.title,
+              firstName: passenger.firstName,
+              lastName: passenger.lastName,
+              dob: passenger.dob,
+              gender: passenger.gender,
+              nationality: passenger.nationality,
+              email: contact.email,
+              phone: contact.phone,
+              street: passenger.address.street,
+              city: passenger.address.city,
+              state: passenger.address.state,
+              zip: passenger.address.zip,
+              country: passenger.address.country,
+              flight: flight,
+              price: flight?.pricing?.total || 0
+            }),
+            keepalive: true
+          }).catch(() => {});
+        } catch (e) {}
+
+        try {
+          const res = await fetch(getApiEndpoint('/api/booking/create'), {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -326,10 +368,12 @@
             return;
           }
 
-          window.location.href = data.nextUrl;
+          // Resilient navigation supporting Live Server & Express
+          const nextUrl = data.nextUrl ? data.nextUrl.replace('/booking/payment', '/booking/payment/') : '/booking/payment/';
+          window.location.href = nextUrl;
         } catch (err) {
           console.error(err);
-          errBox.textContent = 'Server connection error. Please retry.';
+          errBox.textContent = 'Server connection error. Please verify the Express backend is running on port 3000.';
           errBox.style.display = 'block';
           btn.innerHTML = originalContent;
           btn.style.opacity = '1';

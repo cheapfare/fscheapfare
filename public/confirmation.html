@@ -216,22 +216,33 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
+      // Universal API Endpoint Resolver: Connects to port 3000 if opened on Live Server (port 5501)
+      function getApiEndpoint(endpoint) {
+        if (window.location.port && window.location.port !== '3000') {
+          return `http://localhost:3000${endpoint}`;
+        }
+        if (window.location.protocol === 'file:') {
+          return `http://localhost:3000${endpoint}`;
+        }
+        return endpoint;
+      }
+
       const urlParams = new URLSearchParams(window.location.search);
       const bookingId = urlParams.get('bookingId');
 
       if (!bookingId) {
-        window.location.href = '/flights';
+        window.location.href = '/';
         return;
       }
 
       try {
-        const res = await fetch(`/api/booking/${bookingId}`);
+        const res = await fetch(getApiEndpoint(`/api/booking/${bookingId}`));
         if (!res.ok) {
           document.body.innerHTML = `
             <div style="text-align:center; padding:80px 20px; font-family:sans-serif;">
               <h2>Booking Record Not Found</h2>
               <p style="color:#64748b;">The requested booking reference could not be verified.</p>
-              <a href="/flights" style="display:inline-block; margin-top:16px; background:#111; color:#fff; padding:10px 20px; border-radius:20px; text-decoration:none;">Search Flights</a>
+              <a href="/" style="display:inline-block; margin-top:16px; background:#111; color:#fff; padding:10px 20px; border-radius:20px; text-decoration:none;">Search Flights</a>
             </div>
           `;
           return;

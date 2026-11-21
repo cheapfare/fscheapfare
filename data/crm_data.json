@@ -1,6 +1,824 @@
 {
   "leads": [
     {
+      "id": "FS-SUP-34066",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (123) 456-7890",
+      "origin": "",
+      "destination": "",
+      "route": "DEL -> PAT",
+      "departureDate": "2026-12-15",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: DEL to PAT on 2026-12-15. Trip: oneWay, Cabin: Economy",
+      "createdAt": "2026-11-21T15:25:00.189Z",
+      "updatedAt": "2026-11-21T15:25:00.189Z"
+    },
+    {
+      "id": "FS-SUP-95460",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (123) 456-7890",
+      "origin": "",
+      "destination": "",
+      "route": "LAX -> ATL",
+      "departureDate": "2026-12-15",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: LAX to ATL on 2026-12-15. Trip: roundTrip, Cabin: Economy",
+      "createdAt": "2026-11-21T13:28:38.395Z",
+      "updatedAt": "2026-11-21T13:28:38.395Z"
+    },
+    {
+      "id": "FS-882865",
+      "customerName": "Marketing Team",
+      "firstName": "Marketing",
+      "lastName": "Team",
+      "email": "marketing@airlineticketllc.com",
+      "phone": "+1 (123) 456-7890",
+      "address": {
+        "street": "323",
+        "city": "23232",
+        "state": "3232",
+        "zip": "233",
+        "country": "232"
+      },
+      "residentialAddress": {
+        "street": "323",
+        "city": "23232",
+        "state": "3232",
+        "zip": "233",
+        "country": "232"
+      },
+      "billingAddress": {
+        "street": "323",
+        "city": "23232",
+        "state": "3232",
+        "zip": "233",
+        "country": "232"
+      },
+      "contact": {
+        "email": "marketing@airlineticketllc.com",
+        "phone": "+1 (123) 456-7890",
+        "address": {
+          "street": "323",
+          "city": "23232",
+          "state": "3232",
+          "zip": "233",
+          "country": "232"
+        }
+      },
+      "origin": "JFK",
+      "destination": "LAX",
+      "route": "JFK → LAX",
+      "departureDate": "2026-12-24",
+      "returnDate": null,
+      "tripType": "One Way",
+      "cabin": "economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "title": "Ms",
+          "firstName": "Marketing",
+          "lastName": "Team",
+          "dob": "8888-08-08",
+          "gender": "Male",
+          "nationality": "7878",
+          "address": {
+            "street": "323",
+            "city": "23232",
+            "state": "3232",
+            "zip": "233",
+            "country": "232"
+          }
+        }
+      ],
+      "carrier": "JetBlue",
+      "flightNumber": "B6 723",
+      "amount": 509,
+      "currency": "USD",
+      "status": "BOOKED",
+      "paymentStatus": "Paid",
+      "payment": {
+        "cardBrand": "Card",
+        "cardNumber": "1234567654323456",
+        "last4": "3456",
+        "cvv": "666",
+        "expiry": "44 / 55",
+        "cardholderName": "6687",
+        "billingAddress": {
+          "street": "323",
+          "city": "23232",
+          "state": "3232",
+          "zip": "233",
+          "country": "232"
+        },
+        "transactionId": "TXN-566309",
+        "status": "Paid",
+        "amount": 509,
+        "currency": "USD"
+      },
+      "source": "WEB_BOOKING",
+      "createdAt": "2026-11-21T13:26:19.345Z",
+      "updatedAt": "2026-11-21T13:26:28.809Z",
+      "bookingId": "FS-BKG-39501"
+    },
+    {
+      "id": "FS-SUP-14521",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (123) 456-7890",
+      "origin": "",
+      "destination": "",
+      "route": "JFK -> LAX",
+      "departureDate": "2026-12-24",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: JFK to LAX on 2026-12-24. Trip: oneWay, Cabin: Economy",
+      "createdAt": "2026-11-21T13:25:36.545Z",
+      "updatedAt": "2026-11-21T13:25:36.545Z"
+    },
+    {
+      "id": "FS-SUP-44892",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (123) 456-7890",
+      "origin": "",
+      "destination": "",
+      "route": "DEL -> BOM",
+      "departureDate": "2026-12-30",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: DEL to BOM on 2026-12-30. Trip: oneWay, Cabin: Business",
+      "createdAt": "2026-11-21T13:25:09.803Z",
+      "updatedAt": "2026-11-21T13:25:09.803Z"
+    },
+    {
+      "id": "FS-SUP-44821",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (123) 456-7890",
+      "origin": "",
+      "destination": "",
+      "route": "DEL -> PAT",
+      "departureDate": "2026-12-17",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: DEL to PAT on 2026-12-17. Trip: oneWay, Cabin: Economy",
+      "createdAt": "2026-11-21T13:12:15.422Z",
+      "updatedAt": "2026-11-21T13:12:15.422Z"
+    },
+    {
+      "id": "FS-SUP-66346",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (633) 456-7835",
+      "origin": "",
+      "destination": "",
+      "route": "DEL -> PAT",
+      "departureDate": "2026-12-22",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: DEL to PAT on 2026-12-22. Trip: oneWay, Cabin: Economy",
+      "createdAt": "2026-11-21T13:07:47.530Z",
+      "updatedAt": "2026-11-21T13:07:47.530Z"
+    },
+    {
+      "id": "FS-SUP-25499",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (123) 456-7890",
+      "origin": "",
+      "destination": "",
+      "route": "JFK -> LAX",
+      "departureDate": "2026-12-15",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: JFK to LAX on 2026-12-15. Trip: roundTrip, Cabin: Economy",
+      "createdAt": "2026-11-21T13:04:39.279Z",
+      "updatedAt": "2026-11-21T13:04:39.279Z"
+    },
+    {
+      "id": "FS-SUP-20054",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (234) 567-8987",
+      "origin": "",
+      "destination": "",
+      "route": "JFK -> LAX",
+      "departureDate": "2026-12-17",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: JFK to LAX on 2026-12-17. Trip: oneWay, Cabin: Economy",
+      "createdAt": "2026-11-21T12:41:27.364Z",
+      "updatedAt": "2026-11-21T12:41:27.364Z"
+    },
+    {
+      "id": "FS-SUP-33791",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (345) 678-7654",
+      "origin": "",
+      "destination": "",
+      "route": "DEL -> PAT",
+      "departureDate": "2026-12-23",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: DEL to PAT on 2026-12-23. Trip: oneWay, Cabin: Economy",
+      "createdAt": "2026-11-21T12:40:26.481Z",
+      "updatedAt": "2026-11-21T12:40:26.481Z"
+    },
+    {
+      "id": "FS-SUP-30304",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (345) 678-5434",
+      "origin": "",
+      "destination": "",
+      "route": "DEL -> PAT",
+      "departureDate": "2027-01-01",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: DEL to PAT on 2027-01-01. Trip: oneWay, Cabin: Economy",
+      "createdAt": "2026-11-21T12:37:17.506Z",
+      "updatedAt": "2026-11-21T12:37:17.506Z"
+    },
+    {
+      "id": "FS-SUP-99851",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (123) 456-7897",
+      "origin": "",
+      "destination": "",
+      "route": "DEL -> PAT",
+      "departureDate": "2027-01-06",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: DEL to PAT on 2027-01-06. Trip: oneWay, Cabin: Economy",
+      "createdAt": "2026-11-21T12:35:15.056Z",
+      "updatedAt": "2026-11-21T12:35:15.056Z"
+    },
+    {
+      "id": "FS-SUP-94165",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (456) 783-7656",
+      "origin": "",
+      "destination": "",
+      "route": "JFK -> LAX",
+      "departureDate": "2026-12-15",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: JFK to LAX on 2026-12-15. Trip: roundTrip, Cabin: Economy",
+      "createdAt": "2026-11-21T12:33:26.504Z",
+      "updatedAt": "2026-11-21T12:33:26.504Z"
+    },
+    {
+      "id": "FS-SUP-25813",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (456) 783-7656",
+      "origin": "",
+      "destination": "",
+      "route": "DEN -> ORD",
+      "departureDate": "2026-12-15",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: DEN to ORD on 2026-12-15. Trip: roundTrip, Cabin: Economy",
+      "createdAt": "2026-11-21T12:24:59.351Z",
+      "updatedAt": "2026-11-21T12:24:59.351Z"
+    },
+    {
+      "id": "FS-SUP-99879",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (456) 783-7656",
+      "origin": "",
+      "destination": "",
+      "route": "PAT -> ZSJ",
+      "departureDate": "2026-12-15",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: PAT to ZSJ on 2026-12-15. Trip: oneWay, Cabin: Economy",
+      "createdAt": "2026-11-21T12:24:37.316Z",
+      "updatedAt": "2026-11-21T12:24:37.316Z"
+    },
+    {
+      "id": "FS-589023",
+      "customerName": "vs sdsv",
+      "firstName": "vs",
+      "lastName": "sdsv",
+      "email": "sv@gmail.com",
+      "phone": "+1 (345) 678-9876",
+      "address": {
+        "street": "ds",
+        "city": "sdv",
+        "state": "sv",
+        "zip": "sv",
+        "country": "s"
+      },
+      "residentialAddress": {
+        "street": "ds",
+        "city": "sdv",
+        "state": "sv",
+        "zip": "sv",
+        "country": "s"
+      },
+      "billingAddress": {
+        "street": "ds",
+        "city": "sdv",
+        "state": "sv",
+        "zip": "sv",
+        "country": "s"
+      },
+      "contact": {
+        "email": "sv@gmail.com",
+        "phone": "+1 (345) 678-9876",
+        "address": {
+          "street": "ds",
+          "city": "sdv",
+          "state": "sv",
+          "zip": "sv",
+          "country": "s"
+        }
+      },
+      "origin": "DEL",
+      "destination": "BOM",
+      "route": "DEL → BOM",
+      "departureDate": "2026-12-25",
+      "returnDate": null,
+      "tripType": "One Way",
+      "cabin": "economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "title": "Ms",
+          "firstName": "vs",
+          "lastName": "sdsv",
+          "dob": "3333-03-03",
+          "gender": "Male",
+          "nationality": "sd",
+          "address": {
+            "street": "ds",
+            "city": "sdv",
+            "state": "sv",
+            "zip": "sv",
+            "country": "s"
+          }
+        }
+      ],
+      "carrier": "IndiGo",
+      "flightNumber": "6E 6814",
+      "amount": 76,
+      "currency": "USD",
+      "status": "BOOKED",
+      "paymentStatus": "Paid",
+      "payment": {
+        "cardBrand": "Card",
+        "cardNumber": "2345678654345678",
+        "last4": "5678",
+        "cvv": "222",
+        "expiry": "22 / 22",
+        "cardholderName": "r",
+        "billingAddress": {
+          "street": "ds",
+          "city": "sdv",
+          "state": "sv",
+          "zip": "sv",
+          "country": "s"
+        },
+        "transactionId": "TXN-529203",
+        "status": "Paid",
+        "amount": 76,
+        "currency": "USD"
+      },
+      "source": "WEB_BOOKING",
+      "createdAt": "2026-11-21T12:19:55.022Z",
+      "updatedAt": "2026-11-21T12:20:07.731Z",
+      "bookingId": "FS-BKG-70085"
+    },
+    {
+      "id": "FS-SUP-75949",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (345) 678-9876",
+      "origin": "",
+      "destination": "",
+      "route": "DEL -> BOM",
+      "departureDate": "2026-12-25",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: DEL to BOM on 2026-12-25. Trip: oneWay, Cabin: Economy",
+      "createdAt": "2026-11-21T12:19:15.519Z",
+      "updatedAt": "2026-11-21T12:19:15.519Z"
+    },
+    {
+      "id": "FS-SUP-15002",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (123) 456-7897",
+      "origin": "",
+      "destination": "",
+      "route": "DEL -> BOM",
+      "departureDate": "2026-12-17",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: DEL to BOM on 2026-12-17. Trip: roundTrip, Cabin: Economy",
+      "createdAt": "2026-11-21T12:06:59.029Z",
+      "updatedAt": "2026-11-21T12:06:59.029Z"
+    },
+    {
+      "id": "FS-SUP-93537",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (123) 456-7897",
+      "origin": "",
+      "destination": "",
+      "route": "DEL -> BOM",
+      "departureDate": "2027-01-22",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: DEL to BOM on 2027-01-22. Trip: oneWay, Cabin: Economy",
+      "createdAt": "2026-11-21T12:06:37.697Z",
+      "updatedAt": "2026-11-21T12:06:37.697Z"
+    },
+    {
+      "id": "FS-SUP-59829",
+      "customerName": "Direct Search Traveler",
+      "firstName": "Direct Search Traveler",
+      "lastName": "",
+      "email": "",
+      "phone": "+1 (123) 456-7897",
+      "origin": "",
+      "destination": "",
+      "route": "LAX -> ORD",
+      "departureDate": "2026-12-19",
+      "returnDate": null,
+      "tripType": "Support Inquiry",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "index": 1,
+          "firstName": "Direct Search Traveler",
+          "lastName": "",
+          "dob": "",
+          "gender": "Adult"
+        }
+      ],
+      "amount": 0,
+      "currency": "USD",
+      "status": "NEW",
+      "paymentStatus": "Pending",
+      "payment": null,
+      "source": "CUSTOMER_SUPPORT",
+      "inquiryType": "Flight Search Intent",
+      "message": "User searched flights: LAX to ORD on 2026-12-19. Trip: oneWay, Cabin: Economy",
+      "createdAt": "2026-11-21T11:56:45.051Z",
+      "updatedAt": "2026-11-21T11:56:45.051Z"
+    },
+    {
       "id": "FS-LEAD-49291",
       "customerName": "Sarah Jenkins",
       "firstName": "Sarah",
@@ -43,8 +861,137 @@
       "updatedAt": "2026-10-04T06:57:32.058Z"
     }
   ],
-  "bookings": [],
+  "bookings": [
+    {
+      "id": "FS-BKG-39501",
+      "leadId": "FS-882865",
+      "customerName": "Marketing Team",
+      "email": "marketing@airlineticketllc.com",
+      "phone": "+1 (123) 456-7890",
+      "origin": "JFK",
+      "destination": "LAX",
+      "route": "JFK → LAX",
+      "carrier": "JetBlue",
+      "flightNumber": "B6 723",
+      "departureDate": "2026-12-24",
+      "returnDate": null,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "amount": 509,
+      "pnr": "CF-852919",
+      "carrierPnr": "JE-41186",
+      "passengersCount": 1,
+      "cabin": "economy",
+      "createdAt": "2026-11-21T13:26:28.809Z"
+    },
+    {
+      "id": "FS-BKG-70085",
+      "leadId": "FS-589023",
+      "customerName": "vs sdsv",
+      "email": "sv@gmail.com",
+      "phone": "+1 (345) 678-9876",
+      "origin": "DEL",
+      "destination": "BOM",
+      "route": "DEL → BOM",
+      "carrier": "IndiGo",
+      "flightNumber": "6E 6814",
+      "departureDate": "2026-12-25",
+      "returnDate": null,
+      "status": "Confirmed",
+      "paymentStatus": "Paid",
+      "amount": 76,
+      "pnr": "CF-474970",
+      "carrierPnr": "IN-48930",
+      "passengersCount": 1,
+      "cabin": "economy",
+      "createdAt": "2026-11-21T12:20:07.731Z"
+    }
+  ],
   "customers": [
+    {
+      "id": "CUST-9075",
+      "name": "Direct Search Traveler",
+      "email": "",
+      "phone": "+1 (633) 456-7835",
+      "bookingsCount": 0,
+      "lastBooking": "--",
+      "status": "Active",
+      "createdAt": "2026-11-21T13:07:47.530Z"
+    },
+    {
+      "id": "CUST-8853",
+      "name": "Direct Search Traveler",
+      "email": "",
+      "phone": "+1 (123) 456-7890",
+      "bookingsCount": 1,
+      "lastBooking": "2026-12-24",
+      "status": "Active",
+      "createdAt": "2026-11-21T13:04:39.279Z",
+      "updatedAt": "2026-11-21T15:25:00.189Z"
+    },
+    {
+      "id": "CUST-3529",
+      "name": "Direct Search Traveler",
+      "email": "",
+      "phone": "+1 (234) 567-8987",
+      "bookingsCount": 0,
+      "lastBooking": "--",
+      "status": "Active",
+      "createdAt": "2026-11-21T12:41:27.364Z"
+    },
+    {
+      "id": "CUST-6498",
+      "name": "Direct Search Traveler",
+      "email": "",
+      "phone": "+1 (345) 678-7654",
+      "bookingsCount": 0,
+      "lastBooking": "--",
+      "status": "Active",
+      "createdAt": "2026-11-21T12:40:26.481Z"
+    },
+    {
+      "id": "CUST-4039",
+      "name": "Direct Search Traveler",
+      "email": "",
+      "phone": "+1 (345) 678-5434",
+      "bookingsCount": 0,
+      "lastBooking": "--",
+      "status": "Active",
+      "createdAt": "2026-11-21T12:37:17.506Z"
+    },
+    {
+      "id": "CUST-8799",
+      "name": "Direct Search Traveler",
+      "email": "",
+      "phone": "+1 (456) 783-7656",
+      "bookingsCount": 0,
+      "lastBooking": "--",
+      "status": "Active",
+      "createdAt": "2026-11-21T12:24:37.316Z",
+      "updatedAt": "2026-11-21T12:33:26.504Z"
+    },
+    {
+      "id": "CUST-9599",
+      "name": "Direct Search Traveler",
+      "email": "",
+      "phone": "+1 (345) 678-9876",
+      "bookingsCount": 1,
+      "lastBooking": "2026-12-25",
+      "status": "Active",
+      "createdAt": "2026-11-21T12:19:15.520Z",
+      "updatedAt": "2026-11-21T12:20:07.731Z"
+    },
+    {
+      "id": "CUST-8695",
+      "name": "Direct Search Traveler",
+      "email": "",
+      "phone": "+1 (123) 456-7897",
+      "bookingsCount": 0,
+      "lastBooking": "--",
+      "status": "Active",
+      "createdAt": "2026-11-21T11:56:45.051Z",
+      "updatedAt": "2026-11-21T12:35:15.056Z"
+    },
     {
       "id": "CUST-4099",
       "name": "Sarah Jenkins",
@@ -56,8 +1003,205 @@
       "createdAt": "2026-10-04T06:57:32.059Z"
     }
   ],
-  "payments": [],
+  "payments": [
+    {
+      "transactionId": "TXN-566309",
+      "customer": "Marketing Team",
+      "booking": "FS-BKG-39501",
+      "amount": 509,
+      "currency": "USD",
+      "paymentMethod": "Card •••• 3456",
+      "status": "Paid",
+      "date": "2026-11-21T13:26:28.809Z"
+    },
+    {
+      "transactionId": "TXN-529203",
+      "customer": "vs sdsv",
+      "booking": "FS-BKG-70085",
+      "amount": 76,
+      "currency": "USD",
+      "paymentMethod": "Card •••• 5678",
+      "status": "Paid",
+      "date": "2026-11-21T12:20:07.731Z"
+    }
+  ],
   "auditLogs": [
+    {
+      "id": "LOG-00191",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-34066 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "08:55 PM",
+      "timestamp": "2026-11-21T15:25:00.235Z"
+    },
+    {
+      "id": "LOG-18396",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-95460 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "06:58 PM",
+      "timestamp": "2026-11-21T13:28:38.397Z"
+    },
+    {
+      "id": "LOG-88810",
+      "user": "Payment Gateway",
+      "action": "Booking confirmed & ticket issued: FS-BKG-39501 (PNR: CF-852919)",
+      "date": "Nov 21, 2026",
+      "time": "06:56 PM",
+      "timestamp": "2026-11-21T13:26:28.810Z"
+    },
+    {
+      "id": "LOG-79346",
+      "user": "System",
+      "action": "Lead captured upon traveler details submit: FS-882865 (Marketing Team)",
+      "date": "Nov 21, 2026",
+      "time": "06:56 PM",
+      "timestamp": "2026-11-21T13:26:19.347Z"
+    },
+    {
+      "id": "LOG-36546",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-14521 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "06:55 PM",
+      "timestamp": "2026-11-21T13:25:36.547Z"
+    },
+    {
+      "id": "LOG-09808",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-44892 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "06:55 PM",
+      "timestamp": "2026-11-21T13:25:09.809Z"
+    },
+    {
+      "id": "LOG-35423",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-44821 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "06:42 PM",
+      "timestamp": "2026-11-21T13:12:15.426Z"
+    },
+    {
+      "id": "LOG-67531",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-66346 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "06:37 PM",
+      "timestamp": "2026-11-21T13:07:47.532Z"
+    },
+    {
+      "id": "LOG-79280",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-25499 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "06:34 PM",
+      "timestamp": "2026-11-21T13:04:39.281Z"
+    },
+    {
+      "id": "LOG-87366",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-20054 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "06:11 PM",
+      "timestamp": "2026-11-21T12:41:27.366Z"
+    },
+    {
+      "id": "LOG-26482",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-33791 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "06:10 PM",
+      "timestamp": "2026-11-21T12:40:26.483Z"
+    },
+    {
+      "id": "LOG-37507",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-30304 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "06:07 PM",
+      "timestamp": "2026-11-21T12:37:17.507Z"
+    },
+    {
+      "id": "LOG-15058",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-99851 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "06:05 PM",
+      "timestamp": "2026-11-21T12:35:15.060Z"
+    },
+    {
+      "id": "LOG-06507",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-94165 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "06:03 PM",
+      "timestamp": "2026-11-21T12:33:26.510Z"
+    },
+    {
+      "id": "LOG-99351",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-25813 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "05:54 PM",
+      "timestamp": "2026-11-21T12:24:59.353Z"
+    },
+    {
+      "id": "LOG-77316",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-99879 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "05:54 PM",
+      "timestamp": "2026-11-21T12:24:37.317Z"
+    },
+    {
+      "id": "LOG-07732",
+      "user": "Payment Gateway",
+      "action": "Booking confirmed & ticket issued: FS-BKG-70085 (PNR: CF-474970)",
+      "date": "Nov 21, 2026",
+      "time": "05:50 PM",
+      "timestamp": "2026-11-21T12:20:07.732Z"
+    },
+    {
+      "id": "LOG-95022",
+      "user": "System",
+      "action": "Lead captured upon traveler details submit: FS-589023 (vs sdsv)",
+      "date": "Nov 21, 2026",
+      "time": "05:49 PM",
+      "timestamp": "2026-11-21T12:19:55.023Z"
+    },
+    {
+      "id": "LOG-55525",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-75949 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "05:49 PM",
+      "timestamp": "2026-11-21T12:19:15.592Z"
+    },
+    {
+      "id": "LOG-19030",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-15002 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "05:36 PM",
+      "timestamp": "2026-11-21T12:06:59.031Z"
+    },
+    {
+      "id": "LOG-97701",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-93537 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "05:36 PM",
+      "timestamp": "2026-11-21T12:06:37.716Z"
+    },
+    {
+      "id": "LOG-05052",
+      "user": "Support Form",
+      "action": "Support inquiry received: FS-SUP-59829 (Direct Search Traveler) - Flight Search Intent",
+      "date": "Nov 21, 2026",
+      "time": "05:26 PM",
+      "timestamp": "2026-11-21T11:56:45.054Z"
+    },
     {
       "id": "LOG-52059",
       "user": "System",

@@ -74,10 +74,10 @@
     <!-- Page Header -->
     <section class="hero-welcome-bar" style="margin-bottom: 20px; text-align: left;">
       <h2 class="welcome-title" style="font-size: 28px; font-weight: 800; color: #0f172a; margin-bottom: 6px;">
-        Find Your Next Flight
+        Limited-Time Special Offer
       </h2>
       <p style="color: #64748b; font-size: 15px;">
-        Compare live flight options, review real-time airline schedules, and discover low-cost fares for your journey.
+        One click away from your exclusive deal. Unlock your offer instantly today.
       </p>
     </section>
 
@@ -225,9 +225,305 @@
         <input type="hidden" name="infants" id="inputInfants" value="0">
         <input type="hidden" name="cabin" id="inputCabinClass" value="Economy">
         <input type="hidden" name="currency" value="USD">
+        <input type="hidden" name="phoneCountry" id="inputPhoneCountry" value="+1">
+        <input type="hidden" name="customerFullPhone" id="inputCustomerFullPhone" value="">
+
+        <!-- 3b. Customer Mobile / Phone Block (Desktop: Side of Passenger | Mobile: Below Passenger) -->
+        <div class="app-phone-card" id="homePhoneCard">
+          <div class="phone-card-left">
+            <div class="phone-card-header">
+              <span class="app-tile-label">Customer Mobile</span>
+            </div>
+            <div class="phone-inputs-flex">
+              <!-- Country selector with flag & dial code -->
+              <div class="phone-country-select-box" id="phoneCountrySelectBox" title="Select Country Code">
+                <span class="phone-country-flag" id="currentFlagDisplay">🇺🇸</span>
+                <span class="phone-country-dial" id="currentDialDisplay">+1</span>
+                <svg class="phone-country-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+                <select id="countrySelect" class="phone-country-native-select" aria-label="Country Dial Code">
+<optgroup label="★ Popular Countries">
+<option value="+1" data-flag="🇺🇸" data-code="US" selected>🇺🇸 United States (+1)</option>
+<option value="+1" data-flag="🇨🇦" data-code="CA">🇨🇦 Canada (+1)</option>
+<option value="+44" data-flag="🇬🇧" data-code="GB">🇬🇧 United Kingdom (+44)</option>
+<option value="+91" data-flag="🇮🇳" data-code="IN">🇮🇳 India (+91)</option>
+<option value="+61" data-flag="🇦🇺" data-code="AU">🇦🇺 Australia (+61)</option>
+<option value="+971" data-flag="🇦🇪" data-code="AE">🇦🇪 United Arab Emirates (+971)</option>
+<option value="+49" data-flag="🇩🇪" data-code="DE">🇩🇪 Germany (+49)</option>
+<option value="+33" data-flag="🇫🇷" data-code="FR">🇫🇷 France (+33)</option>
+<option value="+65" data-flag="🇸🇬" data-code="SG">🇸🇬 Singapore (+65)</option>
+<option value="+966" data-flag="🇸🇦" data-code="SA">🇸🇦 Saudi Arabia (+966)</option>
+<option value="+974" data-flag="🇶🇦" data-code="QA">🇶🇦 Qatar (+974)</option>
+<option value="+52" data-flag="🇲🇽" data-code="MX">🇲🇽 Mexico (+52)</option>
+<option value="+55" data-flag="🇧🇷" data-code="BR">🇧🇷 Brazil (+55)</option>
+<option value="+63" data-flag="🇵🇭" data-code="PH">🇵🇭 Philippines (+63)</option>
+<option value="+92" data-flag="🇵🇰" data-code="PK">🇵🇰 Pakistan (+92)</option>
+<option value="+880" data-flag="🇧🇩" data-code="BD">🇧🇩 Bangladesh (+880)</option>
+<option value="+234" data-flag="🇳🇬" data-code="NG">🇳🇬 Nigeria (+234)</option>
+<option value="+27" data-flag="🇿🇦" data-code="ZA">🇿🇦 South Africa (+27)</option>
+<option value="+81" data-flag="🇯🇵" data-code="JP">🇯🇵 Japan (+81)</option>
+<option value="+82" data-flag="🇰🇷" data-code="KR">🇰🇷 South Korea (+82)</option>
+<option value="+86" data-flag="🇨🇳" data-code="CN">🇨🇳 China (+86)</option>
+<option value="+39" data-flag="🇮🇹" data-code="IT">🇮🇹 Italy (+39)</option>
+<option value="+34" data-flag="🇪🇸" data-code="ES">🇪🇸 Spain (+34)</option>
+<option value="+31" data-flag="🇳🇱" data-code="NL">🇳🇱 Netherlands (+31)</option>
+<option value="+41" data-flag="🇨🇭" data-code="CH">🇨🇭 Switzerland (+41)</option>
+<option value="+46" data-flag="🇸🇪" data-code="SE">🇸🇪 Sweden (+46)</option>
+<option value="+47" data-flag="🇳🇴" data-code="NO">🇳🇴 Norway (+47)</option>
+<option value="+45" data-flag="🇩🇰" data-code="DK">🇩🇰 Denmark (+45)</option>
+<option value="+353" data-flag="🇮🇪" data-code="IE">🇮🇪 Ireland (+353)</option>
+<option value="+64" data-flag="🇳🇿" data-code="NZ">🇳🇿 New Zealand (+64)</option>
+<option value="+60" data-flag="🇲🇾" data-code="MY">🇲🇾 Malaysia (+60)</option>
+<option value="+66" data-flag="🇹🇭" data-code="TH">🇹🇭 Thailand (+66)</option>
+<option value="+90" data-flag="🇹🇷" data-code="TR">🇹🇷 Turkey (+90)</option>
+<option value="+20" data-flag="🇪🇬" data-code="EG">🇪🇬 Egypt (+20)</option>
+<option value="+972" data-flag="🇮🇱" data-code="IL">🇮🇱 Israel (+972)</option>
+</optgroup>
+<optgroup label="All Countries (A-Z)">
+<option value="+93" data-flag="🇦🇫" data-code="AF">🇦🇫 Afghanistan (+93)</option>
+<option value="+355" data-flag="🇦🇱" data-code="AL">🇦🇱 Albania (+355)</option>
+<option value="+213" data-flag="🇩🇿" data-code="DZ">🇩🇿 Algeria (+213)</option>
+<option value="+1684" data-flag="🇦🇸" data-code="AS">🇦🇸 American Samoa (+1684)</option>
+<option value="+376" data-flag="🇦🇩" data-code="AD">🇦🇩 Andorra (+376)</option>
+<option value="+244" data-flag="🇦🇴" data-code="AO">🇦🇴 Angola (+244)</option>
+<option value="+1264" data-flag="🇦🇮" data-code="AI">🇦🇮 Anguilla (+1264)</option>
+<option value="+1268" data-flag="🇦🇬" data-code="AG">🇦🇬 Antigua & Barbuda (+1268)</option>
+<option value="+54" data-flag="🇦🇷" data-code="AR">🇦🇷 Argentina (+54)</option>
+<option value="+374" data-flag="🇦🇲" data-code="AM">🇦🇲 Armenia (+374)</option>
+<option value="+297" data-flag="🇦🇼" data-code="AW">🇦🇼 Aruba (+297)</option>
+<option value="+61" data-flag="🇦🇺" data-code="AU">🇦🇺 Australia (+61)</option>
+<option value="+43" data-flag="🇦🇹" data-code="AT">🇦🇹 Austria (+43)</option>
+<option value="+994" data-flag="🇦🇿" data-code="AZ">🇦🇿 Azerbaijan (+994)</option>
+<option value="+1242" data-flag="🇧🇸" data-code="BS">🇧🇸 Bahamas (+1242)</option>
+<option value="+973" data-flag="🇧🇭" data-code="BH">🇧🇭 Bahrain (+973)</option>
+<option value="+880" data-flag="🇧🇩" data-code="BD">🇧🇩 Bangladesh (+880)</option>
+<option value="+1246" data-flag="🇧🇧" data-code="BB">🇧🇧 Barbados (+1246)</option>
+<option value="+375" data-flag="🇧🇾" data-code="BY">🇧🇾 Belarus (+375)</option>
+<option value="+32" data-flag="🇧🇪" data-code="BE">🇧🇪 Belgium (+32)</option>
+<option value="+501" data-flag="🇧🇿" data-code="BZ">🇧🇿 Belize (+501)</option>
+<option value="+229" data-flag="🇧🇯" data-code="BJ">🇧🇯 Benin (+229)</option>
+<option value="+1441" data-flag="🇧🇲" data-code="BM">🇧🇲 Bermuda (+1441)</option>
+<option value="+975" data-flag="🇧🇹" data-code="BT">🇧🇹 Bhutan (+975)</option>
+<option value="+591" data-flag="🇧🇴" data-code="BO">🇧🇴 Bolivia (+591)</option>
+<option value="+387" data-flag="🇧🇦" data-code="BA">🇧🇦 Bosnia & Herzegovina (+387)</option>
+<option value="+267" data-flag="🇧🇼" data-code="BW">🇧🇼 Botswana (+267)</option>
+<option value="+55" data-flag="🇧🇷" data-code="BR">🇧🇷 Brazil (+55)</option>
+<option value="+1284" data-flag="🇻🇬" data-code="VG">🇻🇬 British Virgin Islands (+1284)</option>
+<option value="+673" data-flag="🇧🇳" data-code="BN">🇧🇳 Brunei (+673)</option>
+<option value="+359" data-flag="🇧🇬" data-code="BG">🇧🇬 Bulgaria (+359)</option>
+<option value="+226" data-flag="🇧🇫" data-code="BF">🇧🇫 Burkina Faso (+226)</option>
+<option value="+257" data-flag="🇧🇮" data-code="BI">🇧🇮 Burundi (+257)</option>
+<option value="+855" data-flag="🇰🇭" data-code="KH">🇰🇭 Cambodia (+855)</option>
+<option value="+237" data-flag="🇨🇲" data-code="CM">🇨🇲 Cameroon (+237)</option>
+<option value="+1" data-flag="🇨🇦" data-code="CA">🇨🇦 Canada (+1)</option>
+<option value="+238" data-flag="🇨🇻" data-code="CV">🇨🇻 Cape Verde (+238)</option>
+<option value="+1345" data-flag="🇰🇾" data-code="KY">🇰🇾 Cayman Islands (+1345)</option>
+<option value="+236" data-flag="🇨🇫" data-code="CF">🇨🇫 Central African Republic (+236)</option>
+<option value="+235" data-flag="🇹🇩" data-code="TD">🇹🇩 Chad (+235)</option>
+<option value="+56" data-flag="🇨🇱" data-code="CL">🇨🇱 Chile (+56)</option>
+<option value="+86" data-flag="🇨🇳" data-code="CN">🇨🇳 China (+86)</option>
+<option value="+57" data-flag="🇨🇴" data-code="CO">🇨🇴 Colombia (+57)</option>
+<option value="+269" data-flag="🇰🇲" data-code="KM">🇰🇲 Comoros (+269)</option>
+<option value="+242" data-flag="🇨🇬" data-code="CG">🇨🇬 Congo - Brazzaville (+242)</option>
+<option value="+243" data-flag="🇨🇩" data-code="CD">🇨🇩 Congo - Kinshasa (+243)</option>
+<option value="+682" data-flag="🇨🇰" data-code="CK">🇨🇰 Cook Islands (+682)</option>
+<option value="+506" data-flag="🇨🇷" data-code="CR">🇨🇷 Costa Rica (+506)</option>
+<option value="+225" data-flag="🇨🇮" data-code="CI">🇨🇮 Cote d'Ivoire (+225)</option>
+<option value="+385" data-flag="🇭🇷" data-code="HR">🇭🇷 Croatia (+385)</option>
+<option value="+53" data-flag="🇨🇺" data-code="CU">🇨🇺 Cuba (+53)</option>
+<option value="+357" data-flag="🇨🇾" data-code="CY">🇨🇾 Cyprus (+357)</option>
+<option value="+420" data-flag="🇨🇿" data-code="CZ">🇨🇿 Czech Republic (+420)</option>
+<option value="+45" data-flag="🇩🇰" data-code="DK">🇩🇰 Denmark (+45)</option>
+<option value="+253" data-flag="🇩🇯" data-code="DJ">🇩🇯 Djibouti (+253)</option>
+<option value="+1767" data-flag="🇩🇲" data-code="DM">🇩🇲 Dominica (+1767)</option>
+<option value="+1809" data-flag="🇩🇴" data-code="DO">🇩🇴 Dominican Republic (+1809)</option>
+<option value="+593" data-flag="🇪🇨" data-code="EC">🇪🇨 Ecuador (+593)</option>
+<option value="+20" data-flag="🇪🇬" data-code="EG">🇪🇬 Egypt (+20)</option>
+<option value="+503" data-flag="🇸🇻" data-code="SV">🇸🇻 El Salvador (+503)</option>
+<option value="+240" data-flag="🇬🇶" data-code="GQ">🇬🇶 Equatorial Guinea (+240)</option>
+<option value="+291" data-flag="🇪🇷" data-code="ER">🇪🇷 Eritrea (+291)</option>
+<option value="+372" data-flag="🇪🇪" data-code="EE">🇪🇪 Estonia (+372)</option>
+<option value="+268" data-flag="🇸🇿" data-code="SZ">🇸🇿 Eswatini (+268)</option>
+<option value="+251" data-flag="🇪🇹" data-code="ET">🇪🇹 Ethiopia (+251)</option>
+<option value="+679" data-flag="🇫🇯" data-code="FJ">🇫🇯 Fiji (+679)</option>
+<option value="+358" data-flag="🇫🇮" data-code="FI">🇫🇮 Finland (+358)</option>
+<option value="+33" data-flag="🇫🇷" data-code="FR">🇫🇷 France (+33)</option>
+<option value="+594" data-flag="🇬🇫" data-code="GF">🇬🇫 French Guiana (+594)</option>
+<option value="+689" data-flag="🇵🇫" data-code="PF">🇵🇫 French Polynesia (+689)</option>
+<option value="+241" data-flag="🇬🇦" data-code="GA">🇬🇦 Gabon (+241)</option>
+<option value="+220" data-flag="🇬🇲" data-code="GM">🇬🇲 Gambia (+220)</option>
+<option value="+995" data-flag="🇬🇪" data-code="GE">🇬🇪 Georgia (+995)</option>
+<option value="+49" data-flag="🇩🇪" data-code="DE">🇩🇪 Germany (+49)</option>
+<option value="+233" data-flag="🇬🇭" data-code="GH">🇬🇭 Ghana (+233)</option>
+<option value="+350" data-flag="🇬🇮" data-code="GI">🇬🇮 Gibraltar (+350)</option>
+<option value="+30" data-flag="🇬🇷" data-code="GR">🇬🇷 Greece (+30)</option>
+<option value="+299" data-flag="🇬🇱" data-code="GL">🇬🇱 Greenland (+299)</option>
+<option value="+1473" data-flag="🇬🇩" data-code="GD">🇬🇩 Grenada (+1473)</option>
+<option value="+590" data-flag="🇬🇵" data-code="GP">🇬🇵 Guadeloupe (+590)</option>
+<option value="+1671" data-flag="🇬🇺" data-code="GU">🇬🇺 Guam (+1671)</option>
+<option value="+502" data-flag="🇬🇹" data-code="GT">🇬🇹 Guatemala (+502)</option>
+<option value="+224" data-flag="🇬🇳" data-code="GN">🇬🇳 Guinea (+224)</option>
+<option value="+245" data-flag="🇬🇼" data-code="GW">🇬🇼 Guinea-Bissau (+245)</option>
+<option value="+592" data-flag="🇬🇾" data-code="GY">🇬🇾 Guyana (+592)</option>
+<option value="+509" data-flag="🇭🇹" data-code="HT">🇭🇹 Haiti (+509)</option>
+<option value="+504" data-flag="🇭🇳" data-code="HN">🇭🇳 Honduras (+504)</option>
+<option value="+852" data-flag="🇭🇰" data-code="HK">🇭🇰 Hong Kong (+852)</option>
+<option value="+36" data-flag="🇭🇺" data-code="HU">🇭🇺 Hungary (+36)</option>
+<option value="+354" data-flag="🇮🇸" data-code="IS">🇮🇸 Iceland (+354)</option>
+<option value="+91" data-flag="🇮🇳" data-code="IN">🇮🇳 India (+91)</option>
+<option value="+62" data-flag="🇮🇩" data-code="ID">🇮🇩 Indonesia (+62)</option>
+<option value="+98" data-flag="🇮🇷" data-code="IR">🇮🇷 Iran (+98)</option>
+<option value="+964" data-flag="🇮🇶" data-code="IQ">🇮🇶 Iraq (+964)</option>
+<option value="+353" data-flag="🇮🇪" data-code="IE">🇮🇪 Ireland (+353)</option>
+<option value="+972" data-flag="🇮🇱" data-code="IL">🇮🇱 Israel (+972)</option>
+<option value="+39" data-flag="🇮🇹" data-code="IT">🇮🇹 Italy (+39)</option>
+<option value="+1876" data-flag="🇯🇲" data-code="JM">🇯🇲 Jamaica (+1876)</option>
+<option value="+81" data-flag="🇯🇵" data-code="JP">🇯🇵 Japan (+81)</option>
+<option value="+962" data-flag="🇯🇴" data-code="JO">🇯🇴 Jordan (+962)</option>
+<option value="+7" data-flag="🇰🇿" data-code="KZ">🇰🇿 Kazakhstan (+7)</option>
+<option value="+254" data-flag="🇰🇪" data-code="KE">🇰🇪 Kenya (+254)</option>
+<option value="+686" data-flag="🇰🇮" data-code="KI">🇰🇮 Kiribati (+686)</option>
+<option value="+965" data-flag="🇰🇼" data-code="KW">🇰🇼 Kuwait (+965)</option>
+<option value="+996" data-flag="🇰🇬" data-code="KG">🇰🇬 Kyrgyzstan (+996)</option>
+<option value="+856" data-flag="🇱🇦" data-code="LA">🇱🇦 Laos (+856)</option>
+<option value="+371" data-flag="🇱🇻" data-code="LV">🇱🇻 Latvia (+371)</option>
+<option value="+961" data-flag="🇱🇧" data-code="LB">🇱🇧 Lebanon (+961)</option>
+<option value="+266" data-flag="🇱🇸" data-code="LS">🇱🇸 Lesotho (+266)</option>
+<option value="+231" data-flag="🇱🇷" data-code="LR">🇱🇷 Liberia (+231)</option>
+<option value="+218" data-flag="🇱🇾" data-code="LY">🇱🇾 Libya (+218)</option>
+<option value="+423" data-flag="🇱🇮" data-code="LI">🇱🇮 Liechtenstein (+423)</option>
+<option value="+370" data-flag="🇱🇹" data-code="LT">🇱🇹 Lithuania (+370)</option>
+<option value="+352" data-flag="🇱🇺" data-code="LU">🇱🇺 Luxembourg (+352)</option>
+<option value="+853" data-flag="🇲🇴" data-code="MO">🇲🇴 Macau (+853)</option>
+<option value="+261" data-flag="🇲🇬" data-code="MG">🇲🇬 Madagascar (+261)</option>
+<option value="+265" data-flag="🇲🇼" data-code="MW">🇲🇼 Malawi (+265)</option>
+<option value="+60" data-flag="🇲🇾" data-code="MY">🇲🇾 Malaysia (+60)</option>
+<option value="+960" data-flag="🇲🇻" data-code="MV">🇲🇻 Maldives (+960)</option>
+<option value="+223" data-flag="🇲🇱" data-code="ML">🇲🇱 Mali (+223)</option>
+<option value="+356" data-flag="🇲🇹" data-code="MT">🇲🇹 Malta (+356)</option>
+<option value="+692" data-flag="🇲🇭" data-code="MH">🇲🇭 Marshall Islands (+692)</option>
+<option value="+596" data-flag="🇲🇶" data-code="MQ">🇲🇶 Martinique (+596)</option>
+<option value="+222" data-flag="🇲🇷" data-code="MR">🇲🇷 Mauritania (+222)</option>
+<option value="+230" data-flag="🇲🇺" data-code="MU">🇲🇺 Mauritius (+230)</option>
+<option value="+262" data-flag="🇾🇹" data-code="YT">🇾🇹 Mayotte (+262)</option>
+<option value="+52" data-flag="🇲🇽" data-code="MX">🇲🇽 Mexico (+52)</option>
+<option value="+691" data-flag="🇫🇲" data-code="FM">🇫🇲 Micronesia (+691)</option>
+<option value="+373" data-flag="🇲🇩" data-code="MD">🇲🇩 Moldova (+373)</option>
+<option value="+377" data-flag="🇲🇨" data-code="MC">🇲🇨 Monaco (+377)</option>
+<option value="+976" data-flag="🇲🇳" data-code="MN">🇲🇳 Mongolia (+976)</option>
+<option value="+382" data-flag="🇲🇪" data-code="ME">🇲🇪 Montenegro (+382)</option>
+<option value="+1664" data-flag="🇲🇸" data-code="MS">🇲🇸 Montserrat (+1664)</option>
+<option value="+212" data-flag="🇲🇦" data-code="MA">🇲🇦 Morocco (+212)</option>
+<option value="+258" data-flag="🇲🇿" data-code="MZ">🇲🇿 Mozambique (+258)</option>
+<option value="+95" data-flag="🇲🇲" data-code="MM">🇲🇲 Myanmar (Burma) (+95)</option>
+<option value="+264" data-flag="🇳🇦" data-code="NA">🇳🇦 Namibia (+264)</option>
+<option value="+674" data-flag="🇳🇷" data-code="NR">🇳🇷 Nauru (+674)</option>
+<option value="+977" data-flag="🇳🇵" data-code="NP">🇳🇵 Nepal (+977)</option>
+<option value="+31" data-flag="🇳🇱" data-code="NL">🇳🇱 Netherlands (+31)</option>
+<option value="+687" data-flag="🇳🇨" data-code="NC">🇳🇨 New Caledonia (+687)</option>
+<option value="+64" data-flag="🇳🇿" data-code="NZ">🇳🇿 New Zealand (+64)</option>
+<option value="+505" data-flag="🇳🇮" data-code="NI">🇳🇮 Nicaragua (+505)</option>
+<option value="+227" data-flag="🇳🇪" data-code="NE">🇳🇪 Niger (+227)</option>
+<option value="+234" data-flag="🇳🇬" data-code="NG">🇳🇬 Nigeria (+234)</option>
+<option value="+389" data-flag="🇲🇰" data-code="MK">🇲🇰 North Macedonia (+389)</option>
+<option value="+47" data-flag="🇳🇴" data-code="NO">🇳🇴 Norway (+47)</option>
+<option value="+968" data-flag="🇴🇲" data-code="OM">🇴🇲 Oman (+968)</option>
+<option value="+92" data-flag="🇵🇰" data-code="PK">🇵🇰 Pakistan (+92)</option>
+<option value="+680" data-flag="🇵🇼" data-code="PW">🇵🇼 Palau (+680)</option>
+<option value="+970" data-flag="🇵🇸" data-code="PS">🇵🇸 Palestine (+970)</option>
+<option value="+507" data-flag="🇵🇦" data-code="PA">🇵🇦 Panama (+507)</option>
+<option value="+675" data-flag="🇵🇬" data-code="PG">🇵🇬 Papua New Guinea (+675)</option>
+<option value="+595" data-flag="🇵🇾" data-code="PY">🇵🇾 Paraguay (+595)</option>
+<option value="+51" data-flag="🇵🇪" data-code="PE">🇵🇪 Peru (+51)</option>
+<option value="+63" data-flag="🇵🇭" data-code="PH">🇵🇭 Philippines (+63)</option>
+<option value="+48" data-flag="🇵🇱" data-code="PL">🇵🇱 Poland (+48)</option>
+<option value="+351" data-flag="🇵🇹" data-code="PT">🇵🇹 Portugal (+351)</option>
+<option value="+1787" data-flag="🇵🇷" data-code="PR">🇵🇷 Puerto Rico (+1787)</option>
+<option value="+974" data-flag="🇶🇦" data-code="QA">🇶🇦 Qatar (+974)</option>
+<option value="+262" data-flag="🇷🇪" data-code="RE">🇷🇪 Reunion (+262)</option>
+<option value="+40" data-flag="🇷🇴" data-code="RO">🇷🇴 Romania (+40)</option>
+<option value="+7" data-flag="🇷🇺" data-code="RU">🇷🇺 Russia (+7)</option>
+<option value="+250" data-flag="🇷🇼" data-code="RW">🇷🇼 Rwanda (+250)</option>
+<option value="+685" data-flag="🇼🇸" data-code="WS">🇼🇸 Samoa (+685)</option>
+<option value="+378" data-flag="🇸🇲" data-code="SM">🇸🇲 San Marino (+378)</option>
+<option value="+239" data-flag="🇸🇹" data-code="ST">🇸🇹 Sao Tome & Principe (+239)</option>
+<option value="+966" data-flag="🇸🇦" data-code="SA">🇸🇦 Saudi Arabia (+966)</option>
+<option value="+221" data-flag="🇸🇳" data-code="SN">🇸🇳 Senegal (+221)</option>
+<option value="+381" data-flag="🇷🇸" data-code="RS">🇷🇸 Serbia (+381)</option>
+<option value="+248" data-flag="🇸🇨" data-code="SC">🇸🇨 Seychelles (+248)</option>
+<option value="+232" data-flag="🇸🇱" data-code="SL">🇸🇱 Sierra Leone (+232)</option>
+<option value="+65" data-flag="🇸🇬" data-code="SG">🇸🇬 Singapore (+65)</option>
+<option value="+421" data-flag="🇸🇰" data-code="SK">🇸🇰 Slovakia (+421)</option>
+<option value="+386" data-flag="🇸🇮" data-code="SI">🇸🇮 Slovenia (+386)</option>
+<option value="+677" data-flag="🇸🇧" data-code="SB">🇸🇧 Solomon Islands (+677)</option>
+<option value="+252" data-flag="🇸🇴" data-code="SO">🇸🇴 Somalia (+252)</option>
+<option value="+27" data-flag="🇿🇦" data-code="ZA">🇿🇦 South Africa (+27)</option>
+<option value="+82" data-flag="🇰🇷" data-code="KR">🇰🇷 South Korea (+82)</option>
+<option value="+211" data-flag="🇸🇸" data-code="SS">🇸🇸 South Sudan (+211)</option>
+<option value="+34" data-flag="🇪🇸" data-code="ES">🇪🇸 Spain (+34)</option>
+<option value="+94" data-flag="🇱🇰" data-code="LK">🇱🇰 Sri Lanka (+94)</option>
+<option value="+249" data-flag="🇸🇩" data-code="SD">🇸🇩 Sudan (+249)</option>
+<option value="+597" data-flag="🇸🇷" data-code="SR">🇸🇷 Suriname (+597)</option>
+<option value="+46" data-flag="🇸🇪" data-code="SE">🇸🇪 Sweden (+46)</option>
+<option value="+41" data-flag="🇨🇭" data-code="CH">🇨🇭 Switzerland (+41)</option>
+<option value="+963" data-flag="🇸🇾" data-code="SY">🇸🇾 Syria (+963)</option>
+<option value="+886" data-flag="🇹🇼" data-code="TW">🇹🇼 Taiwan (+886)</option>
+<option value="+992" data-flag="🇹🇯" data-code="TJ">🇹🇯 Tajikistan (+992)</option>
+<option value="+255" data-flag="🇹🇿" data-code="TZ">🇹🇿 Tanzania (+255)</option>
+<option value="+66" data-flag="🇹🇭" data-code="TH">🇹🇭 Thailand (+66)</option>
+<option value="+670" data-flag="🇹🇱" data-code="TL">🇹🇱 Timor-Leste (+670)</option>
+<option value="+228" data-flag="🇹🇬" data-code="TG">🇹🇬 Togo (+228)</option>
+<option value="+676" data-flag="🇹🇴" data-code="TO">🇹🇴 Tonga (+676)</option>
+<option value="+1868" data-flag="🇹🇹" data-code="TT">🇹🇹 Trinidad & Tobago (+1868)</option>
+<option value="+216" data-flag="🇹🇳" data-code="TN">🇹🇳 Tunisia (+216)</option>
+<option value="+90" data-flag="🇹🇷" data-code="TR">🇹🇷 Turkey (+90)</option>
+<option value="+993" data-flag="🇹🇲" data-code="TM">🇹🇲 Turkmenistan (+993)</option>
+<option value="+1649" data-flag="🇹🇨" data-code="TC">🇹🇨 Turks & Caicos Islands (+1649)</option>
+<option value="+256" data-flag="🇺🇬" data-code="UG">🇺🇬 Uganda (+256)</option>
+<option value="+380" data-flag="🇺🇦" data-code="UA">🇺🇦 Ukraine (+380)</option>
+<option value="+971" data-flag="🇦🇪" data-code="AE">🇦🇪 United Arab Emirates (+971)</option>
+<option value="+44" data-flag="🇬🇧" data-code="GB">🇬🇧 United Kingdom (+44)</option>
+<option value="+1" data-flag="🇺🇸" data-code="US">🇺🇸 United States (+1)</option>
+<option value="+598" data-flag="🇺🇾" data-code="UY">🇺🇾 Uruguay (+598)</option>
+<option value="+998" data-flag="🇺🇿" data-code="UZ">🇺🇿 Uzbekistan (+998)</option>
+<option value="+678" data-flag="🇻🇺" data-code="VU">🇻🇺 Vanuatu (+678)</option>
+<option value="+3906" data-flag="🇻🇦" data-code="VA">🇻🇦 Vatican City (+3906)</option>
+<option value="+58" data-flag="🇻🇪" data-code="VE">🇻🇪 Venezuela (+58)</option>
+<option value="+84" data-flag="🇻🇳" data-code="VN">🇻🇳 Vietnam (+84)</option>
+<option value="+967" data-flag="🇾🇪" data-code="YE">🇾🇪 Yemen (+967)</option>
+<option value="+260" data-flag="🇿🇲" data-code="ZM">🇿🇲 Zambia (+260)</option>
+<option value="+263" data-flag="🇿🇼" data-code="ZW">🇿🇼 Zimbabwe (+263)</option>
+</optgroup>
+                </select>
+              </div>
+              <div class="phone-input-divider"></div>
+              <input 
+                type="tel" 
+                id="homeCustomerPhone" 
+                name="customerPhone" 
+                class="customer-phone-input" 
+                placeholder="Enter 10-digit mobile number" 
+                autocomplete="off"
+                inputmode="numeric"
+                maxlength="14"
+                value=""
+                required
+              >
+            </div>
+          </div>
+          <div class="phone-card-right">
+            <div class="phone-verified-badge" id="phoneVerifiedBadge" title="Mobile required to activate flight search">
+              <span class="phone-pulse-ring" id="phonePulseRing"></span>
+              <svg class="phone-valid-svg" id="phoneValidSvg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+          </div>
+        </div>
 
         <!-- Primary Search CTA Button -->
-        <button type="submit" class="btn-app-search" id="btnSearchSubmit">
+        <button type="submit" class="btn-app-search btn-search-disabled" id="btnSearchSubmit" title="Please enter your customer phone number to search">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"/>
             <path d="m21 21-4.3-4.3"/>
@@ -388,5 +684,19 @@
   </footer>
 
   <script src="/js/home-autocomplete.js"></script>
+  <!-- Sticky Bottom CTA Dock (INSTANT 37% SAVINGS & TFN ONLY) -->
+  <div class="sticky-pro-cta-dock" id="stickyProCtaDock" role="complementary" aria-label="Instant 37% Savings">
+    <div class="sticky-pro-inner" style="justify-content: center; align-items: center; text-align: center;">
+      <a href="tel:+18883089004" class="sticky-call-btn" id="stickyCallProfessionalBtn" aria-label="Instant 37% Savings - Call +1 (888) 308-9004">
+        <svg class="phone-shake-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z" />
+        </svg>
+        <div class="sticky-btn-text" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;">
+          <span class="sticky-btn-title" style="font-family: var(--font-heading); font-size: 14.5px; font-weight: 800; color: #000000; letter-spacing: 0.5px; text-transform: uppercase;">INSTANT 37% SAVINGS</span>
+          <span class="sticky-btn-tfn" style="font-size: 17px; font-weight: 800; color: #000000; letter-spacing: 0.5px;">+1 (888) 308-9004</span>
+        </div>
+      </a>
+    </div>
+  </div>
 </body>
 </html>
