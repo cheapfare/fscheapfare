@@ -1,10 +1,10 @@
 {
   "counters": {
-    "lead": 102,
-    "booking": 52,
-    "transaction": 52,
+    "lead": 105,
+    "booking": 54,
+    "transaction": 54,
     "customer": 0,
-    "audit": 204
+    "audit": 209
   },
   "agents": [
     {
@@ -62,6 +62,253 @@
   ],
   "customers": [],
   "leads": [
+    {
+      "leadId": "FS-LEAD-000105",
+      "customerId": "FS-CUST-000051",
+      "isExistingCustomer": false,
+      "customerName": "Ravi Sharma",
+      "firstName": "Ravi",
+      "lastName": "Sharma",
+      "email": "ravi.test@example.com",
+      "phone": "+1 (888) 308-9004",
+      "billingAddress": null,
+      "source": "WEB_BOOKING",
+      "status": "BOOKING_CONFIRMED",
+      "paymentStatus": "PAID",
+      "route": "JFK → LAX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-12-25",
+      "returnDate": null,
+      "tripType": "One Way",
+      "cabin": "Economy",
+      "carrier": "Delta Air Lines",
+      "flightNumber": "DL-482",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "title": "Mr",
+          "firstName": "Ravi",
+          "lastName": "Sharma",
+          "dob": "1990-01-01",
+          "gender": "Male",
+          "nationality": "United States",
+          "address": {
+            "street": "350 5th Ave",
+            "city": "New York",
+            "state": "NY",
+            "zip": "10118",
+            "country": "United States"
+          }
+        }
+      ],
+      "amount": 140,
+      "currency": "USD",
+      "assignedAgent": "Ravi Sharma",
+      "bookingOrderId": "FS-147084",
+      "pnr": "CF-337115",
+      "abandonedAt": null,
+      "createdAt": "2026-11-21T16:04:13.858Z",
+      "updatedAt": "2026-11-21T16:04:13.899Z",
+      "followUpStatus": "PENDING",
+      "followUpDue": "2026-11-21T17:04:13.858Z",
+      "timeline": [
+        {
+          "time": "2026-11-21T16:04:13.899Z",
+          "title": "Payment Authorized",
+          "desc": "Visa •••• 4821 paid $140 USD",
+          "icon": "credit-card"
+        },
+        {
+          "time": "2026-11-21T16:04:13.899Z",
+          "title": "Booking Confirmed",
+          "desc": "Ticket issued with PNR CF-337115",
+          "icon": "award"
+        },
+        {
+          "time": "2026-11-21T16:04:13.858Z",
+          "title": "Passenger Details Completed",
+          "desc": "Submitted traveler personal details for Ravi Sharma",
+          "icon": "user-check"
+        },
+        {
+          "time": "2026-11-21T16:04:13.858Z",
+          "title": "Payment Step Opened",
+          "desc": "Checkout modal launched. Awaiting card authorization.",
+          "icon": "credit-card"
+        }
+      ],
+      "notes": [
+        {
+          "id": "N-1795277053858",
+          "text": "Lead auto-captured upon passenger form submission before payment.",
+          "author": "System",
+          "timestamp": "2026-11-21T16:04:13.858Z"
+        }
+      ],
+      "bookingId": "FS-BKG-000054",
+      "transactionId": "FS-TXN-000054"
+    },
+    {
+      "leadId": "FS-LEAD-000104",
+      "customerId": "FS-CUST-000051",
+      "isExistingCustomer": false,
+      "customerName": "Ravi Sharma",
+      "firstName": "Ravi",
+      "lastName": "Sharma",
+      "email": "ravi.test@example.com",
+      "phone": "+1 (888) 308-9004",
+      "billingAddress": null,
+      "source": "WEB_BOOKING",
+      "status": "BOOKING_CONFIRMED",
+      "paymentStatus": "PAID",
+      "route": "JFK → LAX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-12-25",
+      "returnDate": null,
+      "tripType": "One Way",
+      "cabin": "Economy",
+      "carrier": "Delta Air Lines",
+      "flightNumber": "DL-482",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "title": "Mr",
+          "firstName": "Ravi",
+          "lastName": "Sharma",
+          "dob": "1990-01-01",
+          "gender": "Male",
+          "nationality": "United States",
+          "address": {
+            "street": "350 5th Ave",
+            "city": "New York",
+            "state": "NY",
+            "zip": "10118",
+            "country": "United States"
+          }
+        }
+      ],
+      "amount": 140,
+      "currency": "USD",
+      "assignedAgent": "Ravi Sharma",
+      "bookingOrderId": "FS-661105",
+      "pnr": "CF-157151",
+      "abandonedAt": null,
+      "createdAt": "2026-11-21T16:02:15.570Z",
+      "updatedAt": "2026-11-21T16:02:15.655Z",
+      "followUpStatus": "PENDING",
+      "followUpDue": "2026-11-21T17:02:15.570Z",
+      "timeline": [
+        {
+          "time": "2026-11-21T16:02:15.655Z",
+          "title": "Payment Authorized",
+          "desc": "Visa •••• 4821 paid $140 USD",
+          "icon": "credit-card"
+        },
+        {
+          "time": "2026-11-21T16:02:15.655Z",
+          "title": "Booking Confirmed",
+          "desc": "Ticket issued with PNR CF-157151",
+          "icon": "award"
+        },
+        {
+          "time": "2026-11-21T16:02:15.570Z",
+          "title": "Passenger Details Completed",
+          "desc": "Submitted traveler personal details for Ravi Sharma",
+          "icon": "user-check"
+        },
+        {
+          "time": "2026-11-21T16:02:15.570Z",
+          "title": "Payment Step Opened",
+          "desc": "Checkout modal launched. Awaiting card authorization.",
+          "icon": "credit-card"
+        }
+      ],
+      "notes": [
+        {
+          "id": "N-1795276935570",
+          "text": "Lead auto-captured upon passenger form submission before payment.",
+          "author": "System",
+          "timestamp": "2026-11-21T16:02:15.570Z"
+        }
+      ],
+      "bookingId": "FS-BKG-000053",
+      "transactionId": "FS-TXN-000053"
+    },
+    {
+      "leadId": "FS-LEAD-000103",
+      "customerId": "FS-CUST-000051",
+      "isExistingCustomer": false,
+      "customerName": "Ravi Sharma",
+      "firstName": "Ravi",
+      "lastName": "Sharma",
+      "email": "ravi.test@example.com",
+      "phone": "+1 (888) 308-9004",
+      "billingAddress": null,
+      "source": "WEB_BOOKING",
+      "status": "PAYMENT_PENDING",
+      "paymentStatus": "PENDING",
+      "route": "JFK → LAX",
+      "origin": "JFK",
+      "destination": "LAX",
+      "date": "2026-12-25",
+      "returnDate": null,
+      "tripType": "One Way",
+      "cabin": "Economy",
+      "carrier": "Delta Air Lines",
+      "flightNumber": "DL-482",
+      "passengersCount": 1,
+      "passengers": [
+        {
+          "title": "Mr",
+          "firstName": "Ravi",
+          "lastName": "Sharma",
+          "dob": "1990-01-01",
+          "gender": "Male",
+          "nationality": "United States",
+          "address": {
+            "street": "350 5th Ave",
+            "city": "New York",
+            "state": "NY",
+            "zip": "10118",
+            "country": "United States"
+          }
+        }
+      ],
+      "amount": 140,
+      "currency": "USD",
+      "assignedAgent": "Ravi Sharma",
+      "bookingOrderId": "FS-976197",
+      "pnr": "CF-454793",
+      "abandonedAt": null,
+      "createdAt": "2026-11-21T15:56:54.264Z",
+      "updatedAt": "2026-11-21T15:56:54.264Z",
+      "followUpStatus": "PENDING",
+      "followUpDue": "2026-11-21T16:56:54.264Z",
+      "timeline": [
+        {
+          "time": "2026-11-21T15:56:54.264Z",
+          "title": "Passenger Details Completed",
+          "desc": "Submitted traveler personal details for Ravi Sharma",
+          "icon": "user-check"
+        },
+        {
+          "time": "2026-11-21T15:56:54.264Z",
+          "title": "Payment Step Opened",
+          "desc": "Checkout modal launched. Awaiting card authorization.",
+          "icon": "credit-card"
+        }
+      ],
+      "notes": [
+        {
+          "id": "N-1795276614264",
+          "text": "Lead auto-captured upon passenger form submission before payment.",
+          "author": "System",
+          "timestamp": "2026-11-21T15:56:54.264Z"
+        }
+      ]
+    },
     {
       "leadId": "FS-LEAD-000102",
       "customerId": "FS-CUST-000051",
@@ -255,6 +502,50 @@
   ],
   "bookings": [
     {
+      "bookingId": "FS-BKG-000054",
+      "leadId": "FS-LEAD-000105",
+      "pnr": "CF-337115",
+      "carrierPnr": "DE-39991",
+      "customerName": "Ravi Sharma",
+      "phone": "+1 (888) 308-9004",
+      "email": "ravi.test@example.com",
+      "route": "JFK → LAX",
+      "airline": "Delta Air Lines",
+      "flightNumber": "DL-482",
+      "depDate": "2026-12-25",
+      "depTime": "08:30 AM",
+      "arrDate": "2026-12-25",
+      "arrTime": "11:45 AM",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "totalFare": 140,
+      "status": "CONFIRMED",
+      "ticketIssued": true,
+      "issuedAt": "2026-11-21T16:04:13.899Z"
+    },
+    {
+      "bookingId": "FS-BKG-000053",
+      "leadId": "FS-LEAD-000104",
+      "pnr": "CF-157151",
+      "carrierPnr": "DE-46726",
+      "customerName": "Ravi Sharma",
+      "phone": "+1 (888) 308-9004",
+      "email": "ravi.test@example.com",
+      "route": "JFK → LAX",
+      "airline": "Delta Air Lines",
+      "flightNumber": "DL-482",
+      "depDate": "2026-12-25",
+      "depTime": "08:30 AM",
+      "arrDate": "2026-12-25",
+      "arrTime": "11:45 AM",
+      "cabin": "Economy",
+      "passengersCount": 1,
+      "totalFare": 140,
+      "status": "CONFIRMED",
+      "ticketIssued": true,
+      "issuedAt": "2026-11-21T16:02:15.655Z"
+    },
+    {
       "bookingId": "FS-BKG-000052",
       "leadId": "FS-LEAD-000102",
       "pnr": "CF-232865",
@@ -300,6 +591,32 @@
     }
   ],
   "payments": [
+    {
+      "transactionId": "FS-TXN-000054",
+      "bookingId": "FS-BKG-000054",
+      "leadId": "FS-LEAD-000105",
+      "customerName": "Ravi Sharma",
+      "amount": 140,
+      "currency": "USD",
+      "paymentMethod": "Visa (4444)",
+      "cardBrand": "Visa",
+      "last4": "4821",
+      "status": "PAID",
+      "timestamp": "2026-11-21T16:04:13.899Z"
+    },
+    {
+      "transactionId": "FS-TXN-000053",
+      "bookingId": "FS-BKG-000053",
+      "leadId": "FS-LEAD-000104",
+      "customerName": "Ravi Sharma",
+      "amount": 140,
+      "currency": "USD",
+      "paymentMethod": "Visa (4444)",
+      "cardBrand": "Visa",
+      "last4": "4821",
+      "status": "PAID",
+      "timestamp": "2026-11-21T16:02:15.655Z"
+    },
     {
       "transactionId": "FS-TXN-000052",
       "bookingId": "FS-BKG-000052",
@@ -5332,6 +5649,46 @@
   "followUps": [],
   "auditLogs": [
     {
+      "id": "AUD-209",
+      "user": "System",
+      "action": "Booking Confirmed",
+      "recordId": "FS-BKG-000054",
+      "details": "Booking confirmed for Ravi Sharma (CF-337115). Total: $140",
+      "timestamp": "2026-11-21T16:04:13.901Z"
+    },
+    {
+      "id": "AUD-208",
+      "user": "System",
+      "action": "Lead Created",
+      "recordId": "FS-LEAD-000105",
+      "details": "Passenger info submitted for Ravi Sharma (JFK → LAX)",
+      "timestamp": "2026-11-21T16:04:13.860Z"
+    },
+    {
+      "id": "AUD-207",
+      "user": "System",
+      "action": "Booking Confirmed",
+      "recordId": "FS-BKG-000053",
+      "details": "Booking confirmed for Ravi Sharma (CF-157151). Total: $140",
+      "timestamp": "2026-11-21T16:02:15.657Z"
+    },
+    {
+      "id": "AUD-206",
+      "user": "System",
+      "action": "Lead Created",
+      "recordId": "FS-LEAD-000104",
+      "details": "Passenger info submitted for Ravi Sharma (JFK → LAX)",
+      "timestamp": "2026-11-21T16:02:15.572Z"
+    },
+    {
+      "id": "AUD-205",
+      "user": "System",
+      "action": "Lead Created",
+      "recordId": "FS-LEAD-000103",
+      "details": "Passenger info submitted for Ravi Sharma (JFK → LAX)",
+      "timestamp": "2026-11-21T15:56:54.266Z"
+    },
+    {
       "id": "AUD-204",
       "user": "System",
       "action": "Booking Confirmed",
@@ -5541,6 +5898,46 @@
     }
   ],
   "notifications": [
+    {
+      "id": "NOTIF-MWQLLSCV",
+      "type": "BOOKING",
+      "title": "Booking Confirmed",
+      "desc": "Ravi Sharma successfully booked JFK → LAX for $140 USD!",
+      "read": false,
+      "timestamp": "2026-11-21T16:04:13.903Z"
+    },
+    {
+      "id": "NOTIF-MWQLLSBP",
+      "type": "PASSENGER_DETAILS",
+      "title": "Passenger Details Completed",
+      "desc": "Ravi Sharma submitted traveler info for JFK → LAX. Payment pending.",
+      "read": false,
+      "timestamp": "2026-11-21T16:04:13.861Z"
+    },
+    {
+      "id": "NOTIF-MWQLJ94B",
+      "type": "BOOKING",
+      "title": "Booking Confirmed",
+      "desc": "Ravi Sharma successfully booked JFK → LAX for $140 USD!",
+      "read": false,
+      "timestamp": "2026-11-21T16:02:15.659Z"
+    },
+    {
+      "id": "NOTIF-MWQLJ91X",
+      "type": "PASSENGER_DETAILS",
+      "title": "Passenger Details Completed",
+      "desc": "Ravi Sharma submitted traveler info for JFK → LAX. Payment pending.",
+      "read": false,
+      "timestamp": "2026-11-21T16:02:15.573Z"
+    },
+    {
+      "id": "NOTIF-MWQLCD4R",
+      "type": "PASSENGER_DETAILS",
+      "title": "Passenger Details Completed",
+      "desc": "Ravi Sharma submitted traveler info for JFK → LAX. Payment pending.",
+      "read": false,
+      "timestamp": "2026-11-21T15:56:54.267Z"
+    },
     {
       "id": "NOTIF-MWQFYX1K",
       "type": "BOOKING",

